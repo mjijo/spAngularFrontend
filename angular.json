@@ -28,9 +28,19 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/bootstrap.css",
+              "src/assets/css/style.css",
+              "src/assets/css/owl.carousel.min.css",
+              "src/assets/css/owl.theme.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.js",
+              "src/assets/js/script.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/carousel.js"
+            ]
           },
           "configurations": {
             "production": {
