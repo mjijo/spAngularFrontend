@@ -20,6 +20,16 @@ import { FeaturesComponent } from './pages/features/features.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
 import { TendersComponent } from './pages/tenders/tenders.component';
 import { FeaturedProductsComponent } from './modules/featured-products/featured-products.component';
+import { DashboardComponent } from './my-account/dashboard/dashboard.component';
+import { OrdersComponent } from './my-account/orders/orders.component';
+import { TrackMyOrdersComponent } from './my-account/track-my-orders/track-my-orders.component';
+import { BidsComponent } from './my-account/bids/bids.component';
+import { NotificationsComponent } from './my-account/notifications/notifications.component';
+import { AppointmentsComponent } from './my-account/appointments/appointments.component';
+import { QuotationsComponent } from './my-account/quotations/quotations.component';
+import { RefferedClientsComponent } from './my-account/reffered-clients/reffered-clients.component';
+import { AddressComponent } from './my-account/address/address.component';
+import { MyProfileComponent } from './my-account/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +50,17 @@ import { FeaturedProductsComponent } from './modules/featured-products/featured-
     FeaturesComponent,
     PricingComponent,
     TendersComponent,
-    FeaturedProductsComponent
+    FeaturedProductsComponent,
+    DashboardComponent,
+    OrdersComponent,
+    TrackMyOrdersComponent,
+    BidsComponent,
+    NotificationsComponent,
+    AppointmentsComponent,
+    QuotationsComponent,
+    RefferedClientsComponent,
+    AddressComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
