@@ -30,6 +30,8 @@ import { QuotationsComponent } from './my-account/quotations/quotations.componen
 import { RefferedClientsComponent } from './my-account/reffered-clients/reffered-clients.component';
 import { AddressComponent } from './my-account/address/address.component';
 import { MyProfileComponent } from './my-account/my-profile/my-profile.component';
+import { SidemenuComponent } from './modules/sidemenu/sidemenu.component';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { MyProfileComponent } from './my-account/my-profile/my-profile.component
     QuotationsComponent,
     RefferedClientsComponent,
     AddressComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    SidemenuComponent,
+    MyAccountComponent
   ],
   imports: [
     BrowserModule,
