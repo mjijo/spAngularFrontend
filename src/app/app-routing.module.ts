@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { AddressComponent } from './my-account/address/address.component';
 import { AppointmentsComponent } from './my-account/appointments/appointments.component';
 import { BidsComponent } from './my-account/bids/bids.component';
@@ -23,6 +26,7 @@ const routes: Routes = [
   {path: 'features', component: FeaturesComponent},
   {path: 'pricing', component: PricingComponent},
   {path: 'tender', component: TendersComponent},
+
   {
     path: 'myaccount', 
      
@@ -41,6 +45,10 @@ const routes: Routes = [
 
             ]
   },
+  {path: 'login', component: LoginComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'register', component: RegisterComponent},
+
 
   { path: '**', redirectTo: 'home' }
    

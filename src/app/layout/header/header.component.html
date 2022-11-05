@@ -28,10 +28,10 @@
     <div class="col-sm-6 radius-icon d-block d-sm-none">
         
             <div class="btn-group navbar-header" role="group" aria-label="Basic example">
-                <a href="login.html" class="btn btn-responsive yellow" data-toggle="modal" data-target="#my-modal">
+                <a class="btn btn-responsive yellow" data-toggle="modal" data-target="#my-modal">
                     <i class="fa fa-sign-in" aria-hidden="true"></i> Login
                 </a>
-                 <a href="register.html" class="btn btn-responsive blue" data-toggle="modal" data-target="#my-modal-2">
+                 <a class="btn btn-responsive blue" data-toggle="modal" data-target="#my-modal-2">
                     <i class="fa fa-user-plus" aria-hidden="true"></i> Register
                 </a>
               </div>
@@ -44,60 +44,66 @@
  <!-- start modal sign-in ----->
  <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered justify-content-center " role="document">
-        <div class="modal-content border-0 mx-3">
-            <div class="modal-body p-0">
-                <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <div class="card">
-                            <div class="card-header bg-white pb-0 border-0">
-                                <div class="row">
-                                    <div class="col text-right"><i class="fa fa-2x fa-close" data-dismiss="modal"></i></div>
-                                </div>
+       <div class="modal-content border-0 mx-3">
+          <div class="modal-body p-0">
+             <div class="row justify-content-center">
+                <div class="col-auto">
+                   <div class="card">
+                      <div class="card-header bg-white pb-0 border-0">
+                         <div class="row">
+                            <div class="col text-right"><i class="fa fa-2x fa-close" data-dismiss="modal"></i></div>
+                         </div>
+                      </div>
+                      <div class="card-body pt-0">
+                         <div class="row justify-content-center text-center">
+                            <div class="col">
+                               <p><b>LOGIN</b></p>
                             </div>
-                            <div class="card-body pt-0">
-                                <div class="row justify-content-center text-center">
-                                    <div class="col">
-                                        <p><b>LOGIN</b></p>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                <div class="col-sm-12 mt-5"> <form class="form-horizontal">
-                        <!-- User Name Input -->
-                        <div class="form-group row justify-content-center">
-                            <div class="col-9"> <input type="text" placeholder="&#xf0e0; &nbsp; User email" class="form-control border-info placeicon"> </div>
-                        </div> <!-- Password Input -->
-                        <div class="form-group row justify-content-center">
-                            <div class="col-9 "> <input type="password" placeholder="&#xf084; &nbsp; &#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" class="form-control border-info placeicon"> </div>
-                        </div> <!-- CheckBox Remember Me-->
-                        <div class="form-group row justify-content-center">
-                            <div class="col-9">
-                                <div class="row">
-                                    <div class="col-6 ">
-                                        <div class="custom-control custom-checkbox mb-3"> <input id="customCheck1" type="checkbox" class="custom-control-input checkbox-muted"> <label for="customCheck1" class="custom-control-label text-muted">Remember Me</label> </div>
-                                    </div> <!-- Forgot Password Link -->
-                                    <div class="col-6 px-0 text-right"> <span><a href="#" class="text-danger"><b>Forgot Password?</b></a></span> </div>
-                                </div>
+                         </div>
+                         <div class="row justify-content-center">
+                            <div class="col-sm-12 mt-5">
+                               <form class="form-horizontal">
+                                  <!-- User Name Input -->
+                                  <div class="form-group row justify-content-center">
+                                     <div class="col-9"> <input type="text" placeholder="&#xf0e0; &nbsp; User email" class="form-control border-info placeicon"> </div>
+                                  </div>
+                                  <!-- Password Input -->
+                                  <div class="form-group row justify-content-center">
+                                     <div class="col-9 "> <input type="password" placeholder="&#xf084; &nbsp; &#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" class="form-control border-info placeicon"> </div>
+                                  </div>
+                                  <!-- CheckBox Remember Me-->
+                                  <div class="form-group row justify-content-center">
+                                     <div class="col-9">
+                                        <div class="row">
+                                           <div class="col-6 ">
+                                              <div class="custom-control custom-checkbox mb-3"> <input id="customCheck1" type="checkbox" class="custom-control-input checkbox-muted"> <label for="customCheck1" class="custom-control-label text-muted">Remember Me</label> </div>
+                                           </div>
+                                           <!-- Forgot Password Link -->
+                                           <div class="col-6 px-0 text-right"> <span><a routerLink="/forgot-password" class="text-danger"><b>Forgot Password?</b></a></span> </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                                  <!-- Log in Button -->
+                                  <div class="form-group row justify-content-center">
+                                     <div class="col-8"> <a href="myaccount.html" type="submit" value="Log in" class="btn btn-block btn-info text-uppercase rounded-0">Log in</a> </div>
+                                  </div>
+                               </form>
+                               <!-- <div class="form-group row justify-content-center">OR</div></div>
+                                  <div class="col-sm-9"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/google-logo.png"/></span> Sign in with Google</button></div>
+                                  <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/URmkevm.png" class="img-fluid mr-1" width="25"></span> Sign in with Facebook</button> </div>
+                                  <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/twitter.png" class="img-fluid mr-1" width="25"></span> Sign in with Twitter</button> </div>
+                                  </div> -->
                             </div>
-                        </div> <!-- Log in Button -->
-                        
-                        <div class="form-group row justify-content-center">
-                            <div class="col-8"> <a href="myaccount.html" type="submit" value="Log in" class="btn btn-block btn-info text-uppercase rounded-0">Log in</a> </div>
-                        </div>
-                    </form><div class="form-group row justify-content-center">OR</div></div>
-                                    <div class="col-sm-9"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/google-logo.png"/></span> Sign in with Google</button></div>
-                                    <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/URmkevm.png" class="img-fluid mr-1" width="25"></span> Sign in with Facebook</button> </div>
-                                    <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/twitter.png" class="img-fluid mr-1" width="25"></span> Sign in with Twitter</button> </div>
-                                </div>
-                                
-                                
-                            </div>
-                        </div>
-                    </div>
+                         </div>
+                      </div>
+                   </div>
                 </div>
-            </div>
-        </div>
+             </div>
+          </div>
+       </div>
     </div>
-</div>
+</div>    
+
 <!--modal sign up -->
 <div id="my-modal-2" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered justify-content-center " role="document">
@@ -119,8 +125,8 @@
                                 </div>
                                 <div class="row justify-content-center">
 
-                                    <div class="col-sm-9 mt-5"><a href="register.html" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Sign up as Individual</a></div>
-                                    <div class="col-sm-9 mt-2"><a href="register-org.html" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Sign up as Organization</a> </div>
+                                    <div class="col-sm-9 mt-5"><a href="/register" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Sign up as Individual</a></div>
+                                    <div class="col-sm-9 mt-2"><a href="/register" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Sign up as Organization</a> </div>
                                    
                                 </div>
                                 <div class="row justify-content-center my-5">

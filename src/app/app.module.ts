@@ -32,6 +32,9 @@ import { AddressComponent } from './my-account/address/address.component';
 import { MyProfileComponent } from './my-account/my-profile/my-profile.component';
 import { SidemenuComponent } from './modules/sidemenu/sidemenu.component';
 import { MyAccountComponent } from './my-account/my-account.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,10 @@ import { MyAccountComponent } from './my-account/my-account.component';
     AddressComponent,
     MyProfileComponent,
     SidemenuComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
