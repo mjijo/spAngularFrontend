@@ -14,10 +14,15 @@ import { QuotationsComponent } from './my-account/quotations/quotations.componen
 import { RefferedClientsComponent } from './my-account/reffered-clients/reffered-clients.component';
 import { TrackMyOrdersComponent } from './my-account/track-my-orders/track-my-orders.component';
 import { AboutComponent } from './pages/about/about.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { DeliveryInformationComponent } from './pages/delivery-information/delivery-information.component';
+import { FaqsComponent } from './pages/faqs/faqs.component';
 import { FeaturesComponent } from './pages/features/features.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PricingComponent } from './pages/pricing/pricing.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TendersComponent } from './pages/tenders/tenders.component';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -26,6 +31,11 @@ const routes: Routes = [
   {path: 'features', component: FeaturesComponent},
   {path: 'pricing', component: PricingComponent},
   {path: 'tender', component: TendersComponent},
+  {path: 'delivery-information', component: DeliveryInformationComponent},
+  {path: 'privacy-policy', component: PrivacyPolicyComponent},
+  {path: 'terms-conditions', component: TermsConditionsComponent},
+  {path: 'contact-us', component: ContactsComponent},
+  {path: 'faqs', component: FaqsComponent},
 
   {
     path: 'myaccount', 

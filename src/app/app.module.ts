@@ -35,6 +35,11 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { DeliveryInformationComponent } from './pages/delivery-information/delivery-information.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { FaqsComponent } from './pages/faqs/faqs.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +75,12 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
     MyAccountComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    DeliveryInformationComponent,
+    PrivacyPolicyComponent,
+    FaqsComponent,
+    ContactsComponent,
+    TermsConditionsComponent
   ],
   imports: [
     BrowserModule,
