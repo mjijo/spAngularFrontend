@@ -19,11 +19,11 @@
                                             <div class="col-lg-12 mb-4">
                                                 
                                                 <ul class="list-unstyled">
-                                                    <li class="nav-item"><a href="motor-salvages.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Motor Salvages</a></li>
-                                                    <li class="nav-item"><a href="non-motor-salvages.html" class="nav-link text-small pb-0 "><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Non-motor salvages</a></li>
-                                                    <li class="nav-item"><a href="auctions.html" class="nav-link text-small pb-0 "><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auctions</a></li>
-                                                    <li class="nav-item"><a href="auto-spares.html" class="nav-link text-small pb-0 "><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auto spares</a></li>
-                                                    <li class="nav-item"><a href="electronics.html" class="nav-link text-small pb-0 "><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Electronics</a></li>
+                                                    <ng-container *ngFor="let product_category of allproductcategories; index as i">
+                                                        <li class="nav-item"><a href="motor-salvages.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{product_category.product_name}}</a></li>
+                                                    </ng-container>
+                                                    
+                                                    
                                                    
                                                 </ul>
                                             </div>
@@ -45,45 +45,14 @@
                             <div class="row blue rounded-0 m-0 shadow-sm">
                                <div class="col-lg-4 mb-4">
                                                 
-                                                <ul class="list-unstyled">
-                                                    <li class="nav-item"><a href="auto-spares-dealers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auto Spare Dealers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="doctors.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Doctors<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="medical-clinics.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Medical Clinics<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="hospitals.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Hospitals<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="auctioneers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auctioneers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="garage.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Garages<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="car-rental.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Car Rental<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="lawyers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Lawyers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                  
-                                                </ul>
-                                            </div><div class="col-lg-4 mb-4">
-                                                
-                                                <ul class="list-unstyled">
-                                                    <li class="nav-item"><a href="auto-spares-dealers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auto Spare Dealers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="doctors.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Doctors<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="medical-clinics.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Medical Clinics<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="hospitals.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Hospitals<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="auctioneers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auctioneers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="garage.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Garages<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="car-rental.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Car Rental<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="lawyers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Lawyers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                  
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-4 mb-4">
-                                                
-                                                <ul class="list-unstyled">
-                                                    <li class="nav-item"><a href="auto-spares-dealers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auto Spare Dealers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="doctors.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Doctors<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="medical-clinics.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Medical Clinics<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="hospitals.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Hospitals<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="auctioneers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Auctioneers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="garage.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Garages<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="car-rental.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Car Rental<span class="badge badge-warning ml-1">10</span></a></li>
-                                                    <li class="nav-item"><a href="lawyers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>Lawyers<span class="badge badge-warning ml-1">10</span></a></li>
-                                                  
-                                                </ul>
-                                            </div>
+                                        <ul class="list-unstyled">
+                                            <ng-container *ngFor="let service_category of allservicecategories; index as i">
+                                                <li class="nav-item"><a href="auto-spares-dealers.html" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{service_category.service_category_name}}<span class="badge badge-warning ml-1">10</span></a></li>
+                                           </ng-container>
+ 
+                                        </ul>
+                                </div>
+                                            
                             </div>
                         </div>
                     </div>
@@ -102,9 +71,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe mr-1"></i>COUNTRY<span class="caret"></span></a>
               <ul class="dropdown-menu rounded-0" role="menu">
-                <li><a href="#"><img src="img/flag.png">KE</a></li>
-                <li><a href="#"><img src="img/flag.png">UG</a></li>
-                <li><a href="#"><img src="img/flag.png">SA</a></li>
+                <ng-container *ngFor="let country of allcountries; index as i">
+                    <li><a href="#">{{country.country_code}}</a></li>
+                </ng-container>
+                
                 
               </ul>
             </li>
