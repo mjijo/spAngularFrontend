@@ -27,22 +27,30 @@
                                         <h2 class="steps">Step 1 - 4</h2>
                                     </div>
                                 </div> 
-                                <label class="fieldlabels">Full Names: *</label> <input type="text" name="fname" placeholder="Full Names" />  
-                                <label class="fieldlabels">Country: *</label> <select class="form-control rounded-0">
-  <option>Kenya</option>
-  <option>Nigeria</option>
-  <option>Ghana</option>
+                                <label class="fieldlabels">Full Names: *</label> 
+                                <input type="text" [(ngModel)]="this_register.full_name" [ngModelOptions]="{standalone: true}" [value]="this_register.full_name" (change)="validateInputs()" />  
+                                <label class="fieldlabels">Country: *</label> 
+                                <select class="form-control rounded-0" [(ngModel)]="this_register.country_id" [ngModelOptions]="{standalone: true}" [value]="this_register.country_id" (change)="validateInputs()">
+                                    <ng-container *ngFor="let country of allcountries; index as i">
+                                        <option [value]="country.country_id">{{country.country_name}}</option>
+                                        </ng-container>
 </select> 
-								<label class="fieldlabels">Town/City: *</label> <input type="text" name="phno_2" placeholder="Town/City" /> 
-                                <label class="fieldlabels">Zip Code: *</label> <input type="text" name="phno_2" placeholder="Zip Code" />  
-								<label class="fieldlabels">Date of Registration: *</label> <input type="text" name="phno_2" placeholder="DoR" /> 
-                                <label class="fieldlabels">Industry/Sector: *</label> <select class="form-control">
-  <option>Financial Services</option>
-  <option>Education</option>
-  <option>Manufacturing</option>
+								<label class="fieldlabels">Town/City: *</label> 
+                                <input type="text" [(ngModel)]="this_register.town" [ngModelOptions]="{standalone: true}" [value]="this_register.town" (change)="validateInputs()" /> 
+                                <label class="fieldlabels">Zip Code: *</label> 
+                                <input type="text" [(ngModel)]="this_register.zip" [ngModelOptions]="{standalone: true}" [value]="this_register.zip" (change)="validateInputs()" />  
+								<!-- <label class="fieldlabels">Date of Registration: *</label> <input type="text" name="phno_2" placeholder="DoR" />  -->
+                                <label class="fieldlabels">Industry/Sector: *</label> 
+                                <select class="form-control" [(ngModel)]="this_register.sector_id" [ngModelOptions]="{standalone: true}" [value]="this_register.sector_id" (change)="validateInputs()">
+                                    <ng-container *ngFor="let sector of allsectors; index as i">
+                                        <option [value]="sector.industry_sector_id">{{sector.sector_name}}</option>
+                                    </ng-container>
+  
 </select> 
-								<label class="fieldlabels">Postal Address: *</label> <input type="text" name="phno_2" placeholder="Postal Address" /> 
-                                <label class="fieldlabels">Physical Address: *</label> <input type="text" name="phno_2" placeholder="Physical Address" /> 
+								<label class="fieldlabels">Postal Address: *</label> 
+                                <input type="text" [(ngModel)]="this_register.postal_address" [ngModelOptions]="{standalone: true}" [value]="this_register.postal_address" (change)="validateInputs()" /> 
+                                <label class="fieldlabels">Physical Address: *</label> 
+                                <input type="text" [(ngModel)]="this_register.physical_address" [ngModelOptions]="{standalone: true}" [value]="this_register.physical_address" (change)="validateInputs()" /> 
                                 
                             </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
@@ -57,9 +65,13 @@
                                     </div>
                                 </div> 
 
-                                <label class="fieldlabels">Registration Number: *</label> <input type="text" name="id_no" placeholder="Idetification No." /> 
-                                <label class="fieldlabels">Upload Registration Certificate:</label> <input type="file" name="pic" accept="image/*"> 								<label class="fieldlabels">Tax Number: *</label> <input type="text" name="id_no" placeholder="Idetification No." /> 
-                                <label class="fieldlabels">Upload Tax Certificate:</label> <input type="file" name="pic" accept="image/*">
+                                <label class="fieldlabels">Registration Number: *</label> 
+                                <input type="text" [(ngModel)]="this_register.reg_number" [ngModelOptions]="{standalone: true}" [value]="this_register.reg_number" (change)="validateInputs()" placeholder="Idetification No." /> 
+                                <label class="fieldlabels">Upload Registration Certificate:</label> 
+                                <input type="file" [(ngModel)]="this_register.reg_certificate" [ngModelOptions]="{standalone: true}" [value]="this_register.reg_certificate" (change)="validateInputs()" accept="image/*"> 								<label class="fieldlabels">Tax Number: *</label> 
+                                <input type="text" [(ngModel)]="this_register.tax_number" [ngModelOptions]="{standalone: true}" [value]="this_register.tax_number" (change)="validateInputs()" placeholder="Idetification No." /> 
+                                <label class="fieldlabels">Upload Tax Certificate:</label> 
+                                <input type="file" [(ngModel)]="this_register.tax_certificate" [ngModelOptions]="{standalone: true}" [value]="this_register.tax_certificate" (change)="validateInputs()" accept="image/*">
                             </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
@@ -72,11 +84,16 @@
                                         <h2 class="steps">Step 3 - 4</h2>
                                     </div>
                                 </div> 
-                                <label class="fieldlabels">Email: *</label> <input type="email" name="email" placeholder="Email Id" /> 
-                                <label class="fieldlabels">Username: *</label> <input type="text" name="uname" placeholder="UserName" /> 
-                                <label class="fieldlabels">Phone Number: *</label> <input type="text" name="uname" placeholder="Country Code + Phone Number" />
-                                <label class="fieldlabels">Password: *</label> <input type="password" name="pwd" placeholder="Password" /> 
-                                <label class="fieldlabels">Confirm Password: *</label> <input type="password" name="cpwd" placeholder="Confirm Password" />
+                                <label class="fieldlabels">Email: *</label> 
+                                <input type="email" [(ngModel)]="this_register.email" [ngModelOptions]="{standalone: true}" [value]="this_register.email" (change)="validateInputs()" placeholder="Email Id" /> 
+                                <label class="fieldlabels">Username: *</label> 
+                                <input type="text" [(ngModel)]="this_register.username" [ngModelOptions]="{standalone: true}" [value]="this_register.username" (change)="validateInputs()" placeholder="UserName" /> 
+                                <label class="fieldlabels">Phone Number: *</label> 
+                                <input type="text" [(ngModel)]="this_register.phone" [ngModelOptions]="{standalone: true}" [value]="this_register.phone" (change)="validateInputs()" placeholder="Country Code + Phone Number" />
+                                <label class="fieldlabels">Password: *</label> 
+                                <input type="password" [(ngModel)]="this_register.user_pwd" [ngModelOptions]="{standalone: true}" [value]="this_register.user_pwd" (change)="validateInputs()" placeholder="Password" /> 
+                                <label class="fieldlabels">Confirm Password: *</label> 
+                                <input type="password" [(ngModel)]="this_register.confirm_password" [ngModelOptions]="{standalone: true}" [value]="this_register.confirm_password" (change)="validateInputs()" placeholder="Confirm Password" />
                             </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
@@ -96,12 +113,13 @@
                                         <div class="alert alert-success" role="alert">
                                             We’ve sent a verification code to your email - <i>john.doe@gmail.com</i>
                                           </div>
-                                        <input type="text" name="otp" placeholder="Enter Verification code" value="Enter Verification code">
+                                        <input type="text" [(ngModel)]="this_register.verification_code" [ngModelOptions]="{standalone: true}" [value]="this_register.verification_code" (change)="validateInputs()" placeholder="Enter Verification code" value="Enter Verification code">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">
-                                        <input type="button" name="next" class="btn btn-primary submit" value="Submit" />
+                                         <button class="btn btn-primary submit" (click)="register()">Register</button>
+                                        <!-- <input type="button" name="next" class="btn btn-primary submit" value="Submit" /> -->
                                         <!-- <h5 class="purple-text text-center">You Have Successfully Signed Up</h5> -->
                                     </div>
                                 </div>

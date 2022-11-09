@@ -37,6 +37,7 @@ export class ApiService {
   getEndpoints(){
     return {
       sign_in: 'usrLogin',
+      register_user: 'rgstUsr',
       settings: {
         countries: {
           get_all_countries: 'getAllCountries'
