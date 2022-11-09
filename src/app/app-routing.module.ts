@@ -23,6 +23,8 @@ import { PricingComponent } from './pages/pricing/pricing.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TendersComponent } from './pages/tenders/tenders.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
+import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -36,24 +38,28 @@ const routes: Routes = [
   {path: 'terms-conditions', component: TermsConditionsComponent},
   {path: 'contact-us', component: ContactsComponent},
   {path: 'faqs', component: FaqsComponent},
+  {path: 'service-providers', children: [
+                        {path:'providers', component: ProvidersComponent},
+                        {path:'provider-details', component: ProviderDetailsComponent}
+
+                                  ]
+},
 
   {
-    path: 'myaccount', 
-     
-      children: [
-        {path:'', component: DashboardComponent},
-        {path:'dashboard', component: DashboardComponent},
-        {path:'orders', component: OrdersComponent},
-        {path:'track-my-orders', component: TrackMyOrdersComponent},
-        {path:'bids', component: BidsComponent},
-        {path:'notifications', component: NotificationsComponent},
-        {path:'appointments', component: AppointmentsComponent},
-        {path:'quotations', component: QuotationsComponent},
-        {path:'reffered-clients', component: RefferedClientsComponent},
-        {path:'address', component: AddressComponent},
-        {path:'my-profile', component: MyProfileComponent}
+    path: 'myaccount', children: [
+                            {path:'', component: DashboardComponent},
+                            {path:'dashboard', component: DashboardComponent},
+                            {path:'orders', component: OrdersComponent},
+                            {path:'track-my-orders', component: TrackMyOrdersComponent},
+                            {path:'bids', component: BidsComponent},
+                            {path:'notifications', component: NotificationsComponent},
+                            {path:'appointments', component: AppointmentsComponent},
+                            {path:'quotations', component: QuotationsComponent},
+                            {path:'reffered-clients', component: RefferedClientsComponent},
+                            {path:'address', component: AddressComponent},
+                            {path:'my-profile', component: MyProfileComponent}
 
-            ]
+                                ]
   },
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},

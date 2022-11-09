@@ -43,6 +43,8 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 import { FaqsComponent } from './pages/faqs/faqs.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
+import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
 
 @NgModule({
   declarations: [
@@ -83,7 +85,9 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
     PrivacyPolicyComponent,
     FaqsComponent,
     ContactsComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    ProvidersComponent,
+    ProviderDetailsComponent
   ],
   imports: [
     BrowserModule,
