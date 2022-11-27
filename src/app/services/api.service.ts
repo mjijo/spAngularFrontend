@@ -15,12 +15,12 @@ export class ApiService {
 // login(data: any, param: string): Observable<any> {
 //   return this.httpClient.post(`${this.baseApiPath}/auth/login`,data);
 // }
-
-login() {
-  return this.httpClient.get(`${this.baseApiPath}/auth/login`)
-  .pipe(map ((res:any)=>{
-    return res;
-  }))
+registerOrg(registerObj:any){
+  return this.httpClient.post<any>(`${this.baseApiPath}/auth/initial-setup`,registerObj);
+}
+loginUser(loginObj:any) {
+  return this.httpClient.post<any>(`${this.baseApiPath}/auth/login`,loginObj);
+ 
 }
 
 getCountries(){

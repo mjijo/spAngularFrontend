@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule, FormBuilder } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -11,44 +11,55 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class LoginComponent implements OnInit {
 
-  public signIn !: FormGroup;
+  signIn!: FormGroup;
+username: any;
 
-  constructor(private formbuilder: FormBuilder , private api: ApiService, private http : HttpClient, private router: Router ) { }
+  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router ) { }
 
   ngOnInit(): void {
 
    this.signIn = this.formbuilder.group({
-    username:[''],
-    password:['']
-   })
+    username: ['', Validators.required ],
+    password:['', Validators.required ]
+   });
 
   }
 
-  initForm() {
-    this.signIn = new FormGroup({
-      username: new FormControl('',[Validators.required]),
-      password: new FormControl('',[Validators.required])
-    });
-  }
-  loginProcess() {
+ 
+  login() {
   //  this.api.login()
-   this.http.get<any>("https://dis.opirth.com/api/auth/login/")
+  if(this.signIn.valid){
+    console.log(this.signIn.value);
 
-   .subscribe(
-    res=>{
-      const user = res.find((a:any)=>{
-        return a.username === this.signIn.value.username && a.password === this.signIn.value.password
-      });
-      if(user){
-        alert("Login Success");
-        this.signIn.reset();
-        this.router.navigate(['myaccount'])
-      }else {
-        alert("user not Found!!")
+    this.api.loginUser(this.signIn.value)
+     .subscribe({
+      next:(res)=>{
+        this.router.navigate(['/myaccount']);
+        alert(res.message.message)
+      },
+error:(err)=>{
+  alert(err.error)
+}
+
+    })
+
+  }else {
+    console.log("Wrong");
+    this.validateAllFormFields(this.signIn)
+   
+  }
+  
+   
+  }
+
+  private validateAllFormFields(formGroup:FormGroup){
+    Object.keys(formGroup.controls).forEach(field=>{
+      const control = formGroup.get(field);
+      if(control instanceof FormControl){
+        control.markAsDirty({onlySelf:true});
+      }else if (control instanceof FormGroup){
+        this.validateAllFormFields(control)
       }
-    },err=> {
-      alert("Something went Wrong!!")
-    } )
-    
+    })
   }
 }
