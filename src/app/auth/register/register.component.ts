@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
+import { FormBuilder, FormGroup ,Validators,FormControl} from '@angular/forms';
 
 import { ApiService } from '../../services/api.service';
 
@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   allCountries! : any;
   serviceCategories! : any;
   allProductsCategories! : any;
+some: any;
 
   constructor(private api:ApiService, private fb:FormBuilder) { }
 
@@ -76,8 +77,18 @@ error:(err)=>{
 
     }else {
       console.log("The form is incomplete");
+      this.validateAllFormFields(this.signUp)
     }
 
   }
-
+  private validateAllFormFields(formGroup:FormGroup){
+    Object.keys(formGroup.controls).forEach(field=>{
+      const control = formGroup.get(field);
+      if(control instanceof FormControl){
+        control.markAsDirty({onlySelf:true});
+      }else if (control instanceof FormGroup){
+        this.validateAllFormFields(control)
+      }
+    })
+  }
 }

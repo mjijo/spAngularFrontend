@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map, throwError } from 'rxjs';
+import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,10 @@ registerOrg(registerObj:any){
 loginUser(loginObj:any) {
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/login`,loginObj);
  
+}
+
+forgotPassword(forgotpassObj:any){
+  return this.httpClient.post<any>(`${this.baseApiPath}//auth/forget-password`,forgotpassObj);
 }
 
 getCountries(){

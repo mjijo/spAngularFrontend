@@ -42,7 +42,7 @@
     </div>
     </section>
  <!-- start modal sign-in ----->
- <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+ <div id="my-modal" class="modal fade rounded" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered justify-content-center " role="document">
        <div class="modal-content border-0 mx-3">
           <div class="modal-body p-0">
@@ -62,32 +62,36 @@
                          </div>
                          <div class="row justify-content-center">
                             <div class="col-sm-12 mt-5">
-                               <form class="form-horizontal">
-                                  <!-- User Name Input -->
-                                  <div class="form-group row justify-content-center">
-                                     <div class="col-9"> <input type="text" placeholder="&#xf0e0; &nbsp; User email" class="form-control border-info placeicon"> </div>
-                                  </div>
-                                  <!-- Password Input -->
-                                  <div class="form-group row justify-content-center">
-                                     <div class="col-9 "> <input type="password" placeholder="&#xf084; &nbsp; &#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" class="form-control border-info placeicon"> </div>
-                                  </div>
-                                  <!-- CheckBox Remember Me-->
-                                  <div class="form-group row justify-content-center">
+                              <form id="login" class="form-horizontal" [formGroup] ="signIn">
+                                 <!-- User Name Input -->
+                                 <div class="form-group row justify-content-center px-5">
+                                     <div class="col-12 px-0"> <input [class.border-r]="signIn.controls['username'] .dirty && signIn.hasError('required','username')" formControlName="username" type="email" placeholder="Email" class="form-control border-info">
+                                      <small *ngIf="signIn.controls['username'] .dirty && signIn.hasError('required','username')" class="text-danger">*Email is Required</small> </div>
+                                     
+                                 </div> 
+                                 
+                                 <!-- Password Input -->
+                                 <div class="form-group row justify-content-center px-5">
+                                     <div class="col-12 px-0"> <input [class.border-r]="signIn.controls['password'] .dirty && signIn.hasError('required','password')" formControlName="password" type="password" placeholder="password" class="form-control border-info" required><small *ngIf="signIn.controls['password'] .dirty && signIn.hasError('required','password')" class="text-danger">*Password is Required</small> </div>
+                                     
+                                 </div>
+                                 
+                                 <!-- CheckBox Remember Me-->
+                                 <div class="form-group row justify-content-center px-5">
                                      <div class="col-9">
-                                        <div class="row">
-                                           <div class="col-6 ">
-                                              <div class="custom-control custom-checkbox mb-3"> <input id="customCheck1" type="checkbox" class="custom-control-input checkbox-muted"> <label for="customCheck1" class="custom-control-label text-muted">Remember Me</label> </div>
-                                           </div>
-                                           <!-- Forgot Password Link -->
-                                           <div class="col-6 px-0 text-right"> <span><a routerLink="/forgot-password" class="text-danger"><b>Forgot Password?</b></a></span> </div>
-                                        </div>
+                                         <div class="row">
+                                              <!-- Forgot Password Link -->
+                                             <div class="col-9 px-0 text-right"> <span><a routerLink="/forgot-password" class="text-danger"><b>Forgot Password?</b></a></span> </div>
+                                         </div>
                                      </div>
-                                  </div>
-                                  <!-- Log in Button -->
-                                  <div class="form-group row justify-content-center">
-                                     <div class="col-8"> <a href="myaccount.html" type="submit" value="Log in" class="btn btn-block btn-info text-uppercase rounded-0">Log in</a> </div>
-                                  </div>
-                               </form>
+                                 </div> <!-- Log in Button -->
+                                 <div class="form-group row justify-content-center">
+                                     
+      
+                                     <div class="col-12 px-5"> <button class="btn btn-block btn-info action-button purple" (click)="login()" type="submit">Log in</button> </div>
+      
+                                 </div>
+                             </form>
                                <!-- <div class="form-group row justify-content-center">OR</div></div>
                                   <div class="col-sm-9"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/google-logo.png"/></span> Sign in with Google</button></div>
                                   <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/URmkevm.png" class="img-fluid mr-1" width="25"></span> Sign in with Facebook</button> </div>

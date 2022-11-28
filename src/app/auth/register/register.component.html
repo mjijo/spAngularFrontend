@@ -28,7 +28,7 @@
                                     </div>
                                 </div> 
                                 <label class="fieldlabels">Full Names: *</label> 
-                                <input type="text" formControlName="name" />
+                                <input type="text" formControlName="name" [(ngModel)]="some" />
                                 <small *ngIf="signUp.controls['name'] .dirty && signUp.hasError('required','name')" class="text-danger">Name is Required</small>  
                                 <label class="fieldlabels">Country: *</label> 
                                 <select class="form-control rounded-0" formControlName="country_id" >
@@ -38,7 +38,8 @@
                                         </ng-container>
 </select> 
 								<label class="fieldlabels">Town/City: *</label> 
-                                <input type="text" formControlName="town" /> 
+                                <input type="text" formControlName="town" />
+                                <small *ngIf="signUp.controls['town'] .dirty && signUp.hasError('required','town')" class="text-danger">Name is Required</small> 
                                 <label class="fieldlabels">Zip Code: *</label> 
                                 <input type="text" formControlName="zip_code" />  
 								<!-- <label class="fieldlabels">Date of Registration: *</label> <input type="text" name="phno_2" placeholder="DoR" />  -->

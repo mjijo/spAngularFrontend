@@ -12,15 +12,16 @@
                    <div class="pt-3 pb-3">
                        <form id="login" class="form-horizontal" [formGroup] ="signIn">
                            <!-- User Name Input -->
-                           <div class="form-group row justify-content-center px-3">
-                               <div class="col-9 px-0"> <input formControlName="username" type="email" placeholder="Email" class="form-control border-info placeicon fa"> </div>
-                               <small *ngIf="signIn.controls['username'] .dirty && signIn.hasError('required','username')" class="text-danger">Email is Required</small>
+                           <div class="form-group row justify-content-center px-5">
+                               <div class="col-12 px-0"> <input [class.border-r]="signIn.controls['username'] .dirty && signIn.hasError('required','username')" formControlName="username" type="email" placeholder="Email" class="form-control border-info">
+                                <small *ngIf="signIn.controls['username'] .dirty && signIn.hasError('required','username')" class="text-danger">*Email is Required</small> </div>
+                               
                            </div> 
                            
                            <!-- Password Input -->
-                           <div class="form-group row justify-content-center px-3">
-                               <div class="col-9 px-0"> <input formControlName="password" type="password" placeholder="password" class="form-control border-info placeicon" required> </div>
-                               <small *ngIf="signIn.controls['password'] .dirty && signIn.hasError('required','password')"class="text-danger">Password is Required</small>
+                           <div class="form-group row justify-content-center px-5">
+                               <div class="col-12 px-0"> <input [class.border-r]="signIn.controls['password'] .dirty && signIn.hasError('required','password')" formControlName="password" type="password" placeholder="password" class="form-control border-info" required><small *ngIf="signIn.controls['password'] .dirty && signIn.hasError('required','password')" class="text-danger">*Password is Required</small> </div>
+                               
                            </div>
                            
                            <!-- CheckBox Remember Me-->
