@@ -47,6 +47,7 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
 import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
+import { IndividualRegistrationComponent } from './auth/individual-registration/individual-registration.component';
 
 @NgModule({
   declarations: [
@@ -89,7 +90,8 @@ import { ProviderDetailsComponent } from './pages/service-providers/provider-det
     ContactsComponent,
     TermsConditionsComponent,
     ProvidersComponent,
-    ProviderDetailsComponent
+    ProviderDetailsComponent,
+    IndividualRegistrationComponent
   ],
   imports: [
     BrowserModule,

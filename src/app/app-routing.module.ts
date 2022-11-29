@@ -25,6 +25,7 @@ import { TendersComponent } from './pages/tenders/tenders.component';
 import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
 import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
 import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
+import { IndividualRegistrationComponent } from './auth/individual-registration/individual-registration.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -63,7 +64,8 @@ const routes: Routes = [
   },
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'register-organization', component: RegisterComponent},
+  {path: 'register', component: IndividualRegistrationComponent},
 
 
   { path: '**', redirectTo: 'home' }

@@ -39,10 +39,19 @@ some: any;
       owner_first_name:['', Validators.required ],
       // owner_middle_name:['', Validators.required ],
       // owner_last_name:['', Validators.required ],
-      owner_email:['', Validators.required ],
+      // owner_email:['', Validators.required ],
       owner_phone:['', Validators.required ],
       owner_password:['', Validators.required ],
       owner_password_confirmation:['', Validators.required ],
+      owner:[
+        {
+        email:['', Validators.required ],
+        phone:['', Validators.required ],
+        password:['', Validators.required ],
+        password_confirmation:['', Validators.required ],
+        }
+      ],
+      
      });
 
      this.api.getCountries().subscribe((data) => {

@@ -19,6 +19,10 @@ export class ApiService {
 registerOrg(registerObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/initial-setup`,registerObj);
 }
+registerUser(registerUserObj:any){
+  return this.httpClient.post<any>(`${this.baseApiPath}/auth/register`,registerUserObj);
+}
+
 loginUser(loginObj:any) {
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/login`,loginObj);
  
