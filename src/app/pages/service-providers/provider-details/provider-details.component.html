@@ -23,9 +23,10 @@
     <!-- section end Breadcrumbs here-->
     
     <!-- section start Doctors details here-->
-    <section class="accordion_two_section ptb-100 inner-page ddetails">
+    <!-- <ng-container  *ngIf="productData"> -->
+    <section class="accordion_two_section ptb-100 inner-page ddetails" *ngIf="(product$ | async) as productObj;else empty">
         <div class="container pb-5 pt-3">
-            <h2 class="text-center title"><span>Doctor</span></h2>
+            <h2 class="text-center title"></h2>
             <div class="row">
                 <div class="col-md-8">
                     <!-- Profile widget -->
@@ -34,7 +35,9 @@
                             <div class="media align-items-end profile-head">
                                 <div class="profile mr-3"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
                                 <div class="media-body mb-5 text-white">
-                                    <h4 class="mt-0 mb-0">Dr. Shruti Sankpal</h4>
+                                  
+                                    <h4 class="mt-0 mb-0">{{productObj?.name}}</h4>
+                                
                                     <p class="small mb-4"> <i class="fa fa-user-md mr-2"></i>HOMEOPATHY</p>
                                 </div>
                             </div>
@@ -70,9 +73,9 @@
                         <div class="px-4 py-3">
                             <h5 class="mb-2">Professional Bio: </h5>
                             <div class="p-4 shadow-sm bg-light">
-                                <p class="font-italic mb-0">I am a MD in Homeopathy medicine, dealing with chronic diseases.</p>
-                                <p class="font-italic mb-0">Lives in New York</p>
-                                <p class="font-italic mb-0">Photographer</p>
+                                <p class="font-italic mb-0">{{productObj?.bio}}</p>
+                                <!-- <p class="font-italic mb-0">Lives in New York</p>
+                                <p class="font-italic mb-0">Photographer</p> -->
                             </div>
                         </div>
     
@@ -307,5 +310,11 @@
         </div>
         <!--end of /.container-->
     </section>
-    
+    <!-- </ng-container> -->
+   
     <!-- section end here-->
+    <ng-template #empty>
+        <div class="container">
+            <h3>Loading ...</h3>
+        </div>
+      </ng-template>

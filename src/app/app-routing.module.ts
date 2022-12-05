@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from './helpers'
+
 import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -40,16 +42,17 @@ const routes: Routes = [
   {path: 'contact-us', component: ContactsComponent},
   {path: 'faqs', component: FaqsComponent},
   {path: 'service-providers', children: [
-                        {path:'providers', component: ProvidersComponent},
-                        {path:'provider-details', component: ProviderDetailsComponent}
+                        
+                        // {path:'provider-details', component: ProviderDetailsComponent}
 
                                   ]
 },
-
+  {path:'providers', component: ProvidersComponent},
+  {path:'service-providers/:slug', component: ProviderDetailsComponent} ,
   {
     path: 'myaccount', children: [
-                            {path:'', component: DashboardComponent},
-                            {path:'dashboard', component: DashboardComponent},
+                            {path:'', component: DashboardComponent, canActivate: [AuthGuard] },
+                            {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
                             {path:'orders', component: OrdersComponent},
                             {path:'track-my-orders', component: TrackMyOrdersComponent},
                             {path:'bids', component: BidsComponent},

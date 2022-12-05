@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map, throwError } from 'rxjs';
+import { Observable, map, throwError, switchMap } from 'rxjs';
 import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
+import { Sp } from '../interfaces/sp';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +20,12 @@ export class ApiService {
   {
     //
   }
-// login(data: any, param: string): Observable<any> {
-//   return this.httpClient.post(`${this.baseApiPath}/auth/login`,data);
-// }
+  loginInd(username: string, password: string): Observable<any> {
+    return this.httpClient.post(
+      `${this.baseApiPath}/auth/login`,
+      httpOptions
+    );
+  }
 registerOrg(registerObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/initial-setup`,registerObj);
 }
@@ -28,8 +38,33 @@ loginUser(loginObj:any) {
  
 }
 
+getserviceproviders(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/services`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+}
+
+
+getserviceprovidersDetails(id: number) {
+  return this.httpClient.get<any>(`${this.baseApiPath}/services/` + id)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+}
+getServiceById(id:number) : Observable <Sp>{
+  return this.httpClient.get<Sp>(`${this.baseApiPath}/services/` + id);
+
+}
+getServiceDetails(productSlug: Observable<string>): Observable<any> {
+  return productSlug.pipe(
+    switchMap((slug) => {
+      return this.httpClient.get(`https://dis.opirth.com/api/services/${slug}`)
+    })
+  )
+}
 forgotPassword(forgotpassObj:any){
-  return this.httpClient.post<any>(`${this.baseApiPath}//auth/forget-password`,forgotpassObj);
+  return this.httpClient.post<any>(`${this.baseApiPath}/auth/forget-password`,forgotpassObj);
 }
 
 getCountries(){

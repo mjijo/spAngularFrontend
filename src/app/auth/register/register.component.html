@@ -27,14 +27,14 @@
                                         <h2 class="steps">Step 1 - 4</h2>
                                     </div>
                                 </div> 
-                                <label class="fieldlabels">Full Names: *</label> 
-                                <input type="text" formControlName="name" [(ngModel)]="some" />
+                                <label class="fieldlabels">Organisation Name: *</label> 
+                                <input type="text" formControlName="name" />
                                 <small *ngIf="signUp.controls['name'] .dirty && signUp.hasError('required','name')" class="text-danger">Name is Required</small>  
                                 <label class="fieldlabels">Country: *</label> 
                                 <select class="form-control rounded-0" formControlName="country_id" >
                                     <option >Select Country</option>
                                     <ng-container *ngFor="let country of allCountries; index as i">
-                                        <option formControlName="country_id">{{country.name}}</option>
+                                        <option value={{country.id}}>{{country.name}}</option>
                                         </ng-container>
 </select> 
 								<label class="fieldlabels">Town/City: *</label> 
@@ -45,10 +45,10 @@
 								<!-- <label class="fieldlabels">Date of Registration: *</label> <input type="text" name="phno_2" placeholder="DoR" />  -->
                                 <label class="fieldlabels">Industry/Sector: *</label> 
                                
-                                <select class="form-control" formControlName="industry_ids">
+                                <select class="form-control" formControlName="industry_id">
                                     <option >Select Industry/Sector</option>
                                     <ng-container *ngFor="let sector of serviceCategories; index as i">
-                                        <option formControlName="industry_ids">{{sector.name}}</option>
+                                        <option value={{sector.id}}>{{sector.name}}</option>
                                     </ng-container>
   
 </select> 
@@ -90,8 +90,9 @@
                                         <h2 class="steps">Step 3 - 4</h2>
                                     </div>
                                 </div> 
+                                
                                 <label class="fieldlabels">Email: *</label> 
-                                <input type="email" formControlName="owner.email" placeholder="Email Id" /> 
+                                <input type="email" formControlName="owner_email" placeholder="Email Id" /> 
                                 <label class="fieldlabels">Username: *</label> 
                                 <input type="text" formControlName="owner_first_name" placeholder="UserName" /> 
                                 <label class="fieldlabels">Phone Number: *</label> 
@@ -100,6 +101,7 @@
                                 <input type="password" formControlName="owner_password" /> 
                                 <label class="fieldlabels">Confirm Password: *</label> 
                                 <input type="password" formControlName="owner_password_confirmation" placeholder="Confirm Password" />
+                             
                             </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>

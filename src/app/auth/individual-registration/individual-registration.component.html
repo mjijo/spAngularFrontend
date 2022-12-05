@@ -33,16 +33,16 @@
                                 <select class="form-control" formControlName="country_id">
                                     <option >Select Country</option>
                                     <ng-container *ngFor="let country of allCountries; index as i">
-                                        <option formControlName="country_id">{{country.name}}</option>
+                                        <option value={{country.id}}>{{country.name}}</option>
                                     </ng-container>
                                 </select> 
 								<label class="fieldlabels">Town/City: *</label> <input type="text" formControlName="town" name="phno_2" placeholder="Town/City" /> 
                                 <label class="fieldlabels">Zip Code: *</label> <input type="text" formControlName="zip_code" name="phno_2" placeholder="Zip Code" /> 
                                 <label class="fieldlabels">Gender: *</label> 
                                 <select class="form-control" formControlName="gender">
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Others</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="others">Others</option>
                                 </select> 
 								<label class="fieldlabels">Date of Birth: *</label> <input type="text" formControlName="date_of_birth" placeholder="DoB" /> 
                                 <label class="fieldlabels">Occupation: *</label> <select class="form-control" formControlName="occupation">
@@ -65,12 +65,12 @@
                                         <h2 class="steps">Step 2 - 4</h2>
                                     </div>
                                 </div> 
-                                <label class="fieldlabels">Means of Identification: *</label> <select class="form-control" formControlName="identification_file">
-  <option>National ID</option>
-  <option>Passport</option>
+                                <label class="fieldlabels">Means of Identification: *</label> <select class="form-control" formControlName="identification_document">
+  <option value="national_id">National ID</option>
+  <option value="passport">Passport</option>
 </select> 
                                 <label class="fieldlabels">Idetification Number: *</label> <input type="text" formControlName="identification_number" name="id_no" placeholder="Idetification No." /> 
-                                <label class="fieldlabels">Upload Means of Identification:</label> <input type="file" formControlName="identification_document" name="pic" accept="image/*"> 
+                                <label class="fieldlabels">Upload Means of Identification:</label> <input type="file" formControlName="identification_file" name="pic" accept="image/*"> 
                                 <label class="fieldlabels">Upload Passport Photo:</label> <input type="file" formControlName="passport" name="pic" accept="image/*">
                             </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>

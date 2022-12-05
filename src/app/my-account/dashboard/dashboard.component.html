@@ -23,7 +23,7 @@
     <!-- section end Breadcrumbs here-->
     
     <!-- section start faqs here-->
-    <section class="accordion_two_section ptb-100 inner-page myaccount h-100">
+    <section class="accordion_two_section ptb-100 inner-page myaccount h-100" *ngIf="user">
         <div class="container py-5">
             <h2 class="text-center title"><span>My account</span></h2>
             <div class="row mb-5">
@@ -31,10 +31,12 @@
                 <app-sidemenu></app-sidemenu>
              </div>
              <div class="col-md-8">
-                <p> Hello <b>mjijo</b> (not mjijo? <a href="#">Log out</a>)<br>
+                <p> Hello <b>mjijo</b> (not {{user.username}}? <a href="#" (click)="logout()">Log out</a>)<br>
                     From your account dashboard you can view your <a href="my-orders.html">recent orders</a>, manage your <a href="address.html">shipping and billing addresses</a>, and <a href="#">edit your password and account details</a>.</p>
-                
+                    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
              </div>
+             
+        
             </div>
         </div>
         <!--end of /.container-->

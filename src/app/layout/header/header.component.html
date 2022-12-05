@@ -4,7 +4,7 @@
     <div class="container">
     <div class="row logo_header">
     <div class="col-sm-6">
-    <a class="navbar-header" href="#"><img src="../../../assets/img/logo.png" width="374" height="63" class="img-fluid" alt=""></a>
+    <a class="navbar-header"routerLink="/"><img src="../../../assets/img/logo.png" width="374" height="63" class="img-fluid" alt=""></a>
     </div>
     <div class="col-sm-6 radius-icon d-none d-sm-block">
     
@@ -55,49 +55,14 @@
                          </div>
                       </div>
                       <div class="card-body pt-0">
-                         <div class="row justify-content-center text-center">
+                         <!-- <div class="row justify-content-center text-center">
                             <div class="col">
                                <p><b>LOGIN</b></p>
                             </div>
-                         </div>
+                         </div> -->
                          <div class="row justify-content-center">
-                            <div class="col-sm-12 mt-5">
-                              <form id="login" class="form-horizontal" [formGroup] ="signIn">
-                                 <!-- User Name Input -->
-                                 <div class="form-group row justify-content-center px-5">
-                                     <div class="col-12 px-0"> <input [class.border-r]="signIn.controls['username'] .dirty && signIn.hasError('required','username')" formControlName="username" type="email" placeholder="Email" class="form-control border-info">
-                                      <small *ngIf="signIn.controls['username'] .dirty && signIn.hasError('required','username')" class="text-danger">*Email is Required</small> </div>
-                                     
-                                 </div> 
-                                 
-                                 <!-- Password Input -->
-                                 <div class="form-group row justify-content-center px-5">
-                                     <div class="col-12 px-0"> <input [class.border-r]="signIn.controls['password'] .dirty && signIn.hasError('required','password')" formControlName="password" type="password" placeholder="password" class="form-control border-info" required><small *ngIf="signIn.controls['password'] .dirty && signIn.hasError('required','password')" class="text-danger">*Password is Required</small> </div>
-                                     
-                                 </div>
-                                 
-                                 <!-- CheckBox Remember Me-->
-                                 <div class="form-group row justify-content-center px-5">
-                                     <div class="col-9">
-                                         <div class="row">
-                                              <!-- Forgot Password Link -->
-                                             <div class="col-9 px-0 text-right"> <span><a routerLink="/forgot-password" class="text-danger"><b>Forgot Password?</b></a></span> </div>
-                                         </div>
-                                     </div>
-                                 </div> <!-- Log in Button -->
-                                 <div class="form-group row justify-content-center">
-                                     
-      
-                                     <div class="col-12 px-5"> <button class="btn btn-block btn-info action-button purple" (click)="login()" type="submit">Log in</button> </div>
-      
-                                 </div>
-                             </form>
-                               <!-- <div class="form-group row justify-content-center">OR</div></div>
-                                  <div class="col-sm-9"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/google-logo.png"/></span> Sign in with Google</button></div>
-                                  <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/URmkevm.png" class="img-fluid mr-1" width="25"></span> Sign in with Facebook</button> </div>
-                                  <div class="col-sm-9 mt-2"><button type="button" class="btn btn-icon btn-block text-left "><span><img src="../../../assets/img/twitter.png" class="img-fluid mr-1" width="25"></span> Sign in with Twitter</button> </div>
-                                  </div> -->
-                            </div>
+                            <div class="col-sm-9 mb-2"><a routerLink="/login" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Login as Individual</a></div>
+                            <div class="col-sm-9 mb-5"><a routerLink="/" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Login as Organization</a> </div>
                          </div>
                       </div>
                    </div>
@@ -129,8 +94,8 @@
                                 </div>
                                 <div class="row justify-content-center">
 
-                                    <div class="col-sm-9 mt-5"><a href="/register" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Sign up as Individual</a></div>
-                                    <div class="col-sm-9 mt-2"><a href="/register-organization" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Sign up as Organization</a> </div>
+                                    <div class="col-sm-9 mt-5"><a routerLink="/register" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Sign up as Individual</a></div>
+                                    <div class="col-sm-9 mt-2"><a routerLink="/register-organization" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Sign up as Organization</a> </div>
                                    
                                 </div>
                                 <div class="row justify-content-center my-5">

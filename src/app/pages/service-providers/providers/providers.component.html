@@ -26,36 +26,23 @@
         <div class="container py-5">
             <h2 class="text-center title"><span>Doctors</span></h2>
             <div class="row">
-                <!--team-1-->
-                <div class="col-lg-4">
-                    <div class="our-team-main">
-                        <div class="team-front"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1559454870/team-3.jpg" class="img-fluid" />
-                            <h3><a href="#">Dr. William</a></h3>
-                            <p>Paediatrics</p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <!--team-1-->
+                
                 <!--team-2-->
+                <ng-container *ngFor="let item of serviceproviders; index as i">
                 <div class="col-lg-4">
                     <div class="our-team-main">
                         <div class="team-front"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562038346/andrew_decristofaro.jpg" class="img-fluid" />
-                            <h3><a href="#">Dr. David</a></h3>
-                            <p>Anaesthetics</p>
+                            <h3><a [routerLink]="['/service-providers/' + item?.id]">{{item.name}}</a></h3>
+                            <p>{{item.description}}</p>
                         </div>
                         </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="our-team-main">
-                        <div class="team-front"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562038385/Emily_20Rekstis.jpg" class="img-fluid" />
-                            <h3><a href="#">Dr. Niharika</a></h3>
-                            <p>Paediatrics</p>
-                        </div>
+            </ng-container>
+               
                         
                 
-            </div>
-        </div>
+            
+        
         </div>
         </div>
         <!--end of /.container-->

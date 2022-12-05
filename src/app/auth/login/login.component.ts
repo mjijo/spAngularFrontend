@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -11,55 +12,55 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class LoginComponent implements OnInit {
 
-  signIn!: FormGroup;
-username: any;
+  loginForm!: FormGroup;
+    loading = false;
+    submitted = false;
+    error = '';
 
-  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router ) { }
+    constructor(
+        private formBuilder: FormBuilder,
+        private route: ActivatedRoute,
+        private router: Router,
+        private authenticationService: AuthenticationService
+    ) { 
+        // redirect to home if already logged in
+        if (this.authenticationService.userValue) { 
+            this.router.navigate(['/myaccount']);
+        }
+    }
 
-  ngOnInit(): void {
+    ngOnInit() {
+        this.loginForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
+    }
 
-   this.signIn = this.formbuilder.group({
-    username: ['', Validators.required ],
-    password:['', Validators.required ]
-   });
+    // convenience getter for easy access to form fields
+    get f() { return this.loginForm.controls; }
 
-  }
+    onSubmit() {
+        this.submitted = true;
 
- 
-  login() {
-  //  this.api.login()
-  if(this.signIn.valid){
-    console.log(this.signIn.value);
+        // stop here if form is invalid
+        if (this.loginForm.invalid) {
+            return;
+        }
 
-    this.api.loginUser(this.signIn.value)
-     .subscribe({
-      next:(res)=>{
-        this.router.navigate(['/myaccount']);
-        alert(res.message.message)
-      },
-error:(err)=>{
-  alert(err.error)
-}
-
-    })
-
-  }else {
-    console.log("Wrong");
-    this.validateAllFormFields(this.signIn)
-   
-  }
-  
-   
-  }
-
-  private validateAllFormFields(formGroup:FormGroup){
-    Object.keys(formGroup.controls).forEach(field=>{
-      const control = formGroup.get(field);
-      if(control instanceof FormControl){
-        control.markAsDirty({onlySelf:true});
-      }else if (control instanceof FormGroup){
-        this.validateAllFormFields(control)
-      }
-    })
-  }
+        this.error = '';
+        this.loading = true;
+        this.authenticationService.login(this.f['username'].value, this.f['password'].value)
+            .pipe(first())
+            .subscribe({
+                next: () => {
+                    // get return url from route parameters or default to '/'
+                    const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/myaccount';
+                    this.router.navigate([returnUrl]);
+                },
+                error: error => {
+                    this.error = 'Wrong Credentials';
+                    this.loading = false;
+                }
+            });
+    }
 }

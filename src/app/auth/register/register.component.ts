@@ -15,15 +15,17 @@ export class RegisterComponent implements OnInit {
   allCountries! : any;
   serviceCategories! : any;
   allProductsCategories! : any;
-some: any;
+  
+
 
   constructor(private api:ApiService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
+
     this.signUp = this.fb.group({
       name: ['', Validators.required ],
       country_id:['', Validators.required ],
-      industry_ids:['', Validators.required ],
+      industry_id:['', Validators.required ],
       // contact_email:['', Validators.required ],
       // contact_phone:['', Validators.required ],
       town:['', Validators.required ],
@@ -31,29 +33,29 @@ some: any;
       // postal_code:['', Validators.required ],
       postal_address:['', Validators.required ],
       physiscal_address:['', Validators.required ],
-      registration_number:['', Validators.required ],
-      registration_certificate:['', Validators.required ],
-      // logo:['', Validators.required ],
-      tax_pin_number:['', Validators.required ],
-      tax_certificate:['', Validators.required ],
-      owner_first_name:['', Validators.required ],
-      // owner_middle_name:['', Validators.required ],
+      registration_number:[''],
+      // registration_certificate:[''],
+      tax_pin_number:[''],
+      // tax_certificate:[''],
+      
       // owner_last_name:['', Validators.required ],
-      // owner_email:['', Validators.required ],
+      owner_first_name:['', Validators.required ],
+      owner_email:['', Validators.required ],
       owner_phone:['', Validators.required ],
       owner_password:['', Validators.required ],
-      owner_password_confirmation:['', Validators.required ],
-      owner:[
-        {
-        email:['', Validators.required ],
-        phone:['', Validators.required ],
-        password:['', Validators.required ],
-        password_confirmation:['', Validators.required ],
-        }
-      ],
+      owner_password_confirmation:['', Validators.required ]
+    
+      // "owner[first_name]":['', Validators.required ],
+      // "owner[email]":['', Validators.required ],
+      // "owner[phone]":['', Validators.required ],
+      // "owner[password]":['', Validators.required ],
+      // "owner[password_confirmation]":['', Validators.required ]
+      
       
      });
-
+// this.owner= new FormGroup({
+//   first_name: new FormControl('')
+// });
      this.api.getCountries().subscribe((data) => {
       this.allCountries = data;
     });
