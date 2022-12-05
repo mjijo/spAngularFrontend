@@ -1,5 +1,8 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+
 
 @Component({
   selector: 'app-providers',
@@ -8,14 +11,25 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProvidersComponent implements OnInit {
 
-  public serviceproviders : any;
+  serviceproviders : any;
+  catid:any
 
-  constructor(private api : ApiService) { }
+
+  constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.api.getserviceproviders().subscribe((data) => {
-      this.serviceproviders = data;
-    });
+   this.actRoute.paramMap.subscribe(params => {
+    this.catid = params.get('id');
+    console.log(this.catid);
+   });
+   this.getServicesCatId(this.catid);
   }
 
+getServicesCatId (id:any) {
+  this.api.listServicesById(id).subscribe((data) =>{
+    this.serviceproviders =data;
+    console.log(data);
+  })
+}
+   
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://dis.opirth.com/api'
+  apiUrl: 'https://dis.opirth.com/api',
 };
 
 /*

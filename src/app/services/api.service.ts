@@ -38,22 +38,27 @@ loginUser(loginObj:any) {
  
 }
 
-getserviceproviders(){
-  return this.httpClient.get<any>(`${this.baseApiPath}/services`)
+getserviceproviders(id: any){
+  return this.httpClient.get<any>(`${this.baseApiPath}/services` + id)
   .pipe(map ((res:any)=>{
     return res.data;
   }))
 }
 
 
-getserviceprovidersDetails(id: number) {
-  return this.httpClient.get<any>(`${this.baseApiPath}/services/` + id)
+getserviceprovidersDetails(id:any) {
+  return this.httpClient.get<any>(`${this.baseApiPath}/services/`+id)
+  // .pipe(map ((res:any)=>{
+  //   return res.data;
+  // }))
+}
+
+listServicesById(catId:any){
+  console.log(catId);
+  return this.httpClient.get(`${this.baseApiPath}/services/?service_category_id=`+catId)
   .pipe(map ((res:any)=>{
     return res.data;
   }))
-}
-getServiceById(id:number) : Observable <Sp>{
-  return this.httpClient.get<Sp>(`${this.baseApiPath}/services/` + id);
 
 }
 getServiceDetails(productSlug: Observable<string>): Observable<any> {

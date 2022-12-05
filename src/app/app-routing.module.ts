@@ -47,8 +47,9 @@ const routes: Routes = [
 
                                   ]
 },
-  {path:'providers', component: ProvidersComponent},
-  {path:'service-providers/:slug', component: ProviderDetailsComponent} ,
+  {path:'services/:id', component: ProvidersComponent},
+  {path:'service-providers/:id', component: ProviderDetailsComponent} ,
+  
   {
     path: 'myaccount', children: [
                             {path:'', component: DashboardComponent, canActivate: [AuthGuard] },

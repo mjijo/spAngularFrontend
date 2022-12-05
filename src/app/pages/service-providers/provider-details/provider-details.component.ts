@@ -10,14 +10,23 @@ import { Sp } from 'src/app/interfaces/sp';
 })
 export class ProviderDetailsComponent implements OnInit {
 
-  product$!: Observable<any>
-  
+  id:any;
+  spdetails:any;
   constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
  
-    const productSlug$ = this.actRoute.params.pipe(map((params: any) => params?.["slug"]))
-    this.product$ = this.api.getServiceDetails(productSlug$).pipe(map(res => res))
+    this.actRoute.paramMap.subscribe(params => {
+      this.id = params.get('id');
+    });
+    this.getServiceProviderById(this.id);
+  }
+    getServiceProviderById(id:any){
+    this.api.getserviceprovidersDetails(id).subscribe((data)=>{
+      this.spdetails =data;
+
+    });
+  }
 
   }
  
@@ -27,4 +36,3 @@ export class ProviderDetailsComponent implements OnInit {
   
 
   
-}
