@@ -20,7 +20,7 @@
                                                       
                                                       <ul class="list-unstyled">
                                                           
-                                                              <li class="nav-item" *ngFor="let product_category of allProductsCategories; index as i"><a class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{product_category.name}}</a></li>
+                                                              <li class="nav-item" *ngFor="let product_category of allProductsCategories; index as i"><a [routerLink]="['/products/' + product_category?.id]"class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{product_category.name}}</a></li>
                                                           
                                                           
                                                           

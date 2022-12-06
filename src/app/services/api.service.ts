@@ -53,6 +53,13 @@ getserviceprovidersDetails(id:any) {
   // }))
 }
 
+getProductDetails(id:any) {
+  return this.httpClient.get<any>(`${this.baseApiPath}/products/`+id)
+  // .pipe(map ((res:any)=>{
+  //   return res.data;
+  // }))
+}
+
 listServicesById(catId:any){
   console.log(catId);
   return this.httpClient.get(`${this.baseApiPath}/services/?service_category_id=`+catId)
@@ -68,6 +75,15 @@ getServiceDetails(productSlug: Observable<string>): Observable<any> {
     })
   )
 }
+listProductsById(catId:any){
+
+  return this.httpClient.get(`${this.baseApiPath}/products/?product_category_id=`+catId)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
 forgotPassword(forgotpassObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/forget-password`,forgotpassObj);
 }

@@ -48,6 +48,10 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
 import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
 import { IndividualRegistrationComponent } from './auth/individual-registration/individual-registration.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
+import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
+import { CartComponent } from './pages/products/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +95,11 @@ import { IndividualRegistrationComponent } from './auth/individual-registration/
     TermsConditionsComponent,
     ProvidersComponent,
     ProviderDetailsComponent,
-    IndividualRegistrationComponent
+    IndividualRegistrationComponent,
+    ProductsListComponent,
+    ProductDetailComponent,
+    BidDetailComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,8 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
 import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
 import { IndividualRegistrationComponent } from './auth/individual-registration/individual-registration.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -48,7 +50,9 @@ const routes: Routes = [
                                   ]
 },
   {path:'services/:id', component: ProvidersComponent},
-  {path:'service-providers/:id', component: ProviderDetailsComponent} ,
+  {path:'service-providers/:id', component: ProviderDetailsComponent},
+  {path:'products/:id', component: ProductsListComponent},
+  {path:'product/:id', component: ProductDetailComponent},
   
   {
     path: 'myaccount', children: [
