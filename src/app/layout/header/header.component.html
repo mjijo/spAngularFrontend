@@ -4,39 +4,65 @@
     <div class="container">
     <div class="row logo_header">
     <div class="col-sm-6">
-    <a class="navbar-header"routerLink="/"><img src="../../../assets/img/logo.png" width="374" height="63" class="img-fluid" alt=""></a>
+    <a class="navbar-header" routerLink="/"><img src="../../../assets/img/logo.png" width="374" height="63" class="img-fluid" alt=""></a>
     </div>
     <div class="col-sm-6 radius-icon d-none d-sm-block">
+        <ng-container *ngIf="isLoggedIn">
+     <a class="btn btn-responsive yellow" (click)="headerlogout()">
+            <i class="fa fa-sign-in" aria-hidden="true"></i> Log Out
+        </a>
+         <a routerLink="/myaccount" class="btn btn-responsive blue" >
+            My Account
+        </a>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoggedIn">
+        <a href="login.html" class="btn btn-responsive yellow" data-toggle="modal" data-target="#my-modal">
+               <i class="fa fa-sign-in" aria-hidden="true"></i> Login
+           </a>
+            <a href="register.html" class="btn btn-responsive blue" data-toggle="modal" data-target="#my-modal-2">
+               <i class="fa fa-user-plus" aria-hidden="true"></i> Register
+           </a>
+       </ng-container>
     
-     <a href="login.html" class="btn btn-responsive yellow" data-toggle="modal" data-target="#my-modal">
-            <i class="fa fa-sign-in" aria-hidden="true"></i> Login
-        </a>
-         <a href="register.html" class="btn btn-responsive blue" data-toggle="modal" data-target="#my-modal-2">
-            <i class="fa fa-user-plus" aria-hidden="true"></i> Register
-        </a>
-        
-         <a href="cart.html" class="cart hidden">
-         <button class="btn btn-xs btn-link" style="font-size:20px;">
+         <a routerLink="/cart" class="cart hidden">
+         <button routerLink ="/cart" class="btn btn-xs btn-link" style="font-size:20px;">
         <i class="fa fa-shopping-cart" style="color:#fff"></i>
       </button>
-      <span class="badge badge-notify" style="font-size:10px;">3</span>
+      <span class="badge badge-notify" style="font-size:10px;">6</span>
         </a>
        
        </div> 
        </div>
     </div>
+   <ng-container *ngIf="isLoggedIn">
     <div class="col-sm-6 radius-icon d-block d-sm-none">
         
-            <div class="btn-group navbar-header" role="group" aria-label="Basic example">
-                <a class="btn btn-responsive yellow" data-toggle="modal" data-target="#my-modal">
-                    <i class="fa fa-sign-in" aria-hidden="true"></i> Login
-                </a>
-                 <a class="btn btn-responsive blue" data-toggle="modal" data-target="#my-modal-2">
-                    <i class="fa fa-user-plus" aria-hidden="true"></i> Register
-                </a>
-              </div>
-              
-    </div>
+        <div class="btn-group navbar-header" role="group" aria-label="Basic example">
+            <a class="btn btn-responsive yellow" (click)="headerlogout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Log <br>Out
+            </a>
+             <a class="btn btn-responsive blue" routerLink="/myaccount">
+                <i class="fa fa-user-plus" aria-hidden="true"></i> My Account
+            </a>
+          </div>
+          
+</div>
+   </ng-container>
+   <ng-container *ngIf="!isLoggedIn">
+    <div class="col-sm-6 radius-icon d-block d-sm-none">
+        
+        <div class="btn-group navbar-header" role="group" aria-label="Basic example">
+            <a class="btn btn-responsive yellow" data-toggle="modal" data-target="#my-modal">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Login+
+            </a>
+             <a class="btn btn-responsive blue" data-toggle="modal" data-target="#my-modal-2">
+                <i class="fa fa-user-plus" aria-hidden="true"></i> Register
+            </a>
+          </div>
+          
+</div>
+   </ng-container>
     </div>
     
     </div>
@@ -62,7 +88,7 @@
                          </div> -->
                          <div class="row justify-content-center">
                             <div class="col-sm-9 mb-2"><a routerLink="/login" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Login as Individual</a></div>
-                            <div class="col-sm-9 mb-5"><a routerLink="/" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Login as Organization</a> </div>
+                            <div class="col-sm-9 mb-5"><a routerLink="/" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Login as Business</a> </div>
                          </div>
                       </div>
                    </div>
@@ -94,8 +120,8 @@
                                 </div>
                                 <div class="row justify-content-center">
 
-                                    <div class="col-sm-9 mt-5"><a routerLink="/register" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Sign up as Individual</a></div>
-                                    <div class="col-sm-9 mt-2"><a routerLink="/register-organization" type="button" class="btn btn-icon btn-block text-left "><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Sign up as Organization</a> </div>
+                                    <div class="col-sm-9 mt-5"><a routerLink="/register" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-user img-fluid mr-1" aria-hidden="true"></i></span> Sign up as Individual</a></div>
+                                    <div class="col-sm-9 mt-2"><a routerLink="/register-organization" type="button" class="btn btn-icon btn-block text-left" data-dismiss="modal"><span><i class="fa fa-users img-fluid mr-1" aria-hidden="true"></i></span>Sign up as Business</a> </div>
                                    
                                 </div>
                                 <div class="row justify-content-center my-5">

@@ -1,129 +1,59 @@
 <section>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2 id="heading">Sign Up Your User Account</h2>
                     <p>Fill all form field to go to next step</p>
-                    <form id="msform" [formGroup]="signUpIndividual">
-                        <!-- progressbar -->
-                        <ul id="progressbar">
-                            <li class="active" id="personal"><strong>Personal</strong></li>
-                            <li id="payment"><strong>Image</strong></li>
-                            <li id="account"><strong>Account</strong></li>
-                            <li id="confirm"><strong>Finish (OTP Verification)</strong></li>
-                        </ul>
-                        <div class="progress">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div> <br> <!-- fieldsets -->
+                    <form id="msform" [formGroup]="signUpIndividual" class="text-left" novalidate (ngSubmit)="register()">
+                        <label class="fieldlabels">Last Names: *</label>
+                        <input formControlName="last_name" type="text" name="fname" placeholder="Other Names" /> 
                         
-                        <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Personal Information:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 1 - 4</h2>
-                                    </div>
-                                </div> 
-                                <label class="fieldlabels">Last Names: *</label> <input formControlName="last_name" type="text" name="fname" placeholder="Other Names" /> 
-                                <label class="fieldlabels">First Name: *</label> <input type="text" formControlName="first_name"  name="lname" placeholder="First Name" /> 
-                                <label class="fieldlabels">Country: *</label> 
-                                <select class="form-control" formControlName="country_id">
-                                    <option >Select Country</option>
-                                    <ng-container *ngFor="let country of allCountries; index as i">
-                                        <option value={{country.id}}>{{country.name}}</option>
-                                    </ng-container>
-                                </select> 
-								<label class="fieldlabels">Town/City: *</label> <input type="text" formControlName="town" name="phno_2" placeholder="Town/City" /> 
-                                <label class="fieldlabels">Zip Code: *</label> <input type="text" formControlName="zip_code" name="phno_2" placeholder="Zip Code" /> 
-                                <label class="fieldlabels">Gender: *</label> 
-                                <select class="form-control" formControlName="gender">
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="others">Others</option>
-                                </select> 
-								<label class="fieldlabels">Date of Birth: *</label> <input type="text" formControlName="date_of_birth" placeholder="DoB" /> 
-                                <label class="fieldlabels">Occupation: *</label> <select class="form-control" formControlName="occupation">
-  <option>Doctor</option>
-  <option>Farmer</option>
-  <option>Teacher</option>
-</select> 
-								<label class="fieldlabels">Postal Address: *</label> <input type="text" formControlName="postal_address" placeholder="Postal Address" /> 
-                                <label class="fieldlabels">Physical Address: *</label> <input type="text" formControlName="physical_address" placeholder="Physical Address" /> 
-                                
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Image Upload:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 2 - 4</h2>
-                                    </div>
-                                </div> 
-                                <label class="fieldlabels">Means of Identification: *</label> <select class="form-control" formControlName="identification_document">
-  <option value="national_id">National ID</option>
-  <option value="passport">Passport</option>
-</select> 
-                                <label class="fieldlabels">Idetification Number: *</label> <input type="text" formControlName="identification_number" name="id_no" placeholder="Idetification No." /> 
-                                <label class="fieldlabels">Upload Means of Identification:</label> <input type="file" formControlName="identification_file" name="pic" accept="image/*"> 
-                                <label class="fieldlabels">Upload Passport Photo:</label> <input type="file" formControlName="passport" name="pic" accept="image/*">
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Account Information:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 3 - 4</h2>
-                                    </div>
-                                </div> 
-                                <label class="fieldlabels">Email: *</label> <input type="email" formControlName="email" name="email" placeholder="Email Id" /> 
-                                <small *ngIf="signUpIndividual.controls['email'] .dirty && signUpIndividual.hasError('required','email')" class="text-danger">Email is Required</small>  
-                                <label class="fieldlabels">Phone Number: *</label> <input type="text" formControlName="phone" name="uname" placeholder="Country Code + Phone Number" />
-                                <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('required','phone')" class="text-danger">Phone is Required</small>  
-                                <label class="fieldlabels">Password: *</label> <input type="password" formControlName="password" name="pwd" placeholder="Password" /> 
-                                <small *ngIf="signUpIndividual.controls['password'] .dirty && signUpIndividual.hasError('required','password')" class="text-danger">Phone is Required</small>  
-                                <label class="fieldlabels">Confirm Password: *</label> <input type="password" formControlName="password_confirmation" name="cpwd" placeholder="Confirm Password" />
-                                <small *ngIf="signUpIndividual.controls['password_confirmation'] .dirty && signUpIndividual.hasError('required','password_confirmation')" class="text-danger">Phone is Required</small> 
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        </fieldset>
-                        <fieldset>
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">OTP Verification:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 4 - 4</h2>
-                                    </div>
-                                </div> 
-                                <!-- <h2 class="purple-text text-center"><strong>OTP Verifications</strong></h2> <br> -->
-                               
-                                <div class="row justify-content-center">
-                                    <div class="col-8">
-                                        <div class="alert alert-success" role="alert">
-                                            We’ve sent a verification code to your email - <i>ggithaiga@gmail.com</i>
-                                          </div>
-                                        <input type="text" name="otp" placeholder="Enter Verification code" value="Enter Verification code">
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center">
-                                    <div class="col-7 text-center">
-                                        <input type="button" name="next" (click)="register()" class="btn btn-primary submit" value="Submit" />
-                                        <!-- <h5 class="purple-text text-center">You Have Successfully Signed Up</h5> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </fieldset>
+                        <small *ngIf="signUpIndividual.controls['last_name'] .dirty && signUpIndividual.hasError('required','last_name')" class="text-danger d-block">Last Name is Required</small>
+                        <small *ngIf="signUpIndividual.controls['last_name'] .dirty && signUpIndividual.hasError('minlength','last_name')" class="text-danger d-block">The name must be at least three characters long.</small>   
+                        <label class="fieldlabels">First Name: *</label> 
+                        <input type="text" formControlName="first_name"  name="lname" placeholder="First Name" /> 
+                        <!-- <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">First Name Required.</div> -->
+                         <small *ngIf="signUpIndividual.controls['first_name'] .dirty && signUpIndividual.hasError('minlength','first_name')" class="text-danger d-block">The name must be at least three characters long.</small> 
+                        <small *ngIf="signUpIndividual.controls['first_name'] .dirty && signUpIndividual.hasError('required','first_name')" class="text-danger d-block">First Name is Required</small>
+                        <small *ngIf="signUpIndividual.controls['first_name'] .dirty && signUpIndividual.hasError('pattern','first_name')" class="text-danger d-block">First Name should start with Alphabet</small>   
+                        <label class="fieldlabels">Email: *</label> 
+                        <input type="email" formControlName="email" name="email"  /> 
+                        <small *ngIf="signUpIndividual.controls['email'] .dirty && signUpIndividual.hasError('required','email')" class="text-danger d-block">Email is Required</small>   
+                        <small *ngIf="signUpIndividual.controls['email'] .dirty && signUpIndividual.hasError('email','email')" class="text-danger d-block">Email is Invalid</small> 
+                        <small *ngIf="error" class="alert alert-danger d-block" role="alert">
+                            {{error}}
+                        </small> 
+                        <!-- <label class="fieldlabels">Phone Number: *</label> 
+                        <input type="text" formControlName="phone" name="uname" placeholder="Country Code + Phone Number" />
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('required','phone')" class="text-danger d-block">Number is Required</small>
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('pattern','phone')" class="text-danger d-block">Number is Invalid</small>
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('maxlength','phone')" class="text-danger d-block">Number is Long</small> 
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('minlength','phone')" class="text-danger d-block">Number is Short</small>      -->
+                        <label class="fieldlabels">Password: *</label> 
+                        <input type="password" formControlName="password" name="pwd" placeholder="Password" /> 
+                        <small *ngIf="signUpIndividual.controls['password'] .dirty && signUpIndividual.hasError('required','password')" class="text-danger d-block">Password is Required</small> 
+                        <small *ngIf="signUpIndividual.controls['password'] .dirty && signUpIndividual.hasError('minlength','password')" class="text-danger d-block">Password must be atleast 8 characters</small> 
+                        <label class="fieldlabels">Confirm Password: *</label> <input type="password" formControlName="password_confirmation" name="cpwd" placeholder="Confirm Password"/>
+                        <small *ngIf="signUpIndividual.controls['password_confirmation'] .dirty && signUpIndividual.hasError('required','password_confirmation')" class="text-danger d-block">Password is Required</small> 
+                        
+                        <!-- <small class="text-danger d-block" [ngStyle]="{'display': repeatPass}">Password is Required</small>  -->
+                       
+                        <div *ngIf="extraerror" class="alert alert-danger" role="alert">
+                            {{extraerror}}
+                        </div>
+                        
+                        <!-- <div *ngFor="let item of error;" class="alert alert-danger" role="alert">
+                            {{item.message}}
+                        </div> -->
+                        <button [disabled]="loading"  class="btn login_btn">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1 "></span>Login</button>
                         
                     </form>
+
+                    <div class="alert alert-success" *ngIf="isSuccessful">
+                        Your registration is successful!
+                      </div>
                 </div>
             </div>
         </div>

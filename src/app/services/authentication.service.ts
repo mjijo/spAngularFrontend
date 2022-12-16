@@ -11,6 +11,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  
   private userSubject: BehaviorSubject<User | null>;
   public user: Observable<User | null>;
 
@@ -33,6 +34,12 @@ login(username: string, password: string) {
             this.userSubject.next(user);
             return user;
         }));
+}
+
+checkUser() {
+ let user = localStorage.getItem('user');
+  
+ if (user != null && user != '') { return true; } else { return false; } 
 }
 
 logout() {

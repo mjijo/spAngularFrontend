@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
     loading = false;
     submitted = false;
-    error = '';
+    error :any = null;
+    isLoggedIn : boolean =false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -50,15 +51,18 @@ export class LoginComponent implements OnInit {
         this.error = '';
         this.loading = true;
         this.authenticationService.login(this.f['username'].value, this.f['password'].value)
+       
             .pipe(first())
             .subscribe({
                 next: () => {
                     // get return url from route parameters or default to '/'
                     const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/myaccount';
                     this.router.navigate([returnUrl]);
+                    this.isLoggedIn = this.authenticationService.checkUser();
+                    console.log('Islogged in?', this.isLoggedIn);
                 },
-                error: error => {
-                    this.error = 'Wrong Credentials';
+                error: err => {
+                    this.error = err.error.message;
                     this.loading = false;
                 }
             });

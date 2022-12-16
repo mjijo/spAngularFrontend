@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 
 @Component({
@@ -12,54 +13,25 @@ import { ApiService } from 'src/app/services/api.service';
 export class HeaderComponent implements OnInit {
   
   signIn!: FormGroup;
-username: any;
+ username: any;
+ isLoggedIn : boolean =false;
 
-  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router ) { }
+  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router, private auth:AuthenticationService) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
 
-   this.signIn = this.formbuilder.group({
-    username: ['', Validators.required ],
-    password:['', Validators.required ]
-   });
+   this.isLoggedIn = this.auth.checkUser();
+   console.log('Islogged in?', this.isLoggedIn);
 
   }
 
- 
-  login() {
-  //  this.api.login()
-  if(this.signIn.valid){
-    console.log(this.signIn.value);
-
-    this.api.loginUser(this.signIn.value)
-     .subscribe({
-      next:(res)=>{
-        this.router.navigate(['/myaccount']);
-        alert(res.message.message)
-      },
-error:(err)=>{
-  alert(err.error)
-}
-
-    })
-
-  }else {
-    console.log("Wrong");
-    this.validateAllFormFields(this.signIn)
-   
+  headerlogout()
+  {
+    this.auth.logout();
+    this.isLoggedIn = false;
+    window.location.reload();
   }
   
-   
   }
 
-  private validateAllFormFields(formGroup:FormGroup){
-    Object.keys(formGroup.controls).forEach(field=>{
-      const control = formGroup.get(field);
-      if(control instanceof FormControl){
-        control.markAsDirty({onlySelf:true});
-      }else if (control instanceof FormGroup){
-        this.validateAllFormFields(control)
-      }
-    })
-  }
-}
+  

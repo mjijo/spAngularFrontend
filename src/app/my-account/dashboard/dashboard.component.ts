@@ -12,12 +12,15 @@ import { UserService  } from 'src/app/services/user.service';
 })
 export class DashboardComponent implements OnInit {
   loading = false;
-  user?: User | null;
+  user?: User | any;
 
   constructor(private userService: UserService, private api:AuthenticationService) { }
 
   ngOnInit(): void {
-    this.api.user.subscribe(x => this.user = x);
+    this.api.user.subscribe(x => 
+      this.user = x);
+      console.log(this.user.user);
+     
   }
   logout(){
     this.api.logout()

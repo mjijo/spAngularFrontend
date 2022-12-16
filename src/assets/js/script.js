@@ -525,3 +525,71 @@ $(function() {
     });
     });
     });
+
+
+    $(document).ready(function(){
+        $('.sendButton').attr('disabled',true);
+        
+        $('#invalid',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendButton').attr('disabled', false); 
+
+            }
+            else
+            {
+                $('.sendButton').attr('disabled', true);        
+            }
+        })
+    });
+
+
+    $(document).ready(function(){
+        $('.sendUpload').attr('disabled',true);
+        
+        $('#invalid-2',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendUpload').attr('disabled', false); 
+
+            }
+            else
+            {
+                $('.sendUpload').attr('disabled', true);        
+            }
+        })
+    });
+
+    $(document).ready(function(){
+        $('.sendAccount').attr('disabled',true);
+        
+        $('#invalid-3',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendAccount').attr('disabled', false); 
+               
+
+            }
+            else
+            {
+                $('.sendAccount').attr('disabled', true);        
+            }
+        })
+    });
+
+    $(document).ready(function(){
+        $('.sendProfile').attr('disabled',true);
+        
+        $('#invalid-4',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendProfile').attr('disabled', false); 
+               
+
+            }
+            else
+            {
+                $('.sendProfile').attr('disabled', true);        
+            }
+        })
+    });

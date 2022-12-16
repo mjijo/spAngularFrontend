@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map, throwError, switchMap } from 'rxjs';
+import { Observable, map, throwError, switchMap, pipe } from 'rxjs';
+import { JwtInterceptor } from '../helpers';
+
 import { ForgotPasswordComponent } from '../auth/forgot-password/forgot-password.component';
 import { Sp } from '../interfaces/sp';
+import { JsonPipe } from '@angular/common';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,13 +17,15 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-  private baseApiPath = 'https://dis.opirth.com/api';
+  private baseApiPath = 'http://159.203.108.137/api';
+  private token: any = null;
 
   constructor(private httpClient: HttpClient)
   {
     //
   }
-  loginInd(username: string, password: string): Observable<any> {
+
+loginInd(username: string, password: string): Observable<any> {
     return this.httpClient.post(
       `${this.baseApiPath}/auth/login`,
       httpOptions
@@ -33,9 +38,31 @@ registerUser(registerUserObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/register`,registerUserObj);
 }
 
+updateUser(data :any,id: number) {
+  let testkon:any = this.gettoken()
+  console.log(testkon);
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  //let header:HttpHeaders = {'Authorization':'Bearer 3|9H5CLFxI8mEljdvGDBdp3kWMwvlORtAHRn2MGlS7'}
+  return this.httpClient.patch(`${this.baseApiPath}/users/`+id,data,{headers: header} )
+  // .pipe(map ((res:any)=>{
+  //   return res.data;
+  // }))
+}
+
 loginUser(loginObj:any) {
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/login`,loginObj);
  
+}
+
+gettoken(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/sanctum/csrf-cookie`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
 }
 
 getserviceproviders(id: any){

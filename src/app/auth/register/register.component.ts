@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup ,Validators,FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup ,Validators,FormControl, EmailValidator} from '@angular/forms';
 
 import { ApiService } from '../../services/api.service';
 
@@ -15,13 +15,18 @@ export class RegisterComponent implements OnInit {
   allCountries! : any;
   serviceCategories! : any;
   allProductsCategories! : any;
-  
+
+  txtValue! :string;
+  message! : string;
+ 
+  buttonDisabled !: boolean;
+owner_email: any;
 
 
   constructor(private api:ApiService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
-
+   
     this.signUp = this.fb.group({
       name: ['', Validators.required ],
       country_id:['', Validators.required ],
@@ -40,7 +45,11 @@ export class RegisterComponent implements OnInit {
       
       // owner_last_name:['', Validators.required ],
       owner_first_name:['', Validators.required ],
-      owner_email:['', Validators.required ],
+      owner_email:['', Validators.required, [
+        Validators.maxLength(250),
+        Validators.minLength(5),
+        Validators.pattern(/.+@.+\..+/)
+     ]],
       owner_phone:['', Validators.required ],
       owner_password:['', Validators.required ],
       owner_password_confirmation:['', Validators.required ]
@@ -50,7 +59,7 @@ export class RegisterComponent implements OnInit {
       // "owner[phone]":['', Validators.required ],
       // "owner[password]":['', Validators.required ],
       // "owner[password_confirmation]":['', Validators.required ]
-      
+   
       
      });
 // this.owner= new FormGroup({
@@ -101,5 +110,29 @@ error:(err)=>{
         this.validateAllFormFields(control)
       }
     })
+
+   
   }
+
+  // public validate(): void {
+  //   if (this.signUp.get('name')) {
+  //     for (const control of Object.keys(this.reactiveForm.controls)) {
+  //       this.reactiveForm.controls[control].markAsTouched();
+  //     }
+  //     return;
+  //   }
+
+  step1() {
+
+    this.txtValue = '';
+    if(this.txtValue == '')
+    {
+      this.message="Textbox is empty !!!";
+      this.buttonDisabled = true;
+    }
+      
+  }
+
+
+  
 }

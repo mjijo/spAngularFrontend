@@ -30,6 +30,8 @@ import { ProvidersComponent } from './pages/service-providers/providers/provider
 import { IndividualRegistrationComponent } from './auth/individual-registration/individual-registration.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
+import { CartComponent } from './pages/products/cart/cart.component';
+import { AllBidsComponent } from './pages/products/bids/bids.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -53,20 +55,22 @@ const routes: Routes = [
   {path:'service-providers/:id', component: ProviderDetailsComponent},
   {path:'products/:id', component: ProductsListComponent},
   {path:'product/:id', component: ProductDetailComponent},
+  {path:'bids/:id', component: AllBidsComponent},
+  {path:'cart', component: CartComponent},
   
   {
     path: 'myaccount', children: [
                             {path:'', component: DashboardComponent, canActivate: [AuthGuard] },
                             {path:'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-                            {path:'orders', component: OrdersComponent},
-                            {path:'track-my-orders', component: TrackMyOrdersComponent},
-                            {path:'bids', component: BidsComponent},
-                            {path:'notifications', component: NotificationsComponent},
-                            {path:'appointments', component: AppointmentsComponent},
-                            {path:'quotations', component: QuotationsComponent},
-                            {path:'reffered-clients', component: RefferedClientsComponent},
-                            {path:'address', component: AddressComponent},
-                            {path:'my-profile', component: MyProfileComponent}
+                            {path:'orders', component: OrdersComponent, canActivate: [AuthGuard]},
+                            {path:'track-my-orders', component: TrackMyOrdersComponent,canActivate: [AuthGuard]},
+                            {path:'bids', component: BidsComponent, canActivate: [AuthGuard]},
+                            {path:'notifications', component: NotificationsComponent, canActivate: [AuthGuard]},
+                            {path:'appointments', component: AppointmentsComponent, canActivate: [AuthGuard]},
+                            {path:'quotations', component: QuotationsComponent, canActivate: [AuthGuard]},
+                            {path:'reffered-clients', component: RefferedClientsComponent, canActivate: [AuthGuard]},
+                            {path:'address', component: AddressComponent, canActivate: [AuthGuard]},
+                            {path:'my-profile', component: MyProfileComponent, canActivate: [AuthGuard]}
 
                                 ]
   },

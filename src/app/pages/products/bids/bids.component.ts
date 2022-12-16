@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './bids.component.html',
   styleUrls: ['./bids.component.scss']
 })
-export class BidsComponent implements OnInit {
+export class AllBidsComponent implements OnInit {
 
   constructor() { }
 

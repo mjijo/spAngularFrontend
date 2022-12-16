@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
-import { FormBuilder, FormGroup ,Validators,FormControl} from '@angular/forms';
+import { FormBuilder, FormGroup ,Validators,FormControl, AbstractControl} from '@angular/forms';
+import { subscribeOn } from 'rxjs';
+import { Validation } from './password-validators';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-individual-registration',
@@ -12,57 +15,88 @@ export class IndividualRegistrationComponent implements OnInit {
   allCountries! : any;
   serviceCategories! : any;
   allProductsCategories! : any;
+  submitted = false;
+  repeatPass: string ='none';
+
+  error!: any;
+  extraerror : any= null;
+  message: any;
+  phoneerror: any;
+  isSuccessful = false;
+  loading = false;
 
   constructor(private api:ApiService, private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.signUpIndividual = this.fb.group({
-      first_name: ['', Validators.required ],
-      // middle_name: ['', Validators.required ],
-      last_name:['', Validators.required ],
-      email:['', Validators.required ],
-      phone:['', Validators.required ],
-      password:['', Validators.required ],
-      password_confirmation:['', Validators.required ],
-      country_id:['' ],
-      town:['' ],
-      zip_code:[''],
-      gender:[''],
-      date_of_birth:['' ],
-      occupation:[''],
-      postal_address:['' ],
-      physical_address:[''],
-      identification_document:['' ],
-      identification_number:[''],
-      passport:['' ],
-      identification_file:[''],
-     
-     });
-
-     this.api.getCountries().subscribe((data) => {
-      this.allCountries = data;
-    });
-
-    this.api.getServicesCategory().subscribe((data) =>{
-      this.serviceCategories = data;
-    });
-
-    this.api.getProducts().subscribe((data) =>{
-      this.allProductsCategories = data;
-    });
+      first_name:["", [
+        Validators.required, 
+        Validators.minLength(3),
+        Validators.pattern('[a-zA-Z].*')
+      ]],
+      last_name: ["", [
+        Validators.required, 
+        Validators.minLength(3)]],
+      email:["", [
+        Validators.required, 
+        Validators.email]],
+      // phone:["", [
+      //   Validators.required,
+      //   Validators.pattern('[0-9]*'), 
+      //   Validators.minLength(10), 
+      //   Validators.maxLength(10)]],
+      // password: ["", [Validators.required, Validators.minLength(10), 
+      //   Validators.maxLength(15)]],
+      // password_confirmation: new FormControl("",[Validators.required]),
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          
+        ]
+      ],
+      password_confirmation: ['', Validators.required],
+      // acceptTerms: [false, Validators.requiredTrue]
+    }
+    );
+ 
   }
-
+ 
+ 
+   
   register(){
-
+   
     if(this.signUpIndividual.valid){
       console.log(this.signUpIndividual.value);
+      
+      this.loading = true;
       this.api.registerUser(this.signUpIndividual.value)
      .subscribe({
       next:(res)=>{
-        alert(res.message.message)
+        this.isSuccessful = true;
+        // alert(res.message.message)
+        Swal.fire({
+          icon: 'success',
+          title: 'DONE',
+          text: 'Your registration is successful!',
+          
+        })
       },
 error:(err)=>{
-  alert(err.error)
+  this.loading = false;
+  console.log (err.error.errors.password);
+  this.error = (err.error.errors.email);
+  this.phoneerror = (err.error.errors.phone);
+  this.extraerror = ("password" in err.error ? err.error.password : null)
+  console.log(this.extraerror)
+  if("errors" in err.error){
+    if("password" in err.error.errors){
+      this.extraerror = err.error.errors.password[0]
+    }
+    
+  }
+  // this.message = this.error.message;
 }
 
     })

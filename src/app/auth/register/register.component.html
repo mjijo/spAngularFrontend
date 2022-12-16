@@ -28,10 +28,10 @@
                                     </div>
                                 </div> 
                                 <label class="fieldlabels">Organisation Name: *</label> 
-                                <input type="text" formControlName="name" />
-                                <small *ngIf="signUp.controls['name'] .dirty && signUp.hasError('required','name')" class="text-danger">Name is Required</small>  
+                                <input type="text" formControlName="name"/>
+                                <small *ngIf="signUp.controls['name'] .dirty && signUp.hasError('required','name')" class="text-danger d-block">Name is Required</small>  
                                 <label class="fieldlabels">Country: *</label> 
-                                <select class="form-control rounded-0" formControlName="country_id" >
+                                <select class="form-control rounded-0" formControlName="country_id">
                                     <option >Select Country</option>
                                     <ng-container *ngFor="let country of allCountries; index as i">
                                         <option value={{country.id}}>{{country.name}}</option>
@@ -39,7 +39,7 @@
 </select> 
 								<label class="fieldlabels">Town/City: *</label> 
                                 <input type="text" formControlName="town" />
-                                <small *ngIf="signUp.controls['town'] .dirty && signUp.hasError('required','town')" class="text-danger">Name is Required</small> 
+                                <small *ngIf="signUp.controls['town'] .dirty && signUp.hasError('required','town')" class="text-danger d-block">Name is Required</small> 
                                 <label class="fieldlabels">Zip Code: *</label> 
                                 <input type="text" formControlName="zip_code" />  
 								<!-- <label class="fieldlabels">Date of Registration: *</label> <input type="text" name="phno_2" placeholder="DoR" />  -->
@@ -53,11 +53,12 @@
   
 </select> 
 								<label class="fieldlabels">Postal Address: *</label> 
-                                <input type="text" formControlName="postal_address"/> 
+                                <input type="text" formControlName="postal_address" id="invalid"/> 
                                 <label class="fieldlabels">Physical Address: *</label> 
-                                <input type="text" formControlName="physiscal_address" /> 
+                                <input type="text" formControlName="physiscal_address" id="invalid"/> 
                                 
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                            </div> <input type="button" name="next" class="next action-button sendButton" value="Next"/> 
+                            <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -71,14 +72,16 @@
                                 </div> 
 
                                 <label class="fieldlabels">Registration Number: *</label> 
-                                <input type="text" formControlName="registration_number" /> 
+                                <input type="text" formControlName="registration_number" id="invalid-2"/> 
                                 <label class="fieldlabels" >Upload Registration Certificate:</label> 
-                                <input type="file" formControlName="registration_certificate">							
+                                <input type="file" formControlName="registration_certificate" id="invalid-2">							
                                 <label class="fieldlabels">Tax Number: *</label> 
-                                <input type="text" formControlName="tax_pin_number" placeholder="Idetification No." /> 
+                                <input type="text" formControlName="tax_pin_number" placeholder="Idetification No." id="invalid-2" /> 
                                 <label class="fieldlabels">Upload Tax Certificate:</label> 
                                 <input type="file" formControlName="tax_certificate">
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                            </div> 
+                            <input type="button" name="next" class="next action-button sendUpload" value="Next" />
+                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -92,17 +95,17 @@
                                 </div> 
                                 
                                 <label class="fieldlabels">Email: *</label> 
-                                <input type="email" formControlName="owner_email" placeholder="Email Id" /> 
+                                <input type="email" formControlName="owner_email" placeholder="Email Id" id="invalid-3" /> 
                                 <label class="fieldlabels">Username: *</label> 
-                                <input type="text" formControlName="owner_first_name" placeholder="UserName" /> 
+                                <input type="text" formControlName="owner_first_name" placeholder="UserName" id="invalid-3"/> 
                                 <label class="fieldlabels">Phone Number: *</label> 
-                                <input type="text" formControlName="owner_phone" placeholder="Country Code + Phone Number" />
+                                <input type="text" formControlName="owner_phone" placeholder="Country Code + Phone Number" id="invalid-3" />
                                 <label class="fieldlabels">Password: *</label> 
-                                <input type="password" formControlName="owner_password" /> 
+                                <input type="password" formControlName="owner_password" id="invalid-3"/> 
                                 <label class="fieldlabels">Confirm Password: *</label> 
-                                <input type="password" formControlName="owner_password_confirmation" placeholder="Confirm Password" />
+                                <input type="password" formControlName="owner_password_confirmation" placeholder="Confirm Password" id="invalid-3"/>
                              
-                            </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                            </div> <input type="button" name="next" class="next action-button sendAccount" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -119,18 +122,20 @@
                                 <div class="row justify-content-center">
                                     <div class="col-8">
                                         <div class="alert alert-success" role="alert">
-                                            We’ve sent a verification code to your email - <i>john.doe@gmail.com</i>
+                                            We’ve sent a verification code to your email - <i>test@test.com</i>
                                           </div>
                                         <input type="text"  placeholder="Enter Verification code" value="Enter Verification code">
                                     </div>
                                 </div>
+                                <input type="button" name="next" class=" action-button" (click)="register()" value="Register" /> 
+                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
                                 <div class="row justify-content-center">
-                                    <div class="col-7 text-center">
+                                    <!-- <div class="col-7 text-center">
                                         
                                          <button class="btn btn-primary submit" (click)="register()">Register</button>
-                                        <!-- <input type="button" name="next" class="btn btn-primary submit" value="Submit" /> -->
+                                        
                                         <h5 class="purple-text text-center"></h5>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </fieldset>

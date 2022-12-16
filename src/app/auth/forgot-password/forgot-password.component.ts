@@ -22,6 +22,16 @@ export class ForgotPasswordComponent implements OnInit {
   forgot(){
     if(this.forgotPass.valid){
       console.log(this.forgotPass.value);
+      this.api.forgotPassword(this.forgotPass.value)
+      .subscribe({
+        next:(res)=>{
+          alert(res.message.message)
+        },
+  error:(err)=>{
+    alert(err.error.message)
+  }
+  
+      })
       
     }else {
       console.log("The email is empty");

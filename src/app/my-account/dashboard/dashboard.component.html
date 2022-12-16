@@ -31,7 +31,7 @@
                 <app-sidemenu></app-sidemenu>
              </div>
              <div class="col-md-8">
-                <p> Hello <b>mjijo</b> (not {{user.username}}? <a href="#" (click)="logout()">Log out</a>)<br>
+                <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)<br>
                     From your account dashboard you can view your <a href="my-orders.html">recent orders</a>, manage your <a href="address.html">shipping and billing addresses</a>, and <a href="#">edit your password and account details</a>.</p>
                     <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
              </div>
