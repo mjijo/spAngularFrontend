@@ -17,7 +17,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-  private baseApiPath = 'http://159.203.108.137/api';
+  private baseApiPath = 'http://109.123.241.92/api';
   private token: any = null;
 
   constructor(private httpClient: HttpClient)
