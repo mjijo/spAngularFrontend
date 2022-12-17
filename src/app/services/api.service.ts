@@ -131,7 +131,13 @@ getTenderDetails(id:any) {
   // }))
 }
 
+packages(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/packages`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
 
+}
 
 forgotPassword(forgotpassObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/forget-password`,forgotpassObj);
