@@ -44,7 +44,7 @@
                       <div class="col-md-4 mb-2"><i class="fa fa-eye mr-2" aria-hidden="true"></i>411 Views</div>
                       <div class="col-md-4 mb-2"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Closing Date - {{tenderData.closing_date}}</div>
                     </div>
-                    <ng-container *ngFor="tenderData">
+                    <ng-container *ngIf="tenderData">
                         <hr />
                     <div class="row">
                         
@@ -66,7 +66,7 @@
                 <ng-container *ngIf="isLoggedin">
                     <ng-container *ngFor="let attachement of tenderData.tenderAttachments; index as r">
                         <p><i class="fa fa-cloud-download mr-1" aria-hidden="true"></i><a href="{{attachement.original_url}}">{{attachement.name}}</a> </p>
-                        
+
                     </ng-container>
                 </ng-container>
                 
