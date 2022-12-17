@@ -80,6 +80,11 @@ getserviceprovidersDetails(id:any) {
   // }))
 }
 
+postReferrals(referralsObj:any) {
+  return this.httpClient.post<any>(`${this.baseApiPath}/referrals`,referralsObj);
+ 
+}
+
 getProductDetails(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/products/`+id)
   // .pipe(map ((res:any)=>{
@@ -111,8 +116,33 @@ listProductsById(catId:any){
 
 }
 
+tenders(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/tenders`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+getTenderDetails(id:any) {
+  return this.httpClient.get<any>(`${this.baseApiPath}/tenders/`+id)
+  // .pipe(map ((res:any)=>{
+  //   return res.data;
+  // }))
+}
+
+
+
 forgotPassword(forgotpassObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/forget-password`,forgotpassObj);
+}
+
+subscriber(subscricerObj:any){
+  return this.httpClient.post<any>(`${this.baseApiPath}/subscribe`,subscricerObj)
+  // .pipe(map ((res:any)=>{
+  //   return res.data;
+  // }))
+
 }
 
 getCountries(){
@@ -140,52 +170,5 @@ getProducts(){
 
 }
 
-  // get(param: any): Observable<any> {
-  //   return this.httpClient.get(`${this.baseApiPath}/${param}`)
-  // }
-
-  // get2(param: any): Observable<any> {
-  //   return this.httpClient.get(`${this.baseApiPath}/${param}`)
-  // }
-
-  // getWithOrigin(param: any): Observable<any> {
-  //   let headers = new HttpHeaders({
-  //     'browserRef': 'portal'
-  //   });
-  //   let requestOptions = { headers: headers };
-    
-  //   return this.httpClient.get(`${this.baseApiPath}/${param}`,requestOptions)
-  // }
-
-  // post(data: any, param: string): Observable<any> {
-  //   return this.httpClient.post(`${this.baseApiPath}/${param}`, data)
-  // }
-
-  // getEndpoints(){
-  //   return {
-  //     sign_in: 'usrLogin',
-  //     register_user: 'rgstUsr',
-  //     settings: {
-  //       countries: {
-  //         get_all_countries: 'getAllCountries'
-          
-  //       },
-  //       service_categories: {
-  //         get_all_categories: 'getAllServiceCategories'
-         
-  //       },
-  //       product_categories: {
-  //         get_all_product_categories: 'getProdCats'
-        
-  //       },
-  //       sectors: {
-  //         get_all_sectors: 'getAllSectors'
-         
-  //       }
-  //     },
-  //     local_storage: {
-  //       user: 'fesplocdat'
-  //     }
-  //   }
-  // }
+  
 }
