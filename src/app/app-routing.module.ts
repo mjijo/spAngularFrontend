@@ -32,6 +32,7 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
 import { CartComponent } from './pages/products/cart/cart.component';
 import { AllBidsComponent } from './pages/products/bids/bids.component';
+import { TenderComponent } from './pages/tenders/tender/tender.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -40,6 +41,7 @@ const routes: Routes = [
   {path: 'features', component: FeaturesComponent},
   {path: 'pricing', component: PricingComponent},
   {path: 'tender', component: TendersComponent},
+  {path: 'tender/:id', component: TenderComponent},
   {path: 'delivery-information', component: DeliveryInformationComponent},
   {path: 'privacy-policy', component: PrivacyPolicyComponent},
   {path: 'terms-conditions', component: TermsConditionsComponent},

@@ -42,7 +42,7 @@
                                                       
                                               <ul class="list-unstyled three">
                                                   
-                                                      <li class="nav-item"  *ngFor="let service of serviceCategories; index as i"><a [routerLink]="['/services/' + service?.id]" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{service.name}}<span class="badge badge-warning ml-1">10</span></a></li>
+                                                      <li class="nav-item"  *ngFor="let service of serviceCategories; index as i"><a [routerLink]="['/services/' + service?.id]" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{service.name}}<span class="badge badge-warning ml-1">{{service.services_count}}</span></a></li>
                                                  
        
                                               </ul>

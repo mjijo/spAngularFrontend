@@ -82,6 +82,8 @@ export class IndividualRegistrationComponent implements OnInit {
           text: 'Your registration is successful!',
           
         })
+
+        this.signUpIndividual.reset();
       },
 error:(err)=>{
   this.loading = false;

@@ -8,6 +8,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -54,6 +55,7 @@ import { ProductsListComponent } from './pages/products/products-list/products-l
 import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
 import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
 import { CartComponent } from './pages/products/cart/cart.component';
+import { TenderComponent } from './pages/tenders/tender/tender.component';
 
 @NgModule({
   declarations: [
@@ -101,7 +103,8 @@ import { CartComponent } from './pages/products/cart/cart.component';
     ProductsListComponent,
     ProductDetailComponent,
     BidDetailComponent,
-    CartComponent
+    CartComponent,
+    TenderComponent
   ],
   imports: [
     BrowserModule,

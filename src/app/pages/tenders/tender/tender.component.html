@@ -1,0 +1,85 @@
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#!" data-abc="true">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+       
+    
+    </section>
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start content here-->
+    <section class="accordion_two_section ptb-100 inner-page">
+        <div class="container py-5">
+            <h2 class="text-center title"><span>Tender</span></h2>
+            <div class="row pt-3">
+            <div class="col-md-12 tenders-details ">
+                <h3><i class="fa fa-file-text mr-2" aria-hidden="true"></i>{{tenderData.title}}</h3>
+              <div class="row mt-4">
+                <div class="container">
+                    <div class="row-fliud d-flex bg-white py-3">
+                        <div class="col-md-3">
+                        <img src="../../../../assets/img/brands_1.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-md-9">
+                        <h4><i class="fa fa-archive mr-2" aria-hidden="true"></i> {{tenderData.organization}}</h4>
+                    <div class="row">
+                      <div class="col-md-4 mb-2"><i class="fa fa-star mr-2" aria-hidden="true"></i> Invitation to Tender</div>
+                      <div class="col-md-4 mb-2"><i class="fa fa-tag mr-2" aria-hidden="true"></i>Sector : {{tenderData.sector}}</div>
+                      <div class="col-md-4 mb-2"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Open Date : {{tenderData.open_date}}</div>
+                      <div class="col-md-4 mb-2"><i class="fa fa-eye mr-2" aria-hidden="true"></i>411 Views</div>
+                      <div class="col-md-4 mb-2"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Closing Date - {{tenderData.closing_date}}</div>
+                    </div>
+                    <ng-container *ngFor="tenderData">
+                        <hr />
+                    <div class="row">
+                        
+                        <div class="col-md-4 mb-2">
+                            <b class="mt-2">Description</b>
+                            <p>{{tenderData.description}}</p>
+                        </div>
+                      </div>
+                    </ng-container>
+                    
+                    </div></div>
+                </div>
+              </div>
+              <div class="row p-4">
+               <div class="col-md-12">
+                <ng-container *ngIf="!isLoggedin">
+                    <p class="text-center"><button (click)="downloadTenderBtn()" class="btn btn-primary btn-lg"><i class="fa fa-cloud-download mr-1" aria-hidden="true"></i>Download tender</button></p>
+                </ng-container>
+                <ng-container *ngIf="isLoggedin">
+                    <ng-container *ngFor="let attachement of tenderData.tenderAttachments; index as r">
+                        <p><i class="fa fa-cloud-download mr-1" aria-hidden="true"></i><a href="{{attachement.original_url}}">{{attachement.name}}</a> </p>
+                        
+                    </ng-container>
+                </ng-container>
+                
+                
+                
+               </div>
+              </div>
+                 
+              </div>  
+            </div>
+        </div>
+        
+        <!--end of /.container-->
+    </section>
+    
+    <!-- section end here-->

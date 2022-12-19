@@ -12,9 +12,15 @@
               <div class="col-md-8">
                 <div class="subscribe-wrapper subscribe2-wrapper mb-15">
                   <div class="subscribe-form">
-                    <form action="#">
-                      <input placeholder="enter your email address" type="email">
-                      <button>subscribe </button>
+                    <form [formGroup]="subscribersForm"(ngSubmit)="subscribeBtn()">
+                      <input placeholder="enter your email address" formControlName="email" type="email">
+                     
+                      <button type="submit">subscribe </button>
+                      <small *ngIf="subscribersForm.controls['email'] .dirty && subscribersForm.hasError('required','email')" class="text-danger d-block">Email is Required</small>   
+                      <small *ngIf="subscribersForm.controls['email'] .dirty && subscribersForm.hasError('email','email')" class="text-danger d-block">Email is Invalid</small> 
+                      <small *ngIf="error" class="alert alert-danger d-block" role="alert">
+                          {{error}}
+                      </small> 
                     </form>
                   </div>
                 </div>

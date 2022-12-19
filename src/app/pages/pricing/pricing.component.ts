@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-pricing',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pricing.component.scss']
 })
 export class PricingComponent implements OnInit {
+  packageList !: any;
 
-  constructor() { }
+  constructor(private api:ApiService, private router: Router) { }
 
   ngOnInit(): void {
+    this.getPackages();
   }
-
+  getPackages(){
+    this.api.packages().subscribe((data)=>{
+      this.packageList = data;
+      console.log(data);
+    }
+    )
+  }
 }
