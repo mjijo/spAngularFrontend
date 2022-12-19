@@ -32,6 +32,8 @@
               "src/assets/css/style.css",
               "src/assets/css/owl.carousel.min.css",
               "src/assets/css/owl.theme.min.css",
+              "src/assets/css/xzoom.css",
+              "src/assets/css/daterangepicker.css",
               "src/styles.scss"
             ],
             "scripts": [
@@ -40,7 +42,11 @@
               "src/assets/js/bootstrap.js",
               "src/assets/js/script.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/carousel.js"
+              "src/assets/js/carousel.js",
+              "src/assets/js/xzoom.min.js",
+              "src/assets/js/jquery.accordion-form.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/daterangepicker.js"
             ]
           },
           "configurations": {
