@@ -24,35 +24,17 @@
     <!-- section start faqs here-->
     <section class="accordion_two_section ptb-100 inner-page sdetails">
         <div class="container py-5">
-  
-            <ng-container *ngIf="isLoading">
-            <div class="row text-center d-flex justify-content-center" >
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-            </div>
-        </ng-container>
-        <ng-container *ngIf="servivecategory">
-            <h2 class="text-center title"><span>{{servivecategory[this.catid].service_category.name}}</span></h2>
-        </ng-container>
+            <h2 class="text-center title"><span *ngFor="let cat of serviceproviders;">{{cat.service_category.name}}</span></h2>
             <div class="row">
                 
                 <!--team-2-->
                 <ng-container *ngFor="let item of serviceproviders; index as i">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-4">
                     <div class="our-team-main">
-                        <div class="team-front"> 
-                            <div class="img-wrap">
-                            <img [src]="item.logo_url" class="img-fluid" alt="{{item.name}}" />
-                            </div>
+                        <div class="team-front"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562038346/andrew_decristofaro.jpg" class="img-fluid" />
                             <h3><a [routerLink]="['/service-providers/' + item?.id]">{{item.name}}</a></h3>
-                            <p class="desc">{{item.description}}</p>
-                            <!-- <p class="category">{{item.service_category.name}}</p> -->
-                            <p><b class="mr-2">Address:</b>{{item.location}}</p>
-                            <p><b class="mr-2">Tel:</b>{{item.phone}}</p>
-                            <p><b class="mr-2">Email:</b>{{item.email}}</p>
-                            <p><a [routerLink]="['/service-providers/' + item?.id]" class="btn btn-info mt-1" ><i class="fa fa-plus text-white" aria-hidden="true"></i>
-                                READ MORE</a></p>
+                            <p>{{item.description}}</p>
+                            <p>{{item.service_category.name}}</p>
                         </div>
                         </div>
                 </div>

@@ -11,10 +11,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class ProvidersComponent implements OnInit {
 
-  serviceproviders! : any;
-  servivecategory:any;
-  catid:any;
-  isLoading: boolean = true;
+  serviceproviders : any;
+  catid:any
 
 
   constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute) { }
@@ -30,10 +28,7 @@ export class ProvidersComponent implements OnInit {
 getServicesCatId (id:any) {
   this.api.listServicesById(id).subscribe((data) =>{
     this.serviceproviders =data;
-    this.servivecategory = data;
-    this.isLoading = false;
-    console.log(this.serviceproviders);
-    console.log(this.servivecategory[this.catid].service_category.name);
+    console.log(data);
   })
 }
    

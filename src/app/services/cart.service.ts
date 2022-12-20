@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,10 @@ export class CartService {
   public cartItemList : any =[]
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
-  constructor() { }
+  private token: any = null;
+  constructor(
+    private http: HttpClient
+  ) { }
 
   getProducts(){
     return this.productList.asObservable();
@@ -19,11 +24,36 @@ export class CartService {
     this.cartItemList.push(...product);
     this.productList.next(product);
   }
+   
+  getCartItems(){
+    let localtoken:any = localStorage.getItem("user");
+    localtoken = (localtoken ? JSON.parse(localtoken) : {});
+    this.token = localtoken.access_token;
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+    return this.http.get(`${environment.apiUrl}/shopping-cart-items`,{headers: header});
+  }
+
+  addProductToCart(product : any){
+  
+    let localtoken:any = localStorage.getItem("user");
+    localtoken = (localtoken ? JSON.parse(localtoken) : {});
+    this.token = localtoken.access_token;
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+    return this.http.post<any>(`${environment.apiUrl}/shopping-cart-items`,product,{headers: header})
+    // .pipe(
+    //   map(product => {
+    //     console.log(product);
+    //   })
+    // );
+  }
+
   addtoCart(product : any){
+    
     this.cartItemList.push(product);
     this.productList.next(this.cartItemList);
     this.getTotalPrice();
     console.log(this.cartItemList)
+    
   }
   getTotalPrice() : number{
     let grandTotal = 0;

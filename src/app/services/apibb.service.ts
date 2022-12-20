@@ -17,7 +17,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-  private baseApiPath = 'http://109.123.241.92/api';
+  private baseApiPath = 'http://159.203.108.137/api';
   private token: any = null;
 
   constructor(private httpClient: HttpClient)
@@ -80,40 +80,6 @@ getserviceprovidersDetails(id:any) {
   // }))
 }
 
-getserviceprovidersBranches(id:any) {
-  return this.httpClient.get<any>(`${this.baseApiPath}/service-branches?includes[]=service/?service_id=`+id)
-  .pipe(map ((res:any)=>{
-    return res.data;
-  }))
-}
-
-getserviceprovidersTestimonials(id:any) {
-  return this.httpClient.get<any>(`${this.baseApiPath}/testimonials?includes[]=service/?service_id=`+id)
-  .pipe(map ((res:any)=>{
-    return res.data;
-  }))
-}
-
-postReferrals(referralsObj:any) {
-  let localtoken:any = localStorage.getItem("user");
-  localtoken = (localtoken ? JSON.parse(localtoken) : {});
-  this.token = localtoken.access_token;
-  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
-  console.log(this.token)
-  return this.httpClient.post<any>(`${this.baseApiPath}/referrals`,referralsObj,{headers: header});
- 
-}
-
-postQuotations(referralsObj:any) {
-  let localtoken:any = localStorage.getItem("user");
-  localtoken = (localtoken ? JSON.parse(localtoken) : {});
-  this.token = localtoken.access_token;
-  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
-  console.log(this.token)
-  return this.httpClient.post<any>(`${this.baseApiPath}/notifications`,referralsObj,{headers: header});
- 
-}
-
 getProductDetails(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/products/`+id)
   // .pipe(map ((res:any)=>{
@@ -145,39 +111,8 @@ listProductsById(catId:any){
 
 }
 
-tenders(){
-  return this.httpClient.get<any>(`${this.baseApiPath}/tenders`)
-  .pipe(map ((res:any)=>{
-    return res.data;
-  }))
-
-}
-
-getTenderDetails(id:any) {
-  return this.httpClient.get<any>(`${this.baseApiPath}/tenders/`+id)
-  // .pipe(map ((res:any)=>{
-  //   return res.data;
-  // }))
-}
-
-packages(){
-  return this.httpClient.get<any>(`${this.baseApiPath}/packages`)
-  .pipe(map ((res:any)=>{
-    return res.data;
-  }))
-
-}
-
 forgotPassword(forgotpassObj:any){
   return this.httpClient.post<any>(`${this.baseApiPath}/auth/forget-password`,forgotpassObj);
-}
-
-subscriber(subscricerObj:any){
-  return this.httpClient.post<any>(`${this.baseApiPath}/subscribe`,subscricerObj)
-  // .pipe(map ((res:any)=>{
-  //   return res.data;
-  // }))
-
 }
 
 getCountries(){
@@ -205,5 +140,52 @@ getProducts(){
 
 }
 
-  
+  // get(param: any): Observable<any> {
+  //   return this.httpClient.get(`${this.baseApiPath}/${param}`)
+  // }
+
+  // get2(param: any): Observable<any> {
+  //   return this.httpClient.get(`${this.baseApiPath}/${param}`)
+  // }
+
+  // getWithOrigin(param: any): Observable<any> {
+  //   let headers = new HttpHeaders({
+  //     'browserRef': 'portal'
+  //   });
+  //   let requestOptions = { headers: headers };
+    
+  //   return this.httpClient.get(`${this.baseApiPath}/${param}`,requestOptions)
+  // }
+
+  // post(data: any, param: string): Observable<any> {
+  //   return this.httpClient.post(`${this.baseApiPath}/${param}`, data)
+  // }
+
+  // getEndpoints(){
+  //   return {
+  //     sign_in: 'usrLogin',
+  //     register_user: 'rgstUsr',
+  //     settings: {
+  //       countries: {
+  //         get_all_countries: 'getAllCountries'
+          
+  //       },
+  //       service_categories: {
+  //         get_all_categories: 'getAllServiceCategories'
+         
+  //       },
+  //       product_categories: {
+  //         get_all_product_categories: 'getProdCats'
+        
+  //       },
+  //       sectors: {
+  //         get_all_sectors: 'getAllSectors'
+         
+  //       }
+  //     },
+  //     local_storage: {
+  //       user: 'fesplocdat'
+  //     }
+  //   }
+  // }
 }

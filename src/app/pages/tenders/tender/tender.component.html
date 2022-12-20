@@ -41,14 +41,14 @@
                       <div class="col-md-4 mb-2"><i class="fa fa-star mr-2" aria-hidden="true"></i> Invitation to Tender</div>
                       <div class="col-md-4 mb-2"><i class="fa fa-tag mr-2" aria-hidden="true"></i>Sector : {{tenderData.sector}}</div>
                       <div class="col-md-4 mb-2"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Open Date : {{tenderData.open_date}}</div>
-                      <div class="col-md-4 mb-2"><i class="fa fa-eye mr-2" aria-hidden="true"></i>411 Views</div>
+                      <!-- <div class="col-md-4 mb-2"><i class="fa fa-eye mr-2" aria-hidden="true"></i>411 Views</div> -->
                       <div class="col-md-4 mb-2"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Closing Date - {{tenderData.closing_date}}</div>
                     </div>
-                    <ng-container *ngIf="tenderData">
+                    <ng-container *ngIf ="tenderData">
                         <hr />
                     <div class="row">
                         
-                        <div class="col-md-4 mb-2">
+                        <div class="col-md-12 mb-2">
                             <b class="mt-2">Description</b>
                             <p>{{tenderData.description}}</p>
                         </div>

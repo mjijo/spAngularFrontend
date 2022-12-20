@@ -32,7 +32,9 @@
               "src/assets/css/style.css",
               "src/assets/css/owl.carousel.min.css",
               "src/assets/css/owl.theme.min.css",
-              "src/styles.scss"
+              "src/assets/css/lightslider.css",
+              "src/styles.scss" 
+      
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -40,7 +42,8 @@
               "src/assets/js/bootstrap.js",
               "src/assets/js/script.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/carousel.js"
+              "src/assets/js/carousel.js",
+              "src/assets/js/lightslider.js"
             ]
           },
           "configurations": {
@@ -48,8 +51,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
