@@ -166,6 +166,6 @@
         </div>
         <!--end of /.container-->
     </section>
-    <ng-container *ngFor="let bid of bids;">
+    <ng-container *ngFor="let bid of bidsList; let i = index">
         {{bid.name}}
     </ng-container>
