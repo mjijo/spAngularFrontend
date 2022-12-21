@@ -158,7 +158,7 @@
                                     <dl class="param param-inline">
                                         <dt>Quantity: </dt>
                                         <dd>
-                                            <input type="number" class="form-control form-control-sm" style="width:70px;" [(ngModel)]="proData.quantity" [value]="proData.quantity"/>
+                                            <input type="number" class="form-control form-control-sm" style="width:70px;" [(ngModel)]="cartData.quantity" [value]="cartData.quantity" aria-label="product_qty" />
                                         </dd>
                                     </dl>  <!-- item-property .// -->
                                 </div> <!-- col.// -->
@@ -176,7 +176,7 @@
                             <hr>
 
                             <a href="shippment.html" class="btn btn-lg btn-primary text-uppercase purple"> Buy now </a>
-                            <a (click)="AddtoCart(proData)" class="btn btn-lg btn-outline-primary text-uppercase "> <i class="fa fa-shopping-cart"></i> Add to cart </a>
+                            <a (click)="AddtoCart(cartData)" class="btn btn-lg btn-outline-primary text-uppercase "> <i class="fa fa-shopping-cart"></i> Add to cart </a>
                         </ng-container>
         
                     </article> <!-- card-body.// -->

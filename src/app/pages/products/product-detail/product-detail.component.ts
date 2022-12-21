@@ -13,7 +13,7 @@ export class ProductDetailComponent implements OnInit {
 
   id:any;
   proData:any;
-  cartData:any = {product_id:null, quantity :1}
+  cartData:any = {product_id:null, quantity :0}
   productIsLoaded:boolean = false;
 
   constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService) { }
@@ -42,9 +42,10 @@ export class ProductDetailComponent implements OnInit {
   }
 
   AddtoCart(proData : any){
-    console.log(this.cartData);
+    // console.log(this.cartData);
     this.cartService.addProductToCart(this.cartData).subscribe(() =>{
-      console.log(proData); 
+      // console.log(proData);
+      console.log(this.cartData);
     })
     this.cartService.addtoCart(proData);
   }
