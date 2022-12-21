@@ -60,12 +60,18 @@ export class ProductDetailComponent implements OnInit {
     if(this.isLoggedin == false) {
       this.plugin.showAlert('info','Login Required','Please login to add or save items to your cart');
     }else{
-      // console.log(this.cartData);
-      this.cartService.addProductToCart(this.cartData).subscribe(() =>{
-        // console.log(proData);
-        console.log(this.cartData);
-      })
-      this.cartService.addtoCart(proData);
+      // check if the user has set a product quantity before adding to cart
+      if(this.cartData.quantity != null && this.cartData.quantity != 0 && this.cartData.quantity != '0' && this.cartData.quantity != ''){
+        // console.log(this.cartData);
+        this.cartService.addProductToCart(this.cartData).subscribe(() =>{
+          // console.log(proData);
+          console.log(this.cartData);
+        })
+        this.cartService.addtoCart(proData);
+      }else{
+        this.plugin.showAlert('warning','Quantity','Please set the quantity before adding to your cart');
+      }
+      
     }
     
   }
