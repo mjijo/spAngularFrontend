@@ -37,9 +37,8 @@ export class ProductsListComponent implements OnInit {
           product.images = [];
           // check for attachments in the product
           if( 'attachments' in product ){
-            console.log('Attachments > ',product.attachments);
+            // loop through the attachemnts object and get the image details to push to the images array
             for (let property in product.attachments) {
-              console.log(`${property}: ${product.attachments[property]}`);
               product.images.push( {image_url: product.attachments[property].original_url, name: product.attachments[property].name} );
             }
           }
