@@ -25,7 +25,19 @@ export class BidsListComponent implements OnInit {
     this.api.listProductsById(id).subscribe((data) =>{
 
      
-
+      if( Array.isArray(data) ){
+        // loop through the data so we can access each object
+        data.forEach((bid:any) => {
+          bid.images = [];
+          // check for attachments in the product
+          if( 'attachments' in bid ){
+            // loop through the attachemnts object and get the image details to push to the images array
+            for (let property in bid.attachments) {
+              bid.images.push( {image_url: bid.attachments[property].original_url, name: bid.attachments[property].name} );
+            }
+          }
+        });
+      }
       this.bidsList = data;
       console.log(data.id);
       console.log(this.bidsList)

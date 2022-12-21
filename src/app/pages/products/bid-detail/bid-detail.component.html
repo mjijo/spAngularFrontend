@@ -28,11 +28,7 @@
     <hr class="divider">
     <section class="pt-3">
     <div class="container">
-     <div class="alert alert-success alert-dismissable">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="fa fa-times" aria-hidden="true"></i>
-    </button>
-                    <strong>Warning! </strong> You need to login before you post a bid <a href="login.html">Login</a>
-                </div>
+    
     </div>
     </section>
     
@@ -149,7 +145,7 @@
                 <dl class="param param-inline">
                     <dt>Price: </dt>
                     <dd>
-                        <input type="number" class="form-control" id="numberInput" placeholder="Enter Ammount">
+                        <input type="number" class="form-control" id="numberInput" [(ngModel)]="placeBidData.amount" [value]="placeBidData.amount" placeholder="Enter Ammount">
                     </dd>
                   </dl> <!-- item-property .// -->
             </div> <!-- col.// -->
@@ -163,8 +159,12 @@
             </div> <!-- col.// -->
         </div> <!-- row.// -->
         <hr>
-        <a (click)="BidNow(bidData);" class="btn btn-lg btn-primary text-uppercase purple"><i class="fa fa-gavel"></i> Place a Bid </a>
-        
+        <ng-container *ngIf="!isLoggedin">
+        <a (click)="BidNow();" class="btn btn-lg btn-primary text-uppercase purple"><i class="fa fa-gavel"></i> Place a Bid </a>
+        </ng-container>
+        <ng-container *ngIf="isLoggedin">
+            <a (click)="BidSend(bidData)" class="btn btn-lg btn-primary text-uppercase purple"><i class="fa fa-gavel"></i> Place a Bid </a>
+        </ng-container>
     </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
             <aside class="col-md-3">
