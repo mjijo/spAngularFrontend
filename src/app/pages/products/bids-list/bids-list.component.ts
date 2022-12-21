@@ -3,15 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
-  selector: 'app-products-list',
-  templateUrl: './products-list.component.html',
-  styleUrls: ['./products-list.component.scss']
+  selector: 'app-bids-list',
+  templateUrl: './bids-list.component.html',
+  styleUrls: ['./bids-list.component.scss']
 })
-export class ProductsListComponent implements OnInit {
+export class BidsListComponent implements OnInit {
 
-  productList : any;
+  bidsList : any;
   catid:any
-
   constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,22 +21,15 @@ export class ProductsListComponent implements OnInit {
 
      this.getProductCatId(this.catid);
   }
-
   getProductCatId (id:any) {
     this.api.listProductsById(id).subscribe((data) =>{
-      
-      data.proAttachments = [];
-      console.log(data)
-      for (let property in data.attachments) {
-        console.log(`${property}: ${data.attachments[property]}`);
-        data.proAttachments.push(data.attachments[property]);
-      }
-      
+
      
 
-      this.productList =data;
-      console.log(data);
-      console.log(this.productList)
+      this.bidsList = data;
+      console.log(data.id);
+      console.log(this.bidsList)
     })
   }
+
 }

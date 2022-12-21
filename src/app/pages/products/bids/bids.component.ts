@@ -28,7 +28,7 @@ export class AllBidsComponent implements OnInit {
 
       this.bidsList = data;
       console.log(data.id);
-      console.log(this.bidsList.name)
+      console.log(this.bidsList)
     })
   }
 

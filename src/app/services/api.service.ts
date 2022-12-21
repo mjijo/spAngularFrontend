@@ -114,6 +114,16 @@ postQuotations(referralsObj:any) {
  
 }
 
+placeAbid(bidsObj:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.post<any>(`${this.baseApiPath}/bids`,bidsObj,{headers: header});
+ 
+}
+
 getProductDetails(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/products/`+id)
   // .pipe(map ((res:any)=>{

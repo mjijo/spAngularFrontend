@@ -56,6 +56,7 @@ import { ProductDetailComponent } from './pages/products/product-detail/product-
 import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
 import { CartComponent } from './pages/products/cart/cart.component';
 import { TenderComponent } from './pages/tenders/tender/tender.component';
+import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,8 @@ import { TenderComponent } from './pages/tenders/tender/tender.component';
     ProductDetailComponent,
     BidDetailComponent,
     CartComponent,
-    TenderComponent
+    TenderComponent,
+    BidsListComponent
   ],
   imports: [
     BrowserModule,

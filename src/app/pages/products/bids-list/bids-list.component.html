@@ -127,16 +127,16 @@
                                         <h4 class="group card-title inner list-group-item-heading">
                                             {{bid.name}}</h4>
                                         <p class="group inner list-group-item-text py-1 mb-0">
-                                            {{bid}}</p>
-                                         <span class="date small"><i class="fa fa-clock-o"></i> Bid due date jun 18</span>
+                                            {{bid.description_of_damage}}</p>
+                                         <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{bid.closing_date}}</span>
                                          
                                         <div class="row">
                                             <div class="col-xs-12 col-md-6">
                                                 <p class="lead">
-                                                    $21.000</p>
+                                                    {{bid.currency.symbol}} {{bid.sum_insured}}</p>
                                             </div>
                                             <div class="col-xs-12 col-md-6">
-                                                <a class="btn btn-success rounded-0 purple border-0 text-uppercase float-right" href="bid-now.html"><i class="fa fa-gavel"></i> BID NOW</a>
+                                                <a class="btn btn-success rounded-0 purple border-0 text-uppercase float-right" [routerLink]="['/bid/' + bid?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
                                             </div>
                                         </div>
                                     </div>
@@ -166,6 +166,4 @@
         </div>
         <!--end of /.container-->
     </section>
-    <ng-container *ngFor="let bid of bidsList; let i = index">
-        <p class="color-danger bg-danger">{{bid.name}}</p>
-    </ng-container>
+    
