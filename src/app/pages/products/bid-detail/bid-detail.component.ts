@@ -13,6 +13,7 @@ export class BidDetailComponent implements OnInit {
 error!: any;
   id:any;
   bidData:any;
+  isLoggedin : boolean = false;
   placeBidData:any = {product_id:null, amount :0}
 
   constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService, private plugin: PluginsService) { }
@@ -39,15 +40,19 @@ error!: any;
     });
     }
     BidNow(bidData : any){
+      if(this.isLoggedin ==false) {
+        this.plugin.showAlert('warning','Blocked','Please login first to download');
+       }
+      else {
       console.log(this.placeBidData);
       this.api.placeAbid(this.placeBidData)
       .subscribe({
         next:(res)=>{
-          
+          this.plugin.showAlert('success','Done','Your bid was placed successful');
         }
         
       })
-        
+    } 
 
           
     }
