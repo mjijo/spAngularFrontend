@@ -41,31 +41,33 @@ export class ProductDetailComponent implements OnInit {
 
   getServiceProviderById(id:any){
 
-    // if user is not logged in, show alert else add to cart
-    if(this.isLoggedin == false) {
-      this.plugin.showAlert('warning','Blocked','Please login first to download');
-    }else{
-      this.api.getProductDetails(id).subscribe((data)=>{
-        data.proAttachments = [];
-        console.log(data)
-        for (let property in data.attachments) {
-          console.log(`${property}: ${data.attachments[property]}`);
-          data.proAttachments.push(data.attachments[property]);
-        }
-        this.proData =data;
-        this.productIsLoaded = true;
-      });
-    }
+    this.api.getProductDetails(id).subscribe((data)=>{
+      data.proAttachments = [];
+      console.log(data)
+      for (let property in data.attachments) {
+        console.log(`${property}: ${data.attachments[property]}`);
+        data.proAttachments.push(data.attachments[property]);
+      }
+      this.proData =data;
+      this.productIsLoaded = true;
+    });
     
   }
 
   AddtoCart(proData : any){
-    // console.log(this.cartData);
-    this.cartService.addProductToCart(this.cartData).subscribe(() =>{
-      // console.log(proData);
-      console.log(this.cartData);
-    })
-    this.cartService.addtoCart(proData);
+
+    // if user is not logged in, show alert else add to cart
+    if(this.isLoggedin == false) {
+      this.plugin.showAlert('info','Login Required','Please login to add or save items to your cart');
+    }else{
+      // console.log(this.cartData);
+      this.cartService.addProductToCart(this.cartData).subscribe(() =>{
+        // console.log(proData);
+        console.log(this.cartData);
+      })
+      this.cartService.addtoCart(proData);
+    }
+    
   }
 
 }

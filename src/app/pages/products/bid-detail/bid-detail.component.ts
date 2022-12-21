@@ -56,16 +56,16 @@ error!: any;
   BidNow(bidData : any){
 
       if(this.isLoggedin ==false) {
-        this.plugin.showAlert('warning','Blocked','Please login first to download');
+        this.plugin.showAlert('info','Login Required','Please login to make any bids');
        }
       else {
-      console.log(this.placeBidData);
-      this.api.placeAbid(this.placeBidData)
-      .subscribe({
-        next:(res)=>{
-          this.plugin.showAlert('success','Done','Your bid was placed successful');
-        }
-      })
+        console.log(this.placeBidData);
+        this.api.placeAbid(this.placeBidData)
+        .subscribe({
+          next:(res)=>{
+            this.plugin.showAlert('success','Done','Your bid was placed successful');
+          }
+        })
     } 
       
   }
