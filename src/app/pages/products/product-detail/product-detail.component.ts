@@ -14,22 +14,22 @@ export class ProductDetailComponent implements OnInit {
   id:any;
   proData:any;
   cartData:any = {product_id:null, quantity :1}
+  productIsLoaded:boolean = false;
 
   constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService) { }
 
 
   ngOnInit(): void {
-    
     this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
       this.cartData.product_id =this.id;
-      
     });
     this.getServiceProviderById(this.id);
   }
-    getServiceProviderById(id:any){
+
+  getServiceProviderById(id:any){
+
     this.api.getProductDetails(id).subscribe((data)=>{
-      
       data.proAttachments = [];
       console.log(data)
       for (let property in data.attachments) {
@@ -37,17 +37,19 @@ export class ProductDetailComponent implements OnInit {
         data.proAttachments.push(data.attachments[property]);
       }
       this.proData =data;
-
+      this.productIsLoaded = true;
     });
-    }
+  }
+
   AddtoCart(proData : any){
     console.log(this.cartData);
     this.cartService.addProductToCart(this.cartData).subscribe(() =>{
-     console.log(proData); 
+      console.log(proData); 
     })
     this.cartService.addtoCart(proData);
   }
-  }
+
+}
  
     
       
