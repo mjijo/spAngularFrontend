@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnyARecord } from 'dns';
 import { ApiService } from 'src/app/services/api.service';
-import {CartService }from 'src/app/services/cart.service'
+import { CartService }from 'src/app/services/cart.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { PluginsService } from 'src/app/services/plugins.service';
 @Component({
   selector: 'app-bid-detail',
@@ -16,16 +17,28 @@ error!: any;
   isLoggedin : boolean = false;
   placeBidData:any = {product_id:null, amount :0}
 
-  constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService, private plugin: PluginsService) { }
+  constructor(
+    private api : ApiService, 
+    private router: Router, 
+    private actRoute: ActivatedRoute, 
+    private cartService:CartService, 
+    private auth:AuthenticationService,
+    private plugin: PluginsService
+  ) 
+  { }
 
   ngOnInit(): void {
+
     this.actRoute.paramMap.subscribe(params => {
       this.id = params.get('id');
       this.placeBidData.product_id =this.id;
       
     });
     this.getServiceProviderById(this.id);
+    this.isLoggedin = this.auth.checkUser();
+
   }
+
   getServiceProviderById(id:any){
     this.api.getProductDetails(id).subscribe((data)=>{
       
@@ -38,8 +51,10 @@ error!: any;
       this.bidData =data;
 
     });
-    }
-    BidNow(bidData : any){
+  }
+
+  BidNow(bidData : any){
+
       if(this.isLoggedin ==false) {
         this.plugin.showAlert('warning','Blocked','Please login first to download');
        }
@@ -50,12 +65,11 @@ error!: any;
         next:(res)=>{
           this.plugin.showAlert('success','Done','Your bid was placed successful');
         }
-        
       })
     } 
+      
+  }
 
-          
-    }
   // AddtoCart(proData : any){
   //   console.log(this.cartData);
   //   this.cartService.addProductToCart(this.cartData).subscribe(() =>{
