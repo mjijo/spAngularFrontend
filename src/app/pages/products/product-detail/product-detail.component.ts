@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AnyARecord } from 'dns';
 import { ApiService } from 'src/app/services/api.service';
-import {CartService }from 'src/app/services/cart.service'
+import { CartService }from 'src/app/services/cart.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { PluginsService } from 'src/app/services/plugins.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,8 +17,17 @@ export class ProductDetailComponent implements OnInit {
   proData:any;
   cartData:any = {product_id:null, quantity :0}
   productIsLoaded:boolean = false;
+  isLoggedin : boolean = false;
 
-  constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService) { }
+  constructor(
+    private api : ApiService, 
+    private router: Router, 
+    private actRoute: ActivatedRoute, 
+    private cartService:CartService,
+    private auth:AuthenticationService,
+    private plugin: PluginsService
+  ) 
+  { }
 
 
   ngOnInit(): void {
@@ -25,6 +36,7 @@ export class ProductDetailComponent implements OnInit {
       this.cartData.product_id =this.id;
     });
     this.getServiceProviderById(this.id);
+    this.isLoggedin = this.auth.checkUser();
   }
 
   getServiceProviderById(id:any){
@@ -39,15 +51,23 @@ export class ProductDetailComponent implements OnInit {
       this.proData =data;
       this.productIsLoaded = true;
     });
+    
   }
 
   AddtoCart(proData : any){
-    // console.log(this.cartData);
-    this.cartService.addProductToCart(this.cartData).subscribe(() =>{
-      // console.log(proData);
-      console.log(this.cartData);
-    })
-    this.cartService.addtoCart(proData);
+
+    // if user is not logged in, show alert else add to cart
+    if(this.isLoggedin == false) {
+      this.plugin.showAlert('info','Login Required','Please login to add or save items to your cart');
+    }else{
+      // console.log(this.cartData);
+      this.cartService.addProductToCart(this.cartData).subscribe(() =>{
+        // console.log(proData);
+        console.log(this.cartData);
+      })
+      this.cartService.addtoCart(proData);
+    }
+    
   }
 
 }
