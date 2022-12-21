@@ -25,11 +25,8 @@ export class ProductsListComponent implements OnInit {
 
   getProductCatId (id:any) {
     this.api.listProductsById(id).subscribe((data) =>{
-
-     
-
-      this.productList =data;
-      console.log(data);
+      // console.log(data);
+      
       // check if data is an array
       if( Array.isArray(data) ){
         // loop through the data so we can access each object
@@ -44,7 +41,9 @@ export class ProductsListComponent implements OnInit {
           }
         });
       }
-      console.log(this.productList)
+      this.productList =data;
+      console.log(this.productList);
+
     })
   }
 }

@@ -1,105 +1,103 @@
 <!-- section start Breadcrumbs here-->
 <section class="breadcrumb-0">
     <div class="container">
-     <div class="card">
-     <div class="page-header-breadcrumb">
-                        <ul class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="#!" data-abc="true">
-                                    <i class="fa fa-home"></i>
-                                </a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <div class="card">
+            <div class="page-header-breadcrumb">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="#!" data-abc="true">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </li>
+                    <li class="breadcrumb-item"><a data-abc="true">products</a></li>
+                    <ng-container *ngIf="productIsLoaded">
+                        <li class="breadcrumb-item"><a href="#!" data-abc="true">{{proData.category.name}}</a></li>
+                    </ng-container>
+                </ul>
             </div>
-        
-    
-    </section>
-    <!-- section end Breadcrumbs here-->
-    
-     
-    
-    <!-- section start content here-->
-    <section id="default" class="inner-page product-details mb-3 pb-50">
-        <div class="container">
+        </div>
+    </div>
+</section>
+<!-- section end Breadcrumbs here-->
+ 
+<!-- section start content here-->
+<section id="default" class="inner-page product-details mb-3 pb-50">
+    <div class="container">
            
-    <div class="card">
-        <div class="row">
-            <aside class="col-md-4 d-flex justify-content-center">
-       <section id="default" class="padding-top0">
+        <div class="card">
             <div class="row">
-                <div class="large-5 column">
-                    <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
-                        <!-- slides -->
-                        <div class="carousel-inner">
-                            <ng-container *ngFor="let attachement of proData.proAttachments; let i = index">
-                          <div class="carousel-item" [ngClass]="{'active': i === 1}">
-                            <img src="{{attachement.original_url}}" alt="Hills">
-                          </div>
-                
-                            </ng-container>
-                        </div>
-                
-                        <!-- Left right -->
-                        <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
-                          <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#custCarousel" data-slide="next">
-                          <span class="carousel-control-next-icon"></span>
-                        </a>
-                
-                        <!-- Thumbnails -->
-                        <ol class="carousel-indicators list-inline">
+                <aside class="col-md-4 d-flex justify-content-center">
 
-                            <ng-container *ngFor="let attachement of proData.proAttachments; let i = index"> 
-                          <li class="list-inline-item active">
-                            <a id="carousel-selector-0" class="selected" [attr.data-slide-to]="i" data-target="#custCarousel">
-                              <img src="{{attachement.original_url}}" class="img-fluid">
-                            </a>
-                          </li>
-                
-                        </ng-container>
-                
-                         
-                
-                          
-                         </ol>
-                      </div>
-                </div>
-                
-            </div>
-            <div class="row">
-                <div class="container">
-                
-                    <!---Start-share-->
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <span class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
-                                    </span><i class="fa fa-share-alt mr-1 mb-2" aria-hidden="true"></i>Share</a>
-                                </span>
-                            </div>
-                            <div id="collapseOne" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <div class="d-flex flex-row align-items-start"><i class="fa fa-facebook border p-3 rounded mr-1"></i><i class="fa fa-twitter border p-3 rounded mr-1"></i><i class="fa fa-whatsapp border p-3 rounded mr-1" aria-hidden="true"></i> </div>
+                    <section id="default" class="padding-top0">
+                        <div class="row">
+                            <div class="large-5 column">
+                                <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                                    <!-- slides -->
+                                    <ng-container *ngIf="!productIsLoaded">
+                                        <img src="../../../../assets/img/loading.gif" alt="Loading" style="width: 100%;height: auto;max-width: 50%;">
+                                    </ng-container>
+
+                                    <ng-container *ngIf="!productIsLoaded">
+                                        <div class="carousel-inner">
+                                            <ng-container *ngFor="let attachement of proData.proAttachments; let i = index">
+                                                <div class="carousel-item" [ngClass]="{'active': i === 1}">
+                                                    <img [src]="attachement.original_url" alt="{{attachement.name}}">
+                                                </div>
+                                            </ng-container>
+                                        </div>
+                                    </ng-container>
+                                    
+                                    <!-- Left right -->
+                                    <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                                        <span class="carousel-control-prev-icon"></span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+                                        <span class="carousel-control-next-icon"></span>
+                                    </a>
+                            
+                                    <!-- Thumbnails -->
+                                    <ol class="carousel-indicators list-inline">
+                                        <ng-container *ngFor="let attachement of proData.proAttachments; let i = index"> 
+                                            <li class="list-inline-item active">
+                                                <a id="carousel-selector-0" class="selected" [attr.data-slide-to]="i" data-target="#custCarousel">
+                                                    <img src="{{attachement.original_url}}" class="img-fluid">
+                                                </a>
+                                            </li>
+                                        </ng-container>
+                                    </ol>
                                 </div>
                             </div>
+                            
                         </div>
-                    
-                    </div>
-                    <!--Share End-->
-                    
-                </div>
-            </div>
-        </section>
-            </aside>
-            <aside class="col-md-5">
+                        <div class="row">
+                            <div class="container">
+                            
+                                <!---Start-share-->
+                                <div class="panel-group" id="accordion">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
+                                                </span><i class="fa fa-share-alt mr-1 mb-2" aria-hidden="true"></i>Share</a>
+                                            </span>
+                                        </div>
+                                        <div id="collapseOne" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <div class="d-flex flex-row align-items-start"><i class="fa fa-facebook border p-3 rounded mr-1"></i><i class="fa fa-twitter border p-3 rounded mr-1"></i><i class="fa fa-whatsapp border p-3 rounded mr-1" aria-hidden="true"></i> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                                <!--Share End-->
+                                
+                            </div>
+                        </div>
+                    </section>
+
+                </aside>
+
+                <aside class="col-md-5">
     <article class="card-body p-3">
         
         <h3 class="title mb-3">{{proData.name}}</h3>
