@@ -55,17 +55,17 @@ error!: any;
 
   BidNow(bidData : any){
 
-      if(this.isLoggedin ==false) {
-        this.plugin.showAlert('info','Login Required','Please login to make any bids');
-       }
-      else {
-        console.log(this.placeBidData);
-        this.api.placeAbid(this.placeBidData)
-        .subscribe({
-          next:(res)=>{
-            this.plugin.showAlert('success','Done','Your bid was placed successful');
-          }
-        })
+    // check if the visitor is logged in before making any bid
+    if(this.isLoggedin ==false) {
+      this.plugin.showAlert('info','Login Required','Please first login to make or save any bids');
+    } else {
+      console.log(this.placeBidData);
+      this.api.placeAbid(this.placeBidData)
+      .subscribe({
+        next:(res)=>{
+          this.plugin.showAlert('success','Done','Your bid has been placed successfully');
+        }
+      })
     } 
       
   }
