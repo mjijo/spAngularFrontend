@@ -16,7 +16,7 @@
                                                 
                                         <ul class="list-unstyled one blue">
                                             <li class="nav-item" *ngFor="let product_category of allProductsCategories; index as i">
-                                                <a href="#/{{product_category.is_biddable==true ? 'bids':'products'}}/{{product_category?.id}}" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{product_category.name}}</a>
+                                                <a href="/{{product_category.is_biddable==true ? 'bids':'products'}}/{{product_category?.id}}" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{product_category.name}}</a>
                                             </li>
                                          </ul>
                                                   
@@ -60,11 +60,9 @@
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe mr-1"></i>COUNTRY<span class="caret"></span></a>
                     <ul class="dropdown-menu rounded-0" role="menu">
-                      <ng-container *ngFor="let country of allCountries; index as i">
-                          <li><a href="#">{{country.code}}</a></li>
-                      </ng-container>
-                      
-                      
+                        <li *ngFor="let country of allCountries; index as i">
+                            <a href="#">{{country.code}}</a>
+                        </li>
                     </ul>
                   </li>
               </ul>
