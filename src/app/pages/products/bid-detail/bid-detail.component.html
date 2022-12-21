@@ -159,12 +159,12 @@
             </div> <!-- col.// -->
         </div> <!-- row.// -->
         <hr>
-        <ng-container *ngIf="!isLoggedin">
-        <a (click)="BidNow();" class="btn btn-lg btn-primary text-uppercase purple"><i class="fa fa-gavel"></i> Place a Bid </a>
-        </ng-container>
-        <ng-container *ngIf="isLoggedin">
+       
+        <a (click)="BidNow(bidData);" class="btn btn-lg btn-primary text-uppercase purple"><i class="fa fa-gavel"></i> Place a Bid </a>
+        <ng-container *ngIf="!isLoggedin"></ng-container>
+        <!-- <ng-container *ngIf="isLoggedin">
             <a (click)="BidSend(bidData)" class="btn btn-lg btn-primary text-uppercase purple"><i class="fa fa-gavel"></i> Place a Bid </a>
-        </ng-container>
+        </ng-container> -->
     </article> <!-- card-body.// -->
             </aside> <!-- col.// -->
             <aside class="col-md-3">

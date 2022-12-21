@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -12,6 +12,8 @@ export class CartService {
   public productList = new BehaviorSubject<any>([]);
   public search = new BehaviorSubject<string>("");
   private token: any = null;
+
+  public cartTotal : number = 0;
   constructor(
     private http: HttpClient
   ) { }
@@ -32,6 +34,14 @@ export class CartService {
     let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
     return this.http.get(`${environment.apiUrl}/shopping-cart-items`,{headers: header});
   }
+
+    getCartTotalItems(): Observable<any>{
+    
+      
+    return this.getCartItems();
+       
+        
+   }
 
   addProductToCart(product : any){
   

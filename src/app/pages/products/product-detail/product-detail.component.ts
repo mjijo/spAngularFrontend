@@ -66,6 +66,7 @@ export class ProductDetailComponent implements OnInit {
         this.cartService.addProductToCart(this.cartData).subscribe(() =>{
           // console.log(proData);
           console.log(this.cartData);
+          this.cartService.cartTotal += this.cartData.quantity;
         })
         this.cartService.addtoCart(proData);
       }else{
@@ -75,6 +76,7 @@ export class ProductDetailComponent implements OnInit {
     }
     
   }
+
 
 }
  

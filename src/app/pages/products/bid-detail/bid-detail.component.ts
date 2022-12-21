@@ -4,7 +4,6 @@ import { AnyARecord } from 'dns';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CartService }from 'src/app/services/cart.service';
-import { AuthenticationService } from 'src/app/services/authentication.service';
 import { PluginsService } from 'src/app/services/plugins.service';
 @Component({
   selector: 'app-bid-detail',
@@ -18,7 +17,7 @@ error!: any;
   isLoggedin : boolean = false;
   placeBidData:any = {product_id:null, amount :0}
 
-  constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService, private plugin: PluginsService) { }
+  constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService, private plugin: PluginsService, private auth: AuthenticationService) { }
 
   ngOnInit(): void {
 

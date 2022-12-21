@@ -19,17 +19,55 @@ export class HeaderComponent implements OnInit {
 
  isLoggedIn : boolean =false;
 
-  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router, private auth:AuthenticationService, private cartService: CartService) { }
+
+
+  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router, private auth:AuthenticationService, public cartService: CartService) { }
 
   async ngOnInit() {
     this.cartService.getProducts()
     .subscribe(res=>{
-      this.totalItem = res.length;
+      // this.totalItem = res.length;
     })
    this.isLoggedIn = this.auth.checkUser();
    console.log('Islogged in?', this.isLoggedIn);
-
+   await this.loadItemCount();
   }
+  
+  
+  async loadItemCount ()
+      {
+        await this.cartService.getCartTotalItems().subscribe((res :any) => {
+          if(res){
+            let totalItem = 0;
+          console.log(res);
+          if('data' in res){
+            
+            res.data.forEach((item:any) => {
+              totalItem += item.quantity;
+            });
+            console.log(totalItem);
+            
+          }
+          this.totalItem = totalItem;
+          this.cartService.cartTotal = this.totalItem;
+
+          }
+            
+        });
+     let totalItem = await this.cartService.getCartTotalItems();
+        console.log(totalItem);
+        // await this.cartService.getCartItems()
+        // .subscribe((res:any)=>{
+          
+        //   console.log(res);
+        //   if('data' in res){
+        //     res.data.forEach((item:any) => {
+        //       this.totalItem += item.quantity;
+        //     });
+        //     console.log(this.totalItem);
+        //   }
+        // })
+      }
 
   headerlogout()
   {
