@@ -5,13 +5,13 @@
             <div class="page-header-breadcrumb">
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="#!" data-abc="true">
+                        <a [routerLink]="'/home'" data-abc="true">
                             <i class="fa fa-home"></i>
                         </a>
                     </li>
                     <li class="breadcrumb-item"><a data-abc="true">PRODUCTS</a></li>
                     <ng-container *ngIf="productIsLoaded">
-                        <li class="breadcrumb-item"><a href="#!" data-abc="true">{{proData.category.name}}</a></li>
+                        <li class="breadcrumb-item"><a [routerLink]="'/products/'+proData.category.id" data-abc="true">{{proData.category.name}}</a></li>
                     </ng-container>
                 </ul>
             </div>
