@@ -34,7 +34,9 @@
               "src/assets/css/owl.theme.min.css",
               "src/assets/css/xzoom.css",
               "src/assets/css/daterangepicker.css",
-              "src/styles.scss"
+              "src/assets/css/lightslider.css",
+              "src/styles.scss" 
+      
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
@@ -46,7 +48,8 @@
               "src/assets/js/xzoom.min.js",
               "src/assets/js/jquery.accordion-form.js",
               "src/assets/js/moment.min.js",
-              "src/assets/js/daterangepicker.js"
+              "src/assets/js/daterangepicker.js",
+              "src/assets/js/lightslider.js"
             ]
           },
           "configurations": {
@@ -54,8 +57,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "1mb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",

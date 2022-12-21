@@ -25,8 +25,12 @@ export class ProductsListComponent implements OnInit {
 
   getProductCatId (id:any) {
     this.api.listProductsById(id).subscribe((data) =>{
+
+     
+
       this.productList =data;
       console.log(data);
+      console.log(this.productList)
     })
   }
 }

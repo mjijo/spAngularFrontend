@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { CartService } from 'src/app/services/cart.service';
 
 
 @Component({
@@ -14,12 +15,17 @@ export class HeaderComponent implements OnInit {
   
   signIn!: FormGroup;
  username: any;
+ public totalItem : number = 0;
+
  isLoggedIn : boolean =false;
 
-  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router, private auth:AuthenticationService) { }
+  constructor(private formbuilder: FormBuilder , private api: ApiService, private router:Router, private auth:AuthenticationService, private cartService: CartService) { }
 
   async ngOnInit() {
-
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.totalItem = res.length;
+    })
    this.isLoggedIn = this.auth.checkUser();
    console.log('Islogged in?', this.isLoggedIn);
 

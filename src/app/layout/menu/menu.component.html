@@ -11,23 +11,16 @@
                     <li class="nav-item"><a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link font-weight-bold text-uppercase">about</a></li>
                     <li class="nav-item"><a routerLink="/features" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link font-weight-bold text-uppercase">Features</a></li>             
                       <li class="nav-item dropdown"><a id="megamenu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Products</a>
-                          <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
+                          <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0 col-md-6">
                               <div class="container rounded-0 m-0 blue shadow-sm px-2">
-                                  <div class="row blue rounded-0 m-0">
-                                      <div class="col-lg-12 col-xl-12">
-                                          
-                                             
-                                                      
-                                        <ul class="list-unstyled">
+                                                
+                                        <ul class="list-unstyled one blue">
                                             <li class="nav-item" *ngFor="let product_category of allProductsCategories; index as i">
                                                 <a href="#/{{product_category.is_biddable==true ? 'bids':'products'}}/{{product_category?.id}}" class="nav-link text-small pb-0"><i class="fa fa-angle-right mr-1" aria-hidden="true"></i>{{product_category.name}}</a>
                                             </li>
                                          </ul>
                                                   
-                                          
-                                      </div>
-                                      
-                                  </div>
+                               
                               </div>
                           </div>
                       </li>
