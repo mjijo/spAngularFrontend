@@ -30,6 +30,21 @@ export class ProductsListComponent implements OnInit {
 
       this.productList =data;
       console.log(data);
+      // check if data is an array
+      if( Array.isArray(data) ){
+        // loop through the data so we can access each object
+        data.forEach((product:any) => {
+          product.images = [];
+          // check for attachments in the product
+          if( 'attachments' in product ){
+            console.log('Attachments > ',product.attachments);
+            for (let property in product.attachments) {
+              console.log(`${property}: ${product.attachments[property]}`);
+              product.images.push( {image_url: product.attachments[property].original_url, name: product.attachments[property].name} );
+            }
+          }
+        });
+      }
       console.log(this.productList)
     })
   }
