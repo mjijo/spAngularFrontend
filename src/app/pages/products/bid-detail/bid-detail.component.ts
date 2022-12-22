@@ -17,6 +17,7 @@ error!: any;
   isLoggedin : boolean = false;
   productIsLoaded:boolean = false;
   placeBidData:any = {product_id:null, amount :0}
+  message : any;
 
   constructor(
     private api : ApiService, 
@@ -41,9 +42,22 @@ error!: any;
   }
 
   getServiceProviderById(id:any){
-    this.api.getProductDetails(id).subscribe((data)=>{
+    this.api.getProductDetails(id)
+    // .subscribe((data)=>{
       
-      data.proAttachments = [];
+    //   data.proAttachments = [];
+    //   console.log(data)
+    //   for (let property in data.attachments) {
+    //     console.log(`${property}: ${data.attachments[property]}`);
+    //     data.proAttachments.push(data.attachments[property]);
+    //   }
+    //   this.bidData =data;
+    //   this.productIsLoaded = true;
+    // });
+    .subscribe({
+      next:(data)=>{
+        
+data.proAttachments = [];
       console.log(data)
       for (let property in data.attachments) {
         console.log(`${property}: ${data.attachments[property]}`);
@@ -51,7 +65,15 @@ error!: any;
       }
       this.bidData =data;
       this.productIsLoaded = true;
-    });
+      
+      },
+error:(err)=>{
+
+  this.error = (err.message);
+  console.log(this.error);
+}
+
+    })
     }
     BidNow(bidData : any){
       if(this.isLoggedin ==false) {
