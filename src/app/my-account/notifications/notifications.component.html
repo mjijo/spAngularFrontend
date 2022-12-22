@@ -7,7 +7,7 @@
             <app-sidemenu></app-sidemenu>
          </div>
          <div class="col-md-8">
-            <p> Hello <b>mjijo</b> (not mjijo? <a href="#">Log out</a>)</p>
+            <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)</p>
             <h4 class="mb-2 pb-2">My Notifications</h4>
             <!-- Start -->
             
@@ -17,43 +17,20 @@
               <table class="table table-condensed table-hover">
                
                 <tbody>
-                  <tr>
-                    <td><input type="checkbox"> <a href="#"></a></td>
-                    <td><a href="message-details.html"><strong>John Doe</strong></a></td>
+                  <tr *ngFor="let item of mynotifications; index as i">
+                    <td>{{i + 1}}</td>
+                    <td><a><strong>{{item.name}}</strong></a></td>
                     <td><label class="badge badge-info float-sm-right">Notifications</label></td>
-                    <td><strong>Message body goes here</strong></td>
+                    <td><strong>{{item.subject}}</strong></td>
                     <td><strong>11:23 PM</strong></td>
                     <td><a class="btn btn-danger text-white"><em class="fa fa-trash"></em></a></td>
                   </tr>
-                  <tr>
-                    <td><input type="checkbox"> <a href="#"></a></td>
-                    <td><a href="message-details.html">John Doe</a></td>
-                    <td><label class="badge badge-info float-sm-right">Notifications</label></td>
-                    <td>Message body goes here</td>
-                    <td>Sept4</td>
-                    <td><a class="btn btn-danger text-white"><em class="fa fa-trash"></em></a></td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"> <a href="#"></a></td>
-                    <td><a href="message-details.html"><strong>John Doe</strong></a></td>
-                    <td><label class="badge badge-info float-sm-right">Notifications</label></td>
-                    <td><strong>Message body goes here</strong></td>
-                    <td><strong>Sept3</strong></td>
-                    <td><a class="btn btn-danger text-white"><em class="fa fa-trash"></em></a></td>
-                  </tr>
-                  <tr>
-                    <td><input type="checkbox"> <a href="#"></a></td>
-                    <td><strong>John Doe</strong></td>
-                    <td><label class="badge badge-info float-sm-right">Notifications</label></td>
-                    <td><strong>Message body goes here</strong></td>
-                    <td><strong>Sept3</strong></td>
-                    <td><a class="btn btn-danger text-white"><em class="fa fa-trash"></em></a></td>
-                  </tr>
+                
                 </tbody>
               </table>
               <hr />
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center d-none">
 
                 <nav aria-label="Page navigation">
                     

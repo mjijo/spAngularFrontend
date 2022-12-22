@@ -6,7 +6,7 @@
          <app-sidemenu></app-sidemenu>
          </div>
          <div class="col-md-8">
-            <p> Hello <b>mjijo</b> (not mjijo? <a href="#">Log out</a>)</p>
+            <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)</p>
             <h4 class="mb-2 pb-2">My Appointments</h4>
             <!-- Start -->
             <div class="table-responsive pt-3">
@@ -29,7 +29,7 @@
                       Phone
                     </th>
                     <th>
-                      DOB
+                      To
                     </th>
                     <th>
                       Status
@@ -40,162 +40,38 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="table-info">
+                  <tr class="table-info" *ngFor="let item of myappointments; index as i">
                     <td>
-                      1
+                     {{item.id}}
                     </td>
                     <td>
-                      Herman Beck
+                      {{item.full_name}}
                     </td>
                     <td>
-                      14/08/2022
+                      {{item.appointment_date}}
                     </td>
                     <td>
-                      14:00 pm
+                      {{item.appointment_time}}
                     </td>
                     <td>
-                      0738000000
+                      {{item.phone}}
                     </td>
                     <td>
-                      May 15, 2015
+                      {{item.organization.name}}
                     </td>
                     <td>
                       <label class="badge badge-danger">Pending</label>
                     </td>
                     <td>
                       <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="edit-appointment.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
+                        <!-- <a class="edit" title="Edit" data-toggle="tooltip" href="edit-appointment.html"><i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a> |  -->
                         <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                         </div>
                     </td>
                   </tr>
-                  <tr class="table-info">
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Herman Beck
-                    </td>
-                    <td>
-                      14/08/2022
-                    </td>
-                    <td>
-                      14:00 pm
-                    </td>
-                    <td>
-                      0738000000
-                    </td>
-                    <td>
-                      May 15, 2015
-                    </td>
-                    <td>
-                      <label class="badge badge-danger">Pending</label>
-                    </td>
-                    <td>
-                      <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="edit-appointment.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
-                        <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr class="table-info">
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Herman Beck
-                    </td>
-                    <td>
-                      14/08/2022
-                    </td>
-                    <td>
-                      14:00 pm
-                    </td>
-                    <td>
-                      0738000000
-                    </td>
-                    <td>
-                      May 15, 2015
-                    </td>
-                    <td>
-                      <label class="badge badge-danger">Pending</label>
-                    </td>
-                    <td>
-                      <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="edit-appointment.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
-                        <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        </div>
-                    </td>
-                  </tr>
-                  <tr class="table-info">
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Herman Beck
-                    </td>
-                    <td>
-                      14/08/2022
-                    </td>
-                    <td>
-                      14:00 pm
-                    </td>
-                    <td>
-                      0738000000
-                    </td>
-                    <td>
-                      May 15, 2015
-                    </td>
-                    <td>
-                      <label class="badge badge-danger">Pending</label>
-                    </td>
-                    <td>
-                      <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="edit-appointment.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
-                        <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-
-                       </div> 
-                    </td>
-                  </tr>
-                  <tr class="table-info">
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      Herman Beck
-                    </td>
-                    <td>
-                      14/08/2022
-                    </td>
-                    <td>
-                      14:00 pm
-                    </td>
-                    <td>
-                      0738000000
-                    </td>
-                    <td>
-                      May 15, 2015
-                    </td>
-                    <td>
-                      <label class="badge badge-danger">Pending</label>
-                    </td>
-                    <td>
-                      <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="edit-appointment.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
-                        <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                       </div> 
-                    </td>
-                  </tr>
+                 
                 </tbody>
               </table>
             </div>

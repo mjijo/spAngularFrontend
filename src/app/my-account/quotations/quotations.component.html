@@ -6,7 +6,7 @@
             <app-sidemenu></app-sidemenu>
          </div>
          <div class="col-md-8">
-            <p> Hello <b>mjijo</b> (not mjijo? <a href="#">Log out</a>)</p>
+            <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)</p>
             <h4 class="mb-2 pb-2">My Quotations</h4>
             <!-- Start -->
             <div class="table-responsive pt-3">
@@ -17,20 +17,18 @@
                       #
                     </th>
                     <th>
-                      Order no
+                      Name
                     </th>
                     <th>
-                      From
+                      subject
                     </th>
                     <th>
-                      to
+                      Email
                     </th>
                     <th>
-                      Date
+                      Description
                     </th>
-                    <th>
-                      Amount
-                    </th>
+                    
                     <th>
                       Status
                     </th>
@@ -40,99 +38,36 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="table-info">
+                  <tr class="table-info" *ngFor="let item of myquotation; index as i">
                     <td>
-                      1
+                     {{i + 1}}
                     </td>
                     <td>
-                      DS-001
+                     {{item.name}}
                     </td>
                     <td>
-                      Company ltd 
+                      {{item.email}}
                     </td>
                     <td>
-                      George Githaiga
+                      {{item.subject}}
                     </td>
                     <td>
-                      May 15, 2015
+                      {{item.description}}
                     </td>
-                    <td>
-                      $200
-                    </td>
+                    
                     <td>
                       <label class="badge badge-danger">Pending</label>
                     </td>
                     <td>
                       <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="quotation.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
+                        <!-- <a class="edit" title="Edit" data-toggle="tooltip" href="quotation.html"><i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a> |  -->
                         <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </div>
                     </td>
                   </tr>
-                  <tr class="table-info">
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      DS-001
-                    </td>
-                    <td>
-                      Company ltd 
-                    </td>
-                    <td>
-                      George Githaiga
-                    </td>
-                    <td>
-                      May 15, 2015
-                    </td>
-                    <td>
-                      $200
-                    </td>
-                    <td>
-                      <label class="badge badge-danger">Pending</label>
-                    </td>
-                    <td>
-                      <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="quotation.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
-                        <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                    </td>
-                  </tr>
-                  <tr class="table-info">
-                    <td>
-                      1
-                    </td>
-                    <td>
-                      DS-001
-                    </td>
-                    <td>
-                      Company ltd 
-                    </td>
-                    <td>
-                      George Githaiga
-                    </td>
-                    <td>
-                      May 15, 2015
-                    </td>
-                    <td>
-                      $200
-                    </td>
-                    <td>
-                      <label class="badge badge-danger">Pending</label>
-                    </td>
-                    <td>
-                      <div class="switch_box box_4">
-                        <a class="edit" title="Edit" data-toggle="tooltip" href="quotation.html"><i class="fa fa-pencil" aria-hidden="true"></i>
-                        </a> | 
-                        <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
-                        </a>
-                        </div>
-                    </td>
-                  </tr>
+                  
                 </tbody>
               </table>
             </div>
