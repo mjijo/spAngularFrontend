@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers';
-
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +59,7 @@ import { CartComponent } from './pages/products/cart/cart.component';
 import { TenderComponent } from './pages/tenders/tender/tender.component';
 import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
 import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
+import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +110,8 @@ import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
     CartComponent,
     TenderComponent,
     BidsListComponent,
-    OrgBidsComponent
+    OrgBidsComponent,
+    OrgProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -117,9 +120,11 @@ import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
+    CarouselModule
 
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]

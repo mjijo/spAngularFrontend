@@ -133,9 +133,9 @@ getProductDetails(id:any) {
 
 getProductByOrgId(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/products?includes[]=organization=`+id)
-  // .pipe(map ((res:any)=>{
-  //   return res.data;
-  // }))
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
 }
 
 listServicesById(catId:any){
@@ -156,6 +156,15 @@ getServiceDetails(productSlug: Observable<string>): Observable<any> {
 listProductsById(catId:any){
 
   return this.httpClient.get(`${this.baseApiPath}/products/?product_category_id=`+catId)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+featuredMotorSalvage(catId:any){
+
+  return this.httpClient.get<any>(`${this.baseApiPath}/products/?product_category_id=`+catId)
   .pipe(map ((res:any)=>{
     return res.data;
   }))

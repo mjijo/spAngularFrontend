@@ -117,14 +117,14 @@
                             <hr />
 
                             <!-- <dl class="param param-feature"> -->
-                            <div class="row d-none">
+                            <div class="row">
                                 <div class="col-sm-5">
                                     <dt>Make#</dt>
-                                    <dd>Toyota</dd>
+                                    <dd>{{proData.make}}</dd>
                                 </div>
                                 <div class="col-sm-5">
                                     <dt>Model#</dt>
-                                    <dd>Corolla</dd>
+                                    <dd>{{proData.model}}</dd>
                                 </div>
                             </div>
 
@@ -167,7 +167,7 @@
                                     <dl class="param param-inline">
                                         <dt>Stock: </dt>
                                         <dd>
-                                            Instock <span class="badge badge-pill badge-warning text-white">{{proData.low_stock_threshold}}</span>
+                                            Instock <span class="badge badge-pill badge-warning text-white">{{proData.sku}}</span>
                                         </dd>
                                     </dl>  <!-- item-property .// -->
                                 </div> <!-- col.// -->
@@ -186,22 +186,18 @@
                     <div class="row">
                         <div class="container shadow-sm p-4">
                             <h6>
-                                <a href="my-products.html">Sellers information<i class="fa fa-chevron-right pull-right" aria-hidden="true"></i></a>
+                                <a [routerLink]="['/organisation/products/' + proData.organization?.id]">Sellers information<i class="fa fa-chevron-right pull-right" aria-hidden="true"></i></a>
                             </h6>
 
                             <hr>
 
                             <p class="p-0 mb-0">
-                                Ayush Shrivastava<br/>
-                                <b>98%</b> Positive Seller Score
+                               <i>{{proData.organization.name}}</i> 
                             </p>
                         
-                            <hr class="my-4">
+                            
                         
-                            <div class="d-flex justify-content-around">
-                                <b>12 Followers</b>
-                                <a href="#" class="btn btn-primary purple border-0 rounded">FOllOW</a>
-                            </div>
+                            
                         </div> 
                     </div>
             
@@ -214,7 +210,7 @@
                             <div class="row">
                                 <div class="col-sm-2 p-2"><i class="fa fa-truck fa-2x border p-1 rounded" aria-hidden="true"></i></div>
                                 <div class="col-sm-10 py-2"> <b>Delivery Information</b>
-                                <p>Delivered between 20 Jul and 22 Jul.</p></div>
+                                <p>Delivered in the next 3 weeks.</p></div>
                             </div>
                             <div class="row">
                                 <div class="col-sm-2 p-2"><i class="fa fa-undo fa-2x border p-1 rounded" aria-hidden="true"></i></div>

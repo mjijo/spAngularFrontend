@@ -15,9 +15,17 @@ error!: any;
   id:any;
   bidData:any;
   isLoggedin : boolean = false;
+  productIsLoaded:boolean = false;
   placeBidData:any = {product_id:null, amount :0}
 
-  constructor(private api : ApiService, private router: Router, private actRoute: ActivatedRoute, private cartService:CartService, private plugin: PluginsService, private auth: AuthenticationService) { }
+  constructor(
+    private api : ApiService, 
+    private router: Router, 
+    private actRoute: ActivatedRoute, 
+    private cartService:CartService, 
+    private plugin: PluginsService, 
+    private auth: AuthenticationService) 
+    { }
 
   ngOnInit(): void {
 
@@ -42,7 +50,7 @@ error!: any;
         data.proAttachments.push(data.attachments[property]);
       }
       this.bidData =data;
-
+      this.productIsLoaded = true;
     });
     }
     BidNow(bidData : any){

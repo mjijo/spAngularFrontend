@@ -41,12 +41,45 @@
        <section id="default" class="padding-top0">
             <div class="row">
                 <div class="large-5 column">
-                    <div class="xzoom-container"> <img class="xzoom" id="xzoom-default" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/01_b_car.jpg" xoriginal="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190715/gallery/original/01_b_car.jpg" />
-                        <div class="xzoom-thumbs"> <a href="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190715/gallery/original/01_b_car.jpg"><img class="xzoom-gallery" width="80" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190716/gallery/thumbs/01_b_car.jpg" xpreview="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/01_b_car.jpg"></a> <a href="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/original/02_o_car.jpg"><img class="xzoom-gallery" width="80" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190720/gallery/preview/02_o_car.jpg"></a> <a href="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190718/gallery/original/03_r_car.jpg"><img class="xzoom-gallery" width="80" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190715/gallery/preview/03_r_car.jpg"></a> <a href="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190717/gallery/original/04_g_car.jpg"><img class="xzoom-gallery" width="80" src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1565190714/gallery/preview/04_g_car.jpg"></a> </div>
+                    <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
+                        <!-- slides -->
+                        <ng-container *ngIf="!productIsLoaded">
+                            <img src="../../../../assets/img/loading.gif" alt="Loading" style="width: 100%;height: auto;max-width: 50%;">
+                        </ng-container>
+
+                        <ng-container *ngIf="productIsLoaded">
+                            <div class="carousel-inner">
+                                <ng-container *ngFor="let attachement of bidData.proAttachments; let i = index">
+                                    <div class="carousel-item" [ngClass]="{'active': i === 1}">
+                                        <img [src]="attachement.original_url" alt="{{attachement.name}}">
+                                    </div>
+                                </ng-container>
+                            </div>
+
+                            <!-- Left right -->
+                            <a class="carousel-control-prev" href="#custCarousel" data-slide="prev">
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                    
+                            <!-- Thumbnails -->
+                            <ol class="carousel-indicators list-inline">
+                                <ng-container *ngFor="let attachement of bidData.proAttachments; let i = index"> 
+                                    <li class="list-inline-item active">
+                                        <a id="carousel-selector-0" class="selected" [attr.data-slide-to]="i" data-target="#custCarousel">
+                                            <img src="{{attachement.original_url}}" class="img-fluid">
+                                        </a>
+                                    </li>
+                                </ng-container>
+                            </ol>
+                        </ng-container>
+                        
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row d-none">
                 <div class="container">
                 
                     <!---Start-share-->
@@ -89,7 +122,7 @@
         </div>
     <p class="price-detail-wrap"> 
         <span class="price h3 text-warning"> 
-            <span class="currency">{{bidData.currency.symbol}}</span><span class="num">{{bidData.price}}</span>
+            <span class="currency">{{bidData.currency.symbol}}</span><span class="num">{{bidData.price | number}}</span>
         </span> 
         <span></span> 
     </p> <!-- price-detail-wrap .// -->
@@ -177,7 +210,7 @@
             <aside class="col-md-3">
             <div class="row">
                 <div class="container shadow-sm p-4">
-                    <h6><a [routerLink]="['/organisation/' + bidData.organization?.id]">Auctioneer's information<i class="fa fa-chevron-right pull-right" aria-hidden="true"></i></a>
+                    <h6><a [routerLink]="['/organisation/bids/' + bidData.organization?.id]">Seller information<i class="fa fa-chevron-right pull-right" aria-hidden="true"></i></a>
                     </h6>
                     <hr>
                 <div class="row">
@@ -203,12 +236,12 @@
                     <div class="row">
                         <div class="col-sm-2 p-2"><i class="fa fa-undo fa-2x border p-1 rounded" aria-hidden="true"></i></div>
                         <div class="col-sm-10 py-2"> <b>Return Policy</b>
-                        <p>Easy Return, Quick Refund.</p></div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-2 p-2"><i class="fa fa-shield fa-2x border p-1 px-2 rounded" aria-hidden="true"></i></div>
                         <div class="col-sm-10 py-2"> <b>Warranty</b>
-                        <p>1 Year Warranty.</p></div>
+                        </div>
                     </div>
                 </div>
             </div>

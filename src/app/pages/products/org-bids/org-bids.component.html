@@ -82,9 +82,7 @@
                         </div>
                     </div>
                 </div> 
-                <ul>
-                    <li *ngFor="let bid of bidList; index as i">aaaaa</li>
-                </ul>
+               
                 <div id="products" class="row view-group">
                             <ng-container  *ngFor="let bid of bidList; index as i">
                             <div class="item col-xs-4 col-lg-4 mb-4">
@@ -95,7 +93,7 @@
                                     <div class="caption card-body pb-0">
                                     <div class="post-bar">
                                 <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
-                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
+                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{bid.bids}} Bids</a></span>
                             </div>
                                         <h4 class="group card-title inner list-group-item-heading">
                                             {{bid.name}}</h4>
@@ -117,7 +115,7 @@
                             </div>
                         </ng-container>
                          </div>
-                        <div class="row container d-flex justify-content-center">
+                        <!-- <div class="row container d-flex justify-content-center">
                             
                                 
                                         
@@ -133,7 +131,7 @@
                                         </nav>
                                    
                             
-                        </div>
+                        </div> -->
             </div>
                 <!--End grid-->
             </div>
