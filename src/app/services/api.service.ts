@@ -131,6 +131,13 @@ getProductDetails(id:any) {
   // }))
 }
 
+getProductByOrgId(id:any) {
+  return this.httpClient.get<any>(`${this.baseApiPath}/products?includes[]=organization=`+id)
+  // .pipe(map ((res:any)=>{
+  //   return res.data;
+  // }))
+}
+
 listServicesById(catId:any){
   console.log(catId);
   return this.httpClient.get(`${this.baseApiPath}/services/?service_category_id=`+catId)

@@ -35,6 +35,7 @@ import { AllBidsComponent } from './pages/products/bids/bids.component';
 import { TenderComponent } from './pages/tenders/tender/tender.component';
 import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
 import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
+import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -61,6 +62,7 @@ const routes: Routes = [
   {path:'product/:id', component: ProductDetailComponent},
   {path:'bids/:id', component: BidsListComponent},
   {path:'bid/:id', component: BidDetailComponent},
+  {path:'organisation/:id', component:OrgBidsComponent},
   {path:'cart', component: CartComponent},
   
   {

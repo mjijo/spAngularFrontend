@@ -1,4 +1,3 @@
-
 <!-- section start Breadcrumbs here-->
 <section class="breadcrumb-0">
     <div class="container">
@@ -20,7 +19,7 @@
                     </div>
                 </div>
             </div>
-        
+     
     
     </section>
     
@@ -29,68 +28,39 @@
     <!-- section start My Product here-->
     <section class="accordion_two_section ptb-100 inner-page myproduct">
         <div class="container py-5">
-            <h2 class="text-center title"><span>{{bidsList[0].category.name}}</span></h2>
+            <h2 class="text-center title"><span>My Auctions</span></h2>
             <div class="row">
                 <!--start side-->
             <div class="col-md-3 sidebar">
-              <div id="accordion">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <h5 class="mb-0"><button aria-controls="collapseOne" aria-expanded="true" class="btn btn-link" data-target="#collapseOne" data-toggle="collapse">Price</button></h5>
-                </div>
-                <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordion" id="collapseOne">
-                    <div class="card-body">
-                        <div class="card-body">
-                            <input class="custom-range" max="100" min="0" name="" type="range">
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label>Min</label> <input class="form-control" placeholder="$0" type="number">
-                                </div>
-                                <div class="form-group text-right col-md-6">
-                                    <label>Max</label> <input class="form-control" placeholder="$1,0000" type="number">
-                                </div>
-                            </div><a class="highlight-button btn text-white text-uppercase button xs-margin-bottom-five purple" data-abc="true" href="#">Apply Now</a>
-                        </div>
-                    </div>
-                </div>
+                <div class="row ml-0 avator">
+                    <div class="card profile rounded-0" style="width: 18rem;">
+              <div class="card-body">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7pmT3lMtcAaI0HyFel0IYCH9KnZnmU0ivlsl96QdtFVhq8FvB">
+                <h5 class="card-title mt-1">Jose Tonkei</h5>
+                
+                <hr>
+                <div class="row">
+                <div class="col-sm-6 border-right">
+                    <b class="text-info">half a year</b>
+                    <small>Registered</small></div>
+                <div class="col-sm-6">
+                    <b class="text-info">2 hrs ago</b>
+                    <small>Registered</small></div>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0"><button aria-controls="collapseTwo" aria-expanded="false" class="btn btn-link collapsed" data-target="#collapseTwo" data-toggle="collapse">Rating</button></h5>
-                </div>
-                <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordion" id="collapseTwo">
-                    <div class="card-body">
-                        XX
-                    </div>
-                </div>
+                <hr>
+            
+                <p class="card-text"><a href="auctioneer-details.html" class="btn btn-info blue border-0 text-uppercase small">My Details</a></p>
+                <p class="card-text">
+                    <i class="fa fa-facebook mr-1"></i>
+                    <i class="fa fa-twitter mr-1"></i>
+                    <i class="fa fa-instagram mr-1"></i>
+                        
+                </p>
+              </div>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h5 class="mb-0"><button aria-controls="collapseThree" aria-expanded="false" class="btn btn-link collapsed" data-target="#collapseThree" data-toggle="collapse">Categories</button></h5>
+            
+            
                 </div>
-                <div aria-labelledby="headingThree" class="collapse" data-parent="#accordion" id="collapseThree">
-                    <div class="card-body">
-                        <ul class="list-menu">
-                            <li>
-                                <a data-abc="true" href="#">Electronics</a>
-                            </li>
-                            <li>
-                                <a data-abc="true" href="#">Watches</a>
-                            </li>
-                            <li>
-                                <a data-abc="true" href="#">Laptops</a>
-                            </li>
-                            <li>
-                                <a data-abc="true" href="#">Clothes</a>
-                            </li>
-                            <li>
-                                <a data-abc="true" href="#">Accessories</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     
             </div>
                 <!--end side-->
@@ -113,7 +83,7 @@
                     </div>
                 </div> 
                 <div id="products" class="row view-group">
-                    <ng-container  *ngFor="let bid of bidsList; index as i">
+                            <ng-container  *ngFor="let bid of bidList; index as i">
                             <div class="item col-xs-4 col-lg-4 mb-4">
                                 <div class="thumbnail card bg-white shadow-sm">
                                     <div class="img-event">
@@ -122,7 +92,7 @@
                                     <div class="caption card-body pb-0">
                                     <div class="post-bar">
                                 <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
-                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{bid.bids}} Bids</a></span>
+                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
                             </div>
                                         <h4 class="group card-title inner list-group-item-heading">
                                             {{bid.name}}</h4>
@@ -143,10 +113,11 @@
                                 </div>
                             </div>
                         </ng-container>
+                         </div>
+                        <div class="row container d-flex justify-content-center">
                             
-                        </div>
-                        <!-- <div class="row container d-flex justify-content-center d-none">
-               
+                                
+                                        
                                         <nav>
                                             <ul class="pagination flex-wrap d-flex justify-content-center">
                                                 <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-left"></i></a></li>
@@ -159,7 +130,7 @@
                                         </nav>
                                    
                             
-                        </div> -->
+                        </div>
             </div>
                 <!--End grid-->
             </div>
@@ -167,3 +138,4 @@
         <!--end of /.container-->
     </section>
     
+    <!-- section end here-->
