@@ -73,13 +73,24 @@ export class CartService {
     })
     return grandTotal;
   }
-  removeCartItem(product: any){
-    this.cartItemList.map((a:any, index:any)=>{
-      if(product.id=== a.id){
-        this.cartItemList.splice(index,1);
-      }
-    })
-    this.productList.next(this.cartItemList);
+
+
+  
+  removeCartItem(id: number){
+    let localtoken:any = localStorage.getItem("user");
+    localtoken = (localtoken ? JSON.parse(localtoken) : {});
+    this.token = localtoken.access_token;
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+    return this.http.delete(`${environment.apiUrl}/shopping-cart-items/`+id,{headers: header})
+    .pipe(map ((res:any)=>{
+      return res;
+    }))
+    // this.cartItemList.map((a:any, index:any)=>{
+    //   if(product.id=== a.id){
+    //     this.cartItemList.splice(index,1);
+    //   }
+    // })
+    // this.productList.next(this.cartItemList);
   }
   removeAllCart(){
     this.cartItemList = []
@@ -99,5 +110,15 @@ export class CartService {
     //   return res.data;
     // }))
   
+  }
+
+getShipmentDetails(product : any,id: number){
+    let localtoken:any = localStorage.getItem("user");
+    localtoken = (localtoken ? JSON.parse(localtoken) : {});
+    this.token = localtoken.access_token;
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+    
+    return this.http.patch(`${environment.apiUrl}/orders/`+id,product,{headers: header}) 
+    
   }
 }

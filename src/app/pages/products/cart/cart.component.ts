@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -12,6 +13,7 @@ export class CartComponent implements OnInit {
   public products : any = [];
   public grandTotal: number = 0;
   public totalItem : number = 0;
+  
   // cartData:any = {
   //   order_number:null, 
   //   user_id:null, 
@@ -25,11 +27,12 @@ export class CartComponent implements OnInit {
   // }
   constructor(
     private cartService: CartService,
-    private auth:AuthenticationService
+    private auth:AuthenticationService,
+    private router: Router,
     ) { }
 
   async ngOnInit(){
-    this.createOrder(this.products);
+   
     this.cartService.getProducts()
     .subscribe(res=>{
       this.loadCartItems();
@@ -39,6 +42,7 @@ export class CartComponent implements OnInit {
     })
    
     await this.loadItemCount();
+   
   }
   async loadItemCount ()
   {
@@ -49,7 +53,7 @@ export class CartComponent implements OnInit {
         this.products = res.data;
         res.data.forEach((item:any) => {
           this.grandTotal += item.amount;
-          
+     
         });
         console.log(this.products);
         
@@ -62,8 +66,12 @@ export class CartComponent implements OnInit {
 
   }
 
-  removeItem(item: any){
-    this.cartService.removeCartItem(item.items);
+  async removeItem(item: any){
+    this.cartService.removeCartItem(item.id)
+    .subscribe(()=> {
+      this.loadCartItems();
+  });
+   
   }
   emptycart(){
     this.cartService.removeAllCart();
@@ -73,12 +81,14 @@ export class CartComponent implements OnInit {
     this.cartService.getCartItems().subscribe ((item : any) =>{
       console.log(item);
       this.products = item.items;
+      
     });
   }
 
   createOrder(product : any){
     this.cartService.postCartDataToOrder(this.products).subscribe (item =>{
     //  this.products = item.items;
+    this.router.navigate(['/shipment']);
      console.log(this.products)
     })
   }
