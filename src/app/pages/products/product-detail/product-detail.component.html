@@ -189,11 +189,12 @@
                                 <a [routerLink]="['/organisation/products/' + proData.organization?.id]">Sellers information<i class="fa fa-chevron-right pull-right" aria-hidden="true"></i></a>
                             </h6>
 
-                            <hr>
+                            <hr />
 
-                            <p class="p-0 mb-0">
-                               <i>{{proData.organization.name}}</i> 
-                            </p>
+                            <div class="row">
+                                <div class="col-sm-4"><img src="{{proData.organization.logo_url}}" class="img-fluid"/></div> 
+                                <div class="col-sm-8 p-1"><b>{{proData.organization.name}}</b></div>
+                            </div>
                         
                             
                         

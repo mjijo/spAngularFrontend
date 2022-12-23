@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +12,24 @@ export class CartComponent implements OnInit {
   public products : any = [];
   public grandTotal: number = 0;
   public totalItem : number = 0;
-
-  constructor(private cartService: CartService) { }
+  // cartData:any = {
+  //   order_number:null, 
+  //   user_id:null, 
+  //   amount:null,
+  //   company:null,
+  //   email:null,
+  //   phone: null,
+  //   country_id:null ,
+  //   Currency_id: null,
+  //   Line_items:null,
+  // }
+  constructor(
+    private cartService: CartService,
+    private auth:AuthenticationService
+    ) { }
 
   async ngOnInit(){
+    this.createOrder(this.products);
     this.cartService.getProducts()
     .subscribe(res=>{
       this.loadCartItems();
@@ -22,7 +37,7 @@ export class CartComponent implements OnInit {
       // this.grandTotal = this.cartService.getTotalPrice();
       this.totalItem = res.length;
     })
-
+   
     await this.loadItemCount();
   }
   async loadItemCount ()
@@ -39,7 +54,6 @@ export class CartComponent implements OnInit {
         console.log(this.products);
         
       }
-      
 
       }
         
@@ -49,15 +63,24 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(item: any){
-    this.cartService.removeCartItem(item);
+    this.cartService.removeCartItem(item.items);
   }
   emptycart(){
     this.cartService.removeAllCart();
   }
 
   loadCartItems(){
-    this.cartService.getCartItems().subscribe (item =>{
+    this.cartService.getCartItems().subscribe ((item : any) =>{
       console.log(item);
+      this.products = item.items;
+    });
+  }
+
+  createOrder(product : any){
+    this.cartService.postCartDataToOrder(this.products).subscribe (item =>{
+    //  this.products = item.items;
+     console.log(this.products)
     })
   }
+
 }

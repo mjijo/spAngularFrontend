@@ -72,6 +72,13 @@ getserviceproviders(id: any){
   }))
 }
 
+getFeaturedServiceproviders(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/services`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+}
+
 
 getserviceprovidersDetails(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/services/`+id)
@@ -164,7 +171,7 @@ listProductsById(catId:any){
 
 featuredMotorSalvage(catId:any){
 
-  return this.httpClient.get<any>(`${this.baseApiPath}/products/?product_category_id=`+catId)
+  return this.httpClient.get<any>(`${this.baseApiPath}/products?featured=`+catId)
   .pipe(map ((res:any)=>{
     return res.data;
   }))
@@ -296,5 +303,20 @@ getNotificationsbyUserId(id:any) {
   }))
 
 }
+
+getOrdersbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/orders?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+
   
 }

@@ -60,6 +60,7 @@ import { TenderComponent } from './pages/tenders/tender/tender.component';
 import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
 import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
 import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
+import { ShipmentComponent } from './pages/products/shipment/shipment.component';
 
 @NgModule({
   declarations: [
@@ -111,7 +112,8 @@ import { OrgProductsComponent } from './pages/products/org-products/org-products
     TenderComponent,
     BidsListComponent,
     OrgBidsComponent,
-    OrgProductsComponent
+    OrgProductsComponent,
+    ShipmentComponent
   ],
   imports: [
     BrowserModule,

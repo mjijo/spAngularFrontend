@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, map } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
@@ -32,7 +32,8 @@ export class CartService {
     localtoken = (localtoken ? JSON.parse(localtoken) : {});
     this.token = localtoken.access_token;
     let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
-    return this.http.get(`${environment.apiUrl}/shopping-cart-items`,{headers: header});
+    return this.http.get(`${environment.apiUrl}/shopping-cart?includes[]=user&includes[]=items`,{headers: header})
+    
   }
 
     getCartTotalItems(): Observable<any>{
@@ -83,5 +84,20 @@ export class CartService {
   removeAllCart(){
     this.cartItemList = []
     this.productList.next(this.cartItemList);
+  }
+
+
+  postCartDataToOrder(product : any) {
+    let localtoken:any = localStorage.getItem("user");
+    localtoken = (localtoken ? JSON.parse(localtoken) : {});
+    this.token = localtoken.access_token;
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+    
+    return this.http.post<any>(`${environment.apiUrl}/orders`,product,{headers: header})
+    console.log();
+    // .pipe(map ((res:any)=>{
+    //   return res.data;
+    // }))
+  
   }
 }

@@ -37,6 +37,7 @@ import { BidsListComponent } from './pages/products/bids-list/bids-list.componen
 import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
 import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
 import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
+import { ShipmentComponent } from './pages/products/shipment/shipment.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -66,6 +67,7 @@ const routes: Routes = [
   {path:'organisation/bids/:id', component: OrgBidsComponent},
   {path:'organisation/products/:id', component: OrgProductsComponent},
   {path:'cart', component: CartComponent},
+  {path:'shipment', component: ShipmentComponent},
   
   {
     path: 'myaccount', children: [

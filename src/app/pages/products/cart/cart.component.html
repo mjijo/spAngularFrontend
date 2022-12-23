@@ -36,7 +36,7 @@
                                 <div class="cart_items">
                                     <ul class="cart_list">
                                         <li class="cart_item clearfix">
-                                            <div class="cart_item_image"><a href="product-details.html"><img src="img/spare.jpg" alt=""></a></div>
+                                            <div class="cart_item_image"><img src="{{item.product.first_image_url}}" alt=""></div>
                                             <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
                                                 <div class="cart_item_name cart_info_col">
                                                     <div class="cart_item_title">Name</div>
@@ -74,7 +74,7 @@
                                         <div class="order_total_amount">Ksh {{grandTotal | number}}</div>
                                     </div>
                                 </div>
-                                <div class="cart_buttons"> <a routerLink="/" type="button" class="button cart_button_clear">Continue Shopping</a> <a href="shippment.html" type="button" class="button cart_button_checkout purple">Proceed to Shippment</a> </div>
+                                <div class="cart_buttons"> <a routerLink="/" type="button" class="button cart_button_clear">Continue Shopping</a> <a (click)="createOrder(products)" type="button" class="button cart_button_checkout purple">Proceed to Shippment</a> </div>
                             </div>
                         </div>
                     </div>

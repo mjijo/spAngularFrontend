@@ -1,0 +1,269 @@
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#!" data-abc="true">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+    
+    </section>
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start faqs here-->
+    <section class="accordion_two_section ptb-100 inner-page faqs shippment">
+        <div class="container py-5">
+            <h2 class="text-center title"><span>Shippment</span></h2>
+            <div class="row">
+                <div class="col-md-8">
+                    
+                    <div class="row-fluid mt-2">
+                      <ul id="vj-steps-acc" class="vjsteps_acc">
+                        <li data-vjstepno="1" class="shadow-sm bg-white mb-2">
+                          <h5 class="p-3 text-uppercase"><i class="fa fa-check-circle mr-1" aria-hidden="true"></i>1. Address Details <button type="button" class="btn pull-right" data-toggle="modal" data-target="#myModal">
+                            CHANGE
+                          </button></h5>
+                          <hr class="divider m-0">
+                          <section class="clearfix px-4">
+                            <h5>GEORGE GITHAIGA</h5>
+                            <p>Nation center, CBD - GPO/City Market/Nation Centre, Nairobi<br />
+                            +254738593292
+                            </p>
+                            <p>
+                              <button class="btn btn-primary rounded-0 border-0 purple vjsteps_nxt vjbutton pull-right">SELECT DELIVERY METHOD</button>
+                            </p>
+                          </section>
+                        </li>
+                        
+                        <li data-vjstepno="2" class="shadow-sm bg-white mb-2">
+                          <h5 class="p-3 text-uppercase"><i class="fa fa-check-circle mr-1" aria-hidden="true"></i>2. Delivery Method </h5>
+                          <hr class="divider m-0">
+                          <section class="clearfix px-4">
+                            <b>How do you want your order delivered?</b>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input type="radio" id="delivery" class="form-check-input" name="optradio"><b>Pickup Station</b><br />
+                                Ready for pick up between Wednesday 22 Jul and Friday 24 Jul with cheaper shipping fees 
+                              </label>
+                            </div>
+                            <hr>
+                            <div class="form-check mb-2">
+                              <label class="form-check-label">
+                                <input type="radio" id="delivery" class="form-check-input" name="optradio"><b>Delivery to your home or office</b><br/>
+                                Delivered between Wednesday 22 Jul and Friday 24 Jul
+                                
+                                - Large Items (e.g. freezers, fridges) may arrive 2 business days later than other products
+                                
+                                - Living in Nairobi, JUMIA PRIME members enjoy Free Delivery on Jumia Express (Excluding bulky items)
+                                
+                                Please ensure you entered your Home address, not your office one, so that we can deliver to you successfully for KSh 251 
+                              </label>
+                              
+                            </div>
+                            <hr />
+                            <button class="btn btn-primary rounded-0 border-0 blue vjsteps_prev vjbutton text-uppercase">Prev</button> 
+                            <button class="btn btn-primary rounded-0 border-0 purple vjsteps_nxt vjbutton text-uppercase pull-right">proceed to next step</button>
+                          </section>
+                        </li>
+                        
+                        <li data-vjstepno="3" class="shadow-sm bg-white mb-2">
+                          <h5 class="p-3 text-uppercase"><i class="fa fa-check-circle mr-1" aria-hidden="true"></i>3. Payment Method </h5>
+                          <hr class="divider m-0">
+                          <section class="clearfix">
+                            <div class="row text-center justify-content-center">
+                            <b>How do you want to pay for your order?</b>
+                            </div>
+                            <div class="row my-2 align-items-center justify-content-center">
+                              <div class="col-md-8">
+                                <div class="form-check-inline">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio">Pay Online
+                                  </label>
+                                </div>
+                                <div class="form-check-inline">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio">Pay on Delivery
+                                  </label>
+                                </div>
+                                <div class="form-check-inline">
+                                  <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio">Send me an Invoice
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mt-0">
+                              <div class="col-md-12 ">
+                                  <p class="text-center sub-heading2"><b>Do you have a voucher?</b></p>
+                              </div>
+                          </div>
+                          <div class="row justify-content-center padding">
+                            <div class="col-md-8 ftco-animate fadeInUp ftco-animated">
+                                <form action="#" class="domain-form">
+                                    <div class="form-group d-md-flex"> <input type="text" class="form-control px-4" placeholder="Enter your voucher code..."> <input type="submit" class="search-domain btn btn-primary px-5 text-uppercase" value="Enter"> </div>
+                                </form>
+                                </div>
+                        </div>
+                            
+                            <button class="btn btn-primary rounded-0 border-0 purple vjsteps_nxt vjbutton text-uppercase pull-right">proceed to Payment</button>
+                          </section>
+                        </li>
+                      </ul>
+                      <script>
+                        $('#vj-steps-acc').vjaccordionsteps({
+                          'vjacc_step_change_function': function(arr_params){
+                            if(window.console){ console.log(arr_params); }
+                            var current_step = arr_params.current_step;
+                            var new_step = arr_params.new_step;
+                            var total_steps = arr_params.total_steps;
+                            var valid = true;//Validation success, go to next step
+                            if(new_step==2){
+                              var first_name = $('#first_name').val();
+                              var last_name = $('#last_name').val();
+                              if(first_name=='' || last_name==''){
+                                alert('Hey! Enter your "First name" and "Last name" to continue.');
+                                valid = false;
+                              }
+                            }
+                            
+                            
+                            return valid;
+                          }, 
+                          'vjacc_after_step_change_function': function(arr_params){
+                            var current_step = arr_params.current_step;
+                            var new_step = arr_params.new_step;
+                            var total_steps = arr_params.total_steps;
+                            $('#vj-output').append("<div>"+'Step changed to '+new_step+"</div>");
+                          }
+                        });
+                        
+                        function save(){
+                          alert('Everything fine. Now resetting the steps.');
+                          $('#vj-output').append("<div>Step reset</div>");
+                          $('#vj-steps-acc').vjaccordionsteps.reset_steps();
+                        }
+                      </script>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4">
+                  <div class="card border-0 bg-white shadow-sm rounded-0 mt-2">
+                    <div class="card-header card-2 m-0">
+                        <p class="card-text text-muted mb-2 space">YOUR ORDER <span class=" small text-muted ml-2 cursor-pointer">EDIT SHOPPING BAG</span> </p>
+                        <hr class="my-2">
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="row justify-content-between">
+                            <div class="col-auto col-md-7">
+                                <div class="media flex-column flex-sm-row"> <img class=" img-fluid" src="img/225x225.jpg" width="62" height="62">
+                                    <div class="media-body my-auto">
+                                        <div class="row ">
+                                            <div class="col-auto">
+                                                <p class="mb-0"><b>EC-GO Bag Standard</b></p><small class="text-muted">1 Week Subscription</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" pl-0 flex-sm-col col-auto my-auto">
+                                <p class="boxed-1">2</p>
+                            </div>
+                            <div class=" pl-0 flex-sm-col col-auto my-auto ">
+                                <p><b>179 SEK</b></p>
+                            </div>
+                        </div>
+                        <hr class="my-2">
+                        <div class="row justify-content-between">
+                            <div class="col-auto col-md-7">
+                                <div class="media flex-column flex-sm-row"> <img class=" img-fluid " src="img/225x225.jpg" width="62" height="62">
+                                    <div class="media-body my-auto">
+                                        <div class="row ">
+                                            <div class="col">
+                                                <p class="mb-0"><b>EC-GO Bag Standard</b></p><small class="text-muted">2 Week Subscription</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pl-0 flex-sm-col col-auto my-auto">
+                                <p class="boxed">3</p>
+                            </div>
+                            <div class="pl-0 flex-sm-col col-auto my-auto">
+                                <p><b>179 SEK</b></p>
+                            </div>
+                        </div>
+                        <hr class="my-2">
+                        <div class="row justify-content-between">
+                            <div class="col-auto col-md-7">
+                                <div class="media flex-column flex-sm-row"> <img class=" img-fluid " src="img/225x225.jpg" width="62" height="62">
+                                    <div class="media-body my-auto">
+                                        <div class="row ">
+                                            <div class="col">
+                                                <p class="mb-0"><b>EC-GO Bag Standard</b></p><small class="text-muted">2 Week Subscription</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pl-0 flex-sm-col col-auto my-auto">
+                                <p class="boxed-1">2</p>
+                            </div>
+                            <div class="pl-0 flex-sm-col col-auto my-auto">
+                                <p><b>179 SEK</b></p>
+                            </div>
+                        </div>
+                        <hr class="my-2">
+                        <div class="row ">
+                            <div class="col">
+                                <div class="row justify-content-between">
+                                    <div class="col-4">
+                                        <p class="mb-1"><b>Subtotal</b></p>
+                                    </div>
+                                    <div class="flex-sm-col col-auto">
+                                        <p class="mb-1"><b>179 KES</b></p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div class="col">
+                                        <p class="mb-1"><b>Shipping</b></p>
+                                    </div>
+                                    <div class="flex-sm-col col-auto">
+                                        <p class="mb-1"><b>0 KES</b></p>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-between">
+                                    <div class="col-4">
+                                        <p><b>Total</b></p>
+                                    </div>
+                                    <div class="flex-sm-col col-auto">
+                                        <p class="mb-1"><b>537 KES</b></p>
+                                    </div>
+                                </div>
+                                <hr class="my-0">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--end review-->
+                </div>
+            </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+    <script>
+        
+      </script> 
+    <!-- section end here-->

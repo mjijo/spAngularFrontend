@@ -29,7 +29,7 @@ export class ProvidersComponent implements OnInit {
 
 getServicesCatId (id:any) {
   this.api.listServicesById(id).subscribe((data) =>{
-    this.serviceproviders =data;
+    this.serviceproviders = data;
     this.servivecategory = data;
     this.isLoading = false;
     console.log(this.serviceproviders);

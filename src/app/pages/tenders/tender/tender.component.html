@@ -33,10 +33,10 @@
                 <div class="container">
                     <div class="row-fliud d-flex bg-white py-3">
                         <div class="col-md-3">
-                        <img src="../../../../assets/img/brands_1.jpg" class="img-fluid" alt="">
+                        <img src="{{tenderData.organization.logo_url}}" class="img-fluid" alt="">
                     </div>
                     <div class="col-md-9">
-                        <h4><i class="fa fa-archive mr-2" aria-hidden="true"></i> {{tenderData.organization}}</h4>
+                        <h4><i class="fa fa-archive mr-2" aria-hidden="true"></i> {{tenderData.organization.name}}</h4>
                     <div class="row">
                       <div class="col-md-4 mb-2"><i class="fa fa-star mr-2" aria-hidden="true"></i> Invitation to Tender</div>
                       <div class="col-md-4 mb-2"><i class="fa fa-tag mr-2" aria-hidden="true"></i>Sector : {{tenderData.sector}}</div>

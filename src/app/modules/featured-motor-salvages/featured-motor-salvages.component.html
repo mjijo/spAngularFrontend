@@ -1,84 +1,57 @@
 
+
+
 <section class="featured-motor-salvages">
     <div class="container">
            <h3 class="h3">Featured Motor Salvages </h3> 
            <p class="subheading">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>   
            <div class="row">
-            <!-- <owl-carousel-o [options]="customOptions">
-                <ng-container *ngFor="let bid of bidsList">
-                    <ng-template carouselSlide [id]="bid.id">
-                        <div class="post-slide2">
-                            <div class="post-img">
-                                <a href="#"><img [src]="bid.images[0].image_url" [alt]="bid.images[0].name" alt=""></a>
-                            </div>
-                            <div class="post-content">
-                              <div class="post-bar">
-                                <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
-                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{bid.bids}} Bids</a></span>
-                            </div>
-    
-                                <h3 class="post-title"><a href="#">{{bid.name}}</a></h3>
-                                <p class="post-description">
-                                    {{bid.description_of_damage}}
-                                </p>
-                                 <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{bid.closing_date}}</span>
-                          <div class="post-bar">
-                              <span><i class="fa fa-tags"></i>{{bid.currency.symbol}} {{bid.sum_insured | number}}</span>
-                              <span class="bids"><i class="fa fa-share-alt"></i></span>
-                          </div>
-                          <a class="readon" [routerLink]="['/bid/' + bid?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
-                                
-                            </div>
-                        </div>
-                    </ng-template>
-                  </ng-container> 
-           </owl-carousel-o> -->
+            
             <!-- <ng-container  *ngFor="let bid of bidsList; index as i">
                 <ng-container *ngIf="bid.is_featured == 1">
                     
                 </ng-container>
             </ng-container> -->
-            <ng-container *ngIf="isLoading">
-                <div class="row text-center d-flex justify-content-center" >
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
-                      </div>
-                </div>
-            </ng-container>
+            
                <div class="col-md-12">
-                   <div id="news-slider2" class="owl-carousel">
-                    
-                <ng-container  *ngFor="let bid of bidsList; index as i">
-                    <ng-container *ngIf="bid.is_featured == 1">
+                <ng-container *ngIf="isLoading">
+                    <div class="row text-center d-flex justify-content-center" >
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </div>
+                </ng-container>
+                <owl-carousel-o [options]="customOptions">
+
+                    <ng-container *ngFor="let slide of bidsList">
+                      <ng-template class="slide" carouselSlide [id]="slide.id">
                         <div class="post-slide2">
                             <div class="post-img">
-                                <a href="#"><img [src]="bid.images[0].image_url" [alt]="bid.images[0].name" alt=""></a>
+                                <a href="#"><img [src]="slide.images[0].image_url" [alt]="slide.images[0].name" alt=""></a>
                             </div>
                             <div class="post-content">
                               <div class="post-bar">
-                                <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
-                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{bid.bids}} Bids</a></span>
+                                <span><i class="fa fa-map-marker"></i><a href="#">{{slide.city}}</a></span>
+                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{slide.bids}} Bids</a></span>
                             </div>
-    
-                                <h3 class="post-title"><a href="#">{{bid.name}}</a></h3>
+                
+                                <h3 class="post-title"><a href="#">{{slide.name}}</a></h3>
                                 <p class="post-description">
-                                    {{bid.description_of_damage}}
+                                    {{slide.description_of_damage}}
                                 </p>
-                                 <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{bid.closing_date}}</span>
+                                 <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{slide.closing_date}}</span>
                           <div class="post-bar">
-                              <span><i class="fa fa-tags"></i>{{bid.currency.symbol}} {{bid.sum_insured | number}}</span>
+                              <span><i class="fa fa-tags"></i>{{slide.currency.symbol}} {{slide.sum_insured | number}}</span>
                               <span class="bids"><i class="fa fa-share-alt"></i></span>
                           </div>
-                          <a class="readon" [routerLink]="['/bid/' + bid?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
+                          <a class="readon" [routerLink]="['/bid/' + slide?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
                                 
                             </div>
                         </div>
+                      </ng-template>
                     </ng-container>
-                </ng-container>
-                      
-    
-           
-                   </div>
+                
+                  </owl-carousel-o>  
                </div>
            </div>
        </div>
