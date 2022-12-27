@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers';
-
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -57,6 +58,9 @@ import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.compo
 import { CartComponent } from './pages/products/cart/cart.component';
 import { TenderComponent } from './pages/tenders/tender/tender.component';
 import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
+import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
+import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
+import { ShipmentComponent } from './pages/products/shipment/shipment.component';
 
 @NgModule({
   declarations: [
@@ -106,7 +110,10 @@ import { BidsListComponent } from './pages/products/bids-list/bids-list.componen
     BidDetailComponent,
     CartComponent,
     TenderComponent,
-    BidsListComponent
+    BidsListComponent,
+    OrgBidsComponent,
+    OrgProductsComponent,
+    ShipmentComponent
   ],
   imports: [
     BrowserModule,
@@ -115,9 +122,11 @@ import { BidsListComponent } from './pages/products/bids-list/bids-list.componen
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
+    CarouselModule
 
   ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]

@@ -72,6 +72,13 @@ getserviceproviders(id: any){
   }))
 }
 
+getFeaturedServiceproviders(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/services`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+}
+
 
 getserviceprovidersDetails(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/services/`+id)
@@ -110,7 +117,7 @@ postQuotations(referralsObj:any) {
   this.token = localtoken.access_token;
   let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
   console.log(this.token)
-  return this.httpClient.post<any>(`${this.baseApiPath}/notifications`,referralsObj,{headers: header});
+  return this.httpClient.post<any>(`${this.baseApiPath}/notifications?type=quotation-request`,referralsObj,{headers: header});
  
 }
 
@@ -131,6 +138,13 @@ getProductDetails(id:any) {
   // }))
 }
 
+getProductByOrgId(id:any) {
+  return this.httpClient.get<any>(`${this.baseApiPath}/products?includes[]=organization=`+id)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+}
+
 listServicesById(catId:any){
   console.log(catId);
   return this.httpClient.get(`${this.baseApiPath}/services/?service_category_id=`+catId)
@@ -149,6 +163,15 @@ getServiceDetails(productSlug: Observable<string>): Observable<any> {
 listProductsById(catId:any){
 
   return this.httpClient.get(`${this.baseApiPath}/products/?product_category_id=`+catId)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+featuredMotorSalvage(catId:any){
+
+  return this.httpClient.get<any>(`${this.baseApiPath}/products?featured=`+catId)
   .pipe(map ((res:any)=>{
     return res.data;
   }))
@@ -214,6 +237,86 @@ getProducts(){
   }))
 
 }
+
+
+getBidsbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/bids?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+getAppointmentsbyId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/appointments?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+getRefferalsbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/referrals?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+getQuotationbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/notifications?type=quotation-request&mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+getNotificationsbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/notifications?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
+getOrdersbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/orders?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
 
   
 }

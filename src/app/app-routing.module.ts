@@ -31,10 +31,13 @@ import { IndividualRegistrationComponent } from './auth/individual-registration/
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
 import { CartComponent } from './pages/products/cart/cart.component';
-import { AllBidsComponent } from './pages/products/bids/bids.component';
+
 import { TenderComponent } from './pages/tenders/tender/tender.component';
 import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
 import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
+import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
+import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
+import { ShipmentComponent } from './pages/products/shipment/shipment.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -61,7 +64,10 @@ const routes: Routes = [
   {path:'product/:id', component: ProductDetailComponent},
   {path:'bids/:id', component: BidsListComponent},
   {path:'bid/:id', component: BidDetailComponent},
+  {path:'organisation/bids/:id', component: OrgBidsComponent},
+  {path:'organisation/products/:id', component: OrgProductsComponent},
   {path:'cart', component: CartComponent},
+  {path:'shipment', component: ShipmentComponent},
   
   {
     path: 'myaccount', children: [

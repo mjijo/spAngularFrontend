@@ -1,3 +1,25 @@
 .post-img {
     overflow: hidden;
+    height: 220px;
 }
+.visually-hidden{display:none;}
+.post-img img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+
+.post-description{
+    display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+}
+
+h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }

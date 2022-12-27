@@ -600,3 +600,36 @@ $(function() {
             }
         })
     });
+
+    $('#vj-steps-acc').vjaccordionsteps({
+        'vjacc_step_change_function': function(arr_params){
+          if(window.console){ console.log(arr_params); }
+          var current_step = arr_params.current_step;
+          var new_step = arr_params.new_step;
+          var total_steps = arr_params.total_steps;
+          var valid = true;//Validation success, go to next step
+          if(new_step==2){
+            var first_name = $('#first_name').val();
+            var last_name = $('#last_name').val();
+            if(first_name=='' || last_name==''){
+              alert('Hey! Enter your "First name" and "Last name" to continue.');
+              valid = false;
+            }
+          }
+          
+          
+          return valid;
+        }, 
+        'vjacc_after_step_change_function': function(arr_params){
+          var current_step = arr_params.current_step;
+          var new_step = arr_params.new_step;
+          var total_steps = arr_params.total_steps;
+          $('#vj-output').append("<div>"+'Step changed to '+new_step+"</div>");
+        }
+      });
+      
+      function save(){
+        alert('Everything fine. Now resetting the steps.');
+        $('#vj-output').append("<div>Step reset</div>");
+        $('#vj-steps-acc').vjaccordionsteps.reset_steps();
+      }

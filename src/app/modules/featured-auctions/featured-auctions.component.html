@@ -1,103 +1,49 @@
 <section class="featured-auction grey">
     <div class="container">
-      <h3 class="h3">Featured Auctions </h3>
+      <h3 class="h3">Featured Non-Motor Salvages</h3>
       <p class="subheading">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
       <div class="row">
+        
           <div class="col-md-12">
-              <div id="news-slider" class="owl-carousel">
-                  <div class="post-slide">
-                      <div class="post-img">
-                          <a href="#">
-                             
-                              <img src="../../../assets/img/img2.jpg" width="160" height="207" alt="">
-                          </a>
-                      </div>
-                      <div class="post-review">
-                      <div class="post-bar">
-                            <span><i class="fa fa-map-marker"></i><a href="#">Nairobi</a></span>
-                            <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
-                        </div>
-                          <h3 class="post-title"><a href="#">Latest News Post</a></h3>
-                         
-                          <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                          <span class="date"><i class="fa fa-clock-o"></i> Bid due date jun 18</span>
-                        <div class="post-bar">
-                            <span><i class="fa fa-tags"></i>Ksh. 200,000</span>
-                            <span class="bids"><i class="fa fa-share-alt"></i></span>
-                        </div>
-                        <a class="readon" href="auctions.html"><i class="fa fa-gavel"></i> BID NOW</a>
-                      </div>
-                  </div>
-   
-                  <div class="post-slide">
-                      <div class="post-img">
-                          <a href="#">
-                              <img src="../../../assets/img/img2.jpg" width="160" height="207" alt="">
-                              
-                          </a>
-                      </div>
-                      <div class="post-review">
-                      <div class="post-bar">
-                            <span><i class="fa fa-map-marker"></i><a href="#">Nairobi</a></span>
-                            <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
-                        </div>
-                          <h3 class="post-title"><a href="#">Latest News Post</a></h3>
-                         
-                          <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                          <span class="date"><i class="fa fa-clock-o"></i> Bid due date jun 18</span>
-                        <div class="post-bar">
-                            <span><i class="fa fa-tags"></i>Ksh. 200,000</span>
-                            <span class="bids"><i class="fa fa-share-alt"></i></span>
-                        </div>
-                        <a class="readon" href="auctions.html"><i class="fa fa-gavel"></i> BID NOW</a>
-                      </div>
-                  </div>
-                  <div class="post-slide">
-                      <div class="post-img">
-                          <a href="#">
-                              <img src="../../../assets/img/img2.jpg" width="160" height="207" alt="">
-                             
-                          </a>
-                      </div>
-                      <div class="post-review">
-                      <div class="post-bar">
-                            <span><i class="fa fa-map-marker"></i><a href="#">Nairobi</a></span>
-                            <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
-                        </div>
-                          <h3 class="post-title"><a href="#">Latest News Post</a></h3>
-                          
-                          <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                          <span class="date"><i class="fa fa-clock-o"></i> Bid due date jun 18</span>
-                        <div class="post-bar">
-                            <span><i class="fa fa-tags"></i>Ksh. 200,000</span>
-                            <span class="bids"><i class="fa fa-share-alt"></i></span>
-                        </div>
-                        <a class="readon" href="auctions.html"><i class="fa fa-gavel"></i> BID NOW</a>
-                      </div>
-                  </div><div class="post-slide">
-                    <div class="post-img">
-                        <a href="#">
-                            <img src="../../../assets/img/img2.jpg" width="160" height="207" alt="">
-                            
-                        </a>
+            <ng-container *ngIf="isLoading">
+              <div class="row text-center d-flex justify-content-center" >
+                  <div class="spinner-border" role="status">
+                      <span class="visually-hidden">Loading...</span>
                     </div>
-                    <div class="post-review">
-                    <div class="post-bar">
-                            <span><i class="fa fa-map-marker"></i><a href="#">Nairobi</a></span>
-                            <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
-                        </div>
-                        <h3 class="post-title"><a href="#">Latest News Post</a></h3>
-                        
-                        <p class="post-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <span class="date"><i class="fa fa-clock-o"></i> Bid due date jun 18</span>
-                        <div class="post-bar">
-                            <span><i class="fa fa-tags"></i>Ksh. 200,000</span>
-                            <span class="bids"><i class="fa fa-share-alt"></i></span>
-                        </div>
-                        <a class="readon" href="auctions.html"><i class="fa fa-gavel"></i> BID NOW</a>
-                    </div>
-                </div>
               </div>
+          </ng-container>
+            <owl-carousel-o [options]="customOptions">
+
+                <ng-container *ngFor="let slide of bidsList">
+                  <ng-template class="slide" carouselSlide [id]="slide.id">
+                    <div class="post-slide my-1">
+                        <div class="post-img">
+                            <a href="#">
+                               
+                                <img [src]="slide.images[0].image_url" [alt]="slide.images[0].name" alt="">
+                            </a>
+                        </div>
+                        <div class="post-review">
+                        <div class="post-bar">
+                              <span><i class="fa fa-map-marker"></i><a href="#">{{slide.city}}</a></span>
+                              <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{slide.bids}} Bids</a></span>
+                          </div>
+                            <h3 class="post-title"><a href="#">{{slide.name}}</a></h3>
+                           
+                            <p class="post-description">{{slide.description_of_damage}}</p>
+                            <span class="date"><i class="fa fa-clock-o"></i> Bid due date {{slide.closing_date}}</span>
+                          <div class="post-bar">
+                              <span><i class="fa fa-tags"></i>{{slide.currency.symbol}} {{slide.price | number}}</span>
+                              <span class="bids"><i class="fa fa-share-alt"></i></span>
+                          </div>
+                          <a class="readon" [routerLink]="['/bid/' + slide?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-container>
+        
+          </owl-carousel-o> 
+             
           </div>
       </div>
     </div>

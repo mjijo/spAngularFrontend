@@ -24,7 +24,13 @@
  <!-- section start My Product here-->
  <section class="accordion_two_section ptb-100 inner-page myproduct">
     <div class="container py-5">
-       <h2 class="text-center title"><span>Auctions</span></h2>
+        <ng-container *ngIf="bidsListLoaded">
+            <h2 class="text-center title"><span>{{bidsList[0].category.name}}</span></h2>
+        </ng-container>
+        <ng-container *ngIf="!bidsListLoaded">
+            <h2 class="text-center title"><span>Loading...</span></h2>
+        </ng-container>
+       
        <div class="row">
           <!--start side-->
           <div class="col-md-3 sidebar">
@@ -128,40 +134,46 @@
                 </div>
              </div>
              <div id="products" class="row view-group">
-                <ng-container  *ngFor="let bid of bidsList; index as i">
-                   <ng-container *ngIf="bid.show">
-                      <div class="item col-xs-4 col-lg-4">
-                         <div class="thumbnail card bg-white shadow-sm">
-                            <div class="img-event">
-                               <img class="group list-group-image img-fluid" src="img/auction.jpg" alt="" />
-                            </div>
-                            <div class="caption card-body">
-                               <div class="post-bar">
-                                  <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
-                                  <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
-                               </div>
-                               <h4 class="group card-title inner list-group-item-heading">
-                                  {{bid.name}}
-                               </h4>
-                               <p class="group inner list-group-item-text py-1 mb-0">
-                                  {{bid.description_of_damage}}
-                               </p>
-                               <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{bid.closing_date}}</span>
-                               <div class="row">
-                                  <div class="col-xs-12 col-md-6">
-                                     <p class="lead">
-                                        {{bid.currency.symbol}} {{bid.sum_insured}}
-                                     </p>
-                                  </div>
-                                  <div class="col-xs-12 col-md-6">
-                                     <a class="btn btn-success rounded-0 purple border-0 text-uppercase float-right" [routerLink]="['/bid/' + bid?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                   </ng-container>
+                <ng-container *ngIf="bidsListLoaded">
+                    <ng-container  *ngFor="let bid of bidsList; index as i">
+                        <ng-container *ngIf="bid.show">
+                           <div class="item col-xs-4 col-lg-4">
+                              <div class="thumbnail card bg-white shadow-sm">
+                                 <div class="img-event">
+                                    <img class="group list-group-image img-fluid" src="img/auction.jpg" alt="" />
+                                 </div>
+                                 <div class="caption card-body">
+                                    <div class="post-bar">
+                                       <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
+                                       <span class="bids"><i class="fa fa-refresh"></i><a href="#">4 Bids</a></span>
+                                    </div>
+                                    <h4 class="group card-title inner list-group-item-heading">
+                                       {{bid.name}}
+                                    </h4>
+                                    <p class="group inner list-group-item-text py-1 mb-0">
+                                       {{bid.description_of_damage}}
+                                    </p>
+                                    <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{bid.closing_date}}</span>
+                                    <div class="row">
+                                       <div class="col-xs-12 col-md-6">
+                                          <p class="lead">
+                                             {{bid.currency.symbol}} {{bid.sum_insured}}
+                                          </p>
+                                       </div>
+                                       <div class="col-xs-12 col-md-6">
+                                          <a class="btn btn-success rounded-0 purple border-0 text-uppercase float-right" [routerLink]="['/bid/' + bid?.id]"><i class="fa fa-gavel"></i> BID NOW</a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </ng-container>
+                    </ng-container>
                 </ng-container>
+                <ng-container *ngIf="!bidsListLoaded">
+                    ...
+                </ng-container>
+                
              </div>
              <!-- <div class="row container d-flex justify-content-center d-none">
                 <nav>
