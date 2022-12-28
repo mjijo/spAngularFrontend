@@ -14,6 +14,7 @@ export class CartComponent implements OnInit {
   public grandTotal: number = 0;
   public totalItem : number = 0;
   loading = false;
+  id:any;
   
   // cartData:any = {
   //   order_number:null, 
@@ -73,6 +74,7 @@ export class CartComponent implements OnInit {
     this.cartService.removeCartItem(item.id)
     .subscribe(()=> {
       this.loadCartItems();
+      console.log('true');
   });
    
   }
@@ -92,9 +94,10 @@ export class CartComponent implements OnInit {
     this.loading = true;
     this.cartService.postCartDataToOrder(this.products).subscribe (item =>{
       
-   
-    // this.router.navigate(['/shipment']);
-     console.log(item);
+     this.id = item.id;
+    this.router.navigate(['/shipment/',this.id]);
+    // this.router.navigateByUrl("/shipment/"{item.id);
+     console.log(this.id);
     })
   }
 

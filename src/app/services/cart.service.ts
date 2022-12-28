@@ -120,7 +120,18 @@ getShipmentDetails(id: number){
     this.token = localtoken.access_token;
     let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
     
-    return this.http.patch(`${environment.apiUrl}/orders/`+id,{headers: header}) 
+    return this.http.get(`${environment.apiUrl}/orders/`+id,{headers: header}) 
+    // return this.http.get(`${environment.apiUrl}/orders/${id}?includes[]=order`,{headers: header})
+    
+  }
+
+  updateShipmentDetails(data:any, id: number){
+    let localtoken:any = localStorage.getItem("user");
+    localtoken = (localtoken ? JSON.parse(localtoken) : {});
+    this.token = localtoken.access_token;
+    let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+    
+    return this.http.patch(`${environment.apiUrl}/orders/`+id,data,{headers: header}) 
     
   }
 }
