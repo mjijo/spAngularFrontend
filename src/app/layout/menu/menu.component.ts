@@ -11,6 +11,7 @@ export class MenuComponent implements OnInit {
   allCountries! : any;
   serviceCategories! : any;
   allProductsCategories! : any;
+  public totalItem : number = 0;
 
   constructor(private api : ApiService) { }
    

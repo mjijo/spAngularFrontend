@@ -10,6 +10,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -61,6 +63,7 @@ import { BidsListComponent } from './pages/products/bids-list/bids-list.componen
 import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
 import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
 import { ShipmentComponent } from './pages/products/shipment/shipment.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -113,7 +116,8 @@ import { ShipmentComponent } from './pages/products/shipment/shipment.component'
     BidsListComponent,
     OrgBidsComponent,
     OrgProductsComponent,
-    ShipmentComponent
+    ShipmentComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -122,7 +126,9 @@ import { ShipmentComponent } from './pages/products/shipment/shipment.component'
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    CarouselModule
+    CarouselModule,
+
+    
 
   ],
   providers: [

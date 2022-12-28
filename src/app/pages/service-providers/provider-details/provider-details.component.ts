@@ -105,7 +105,7 @@ export class ProviderDetailsComponent implements OnInit {
 }
 
    postReferral(){
-    if(this.referralsForm.valid){
+    if(this.referralsForm.invalid){
       this.api.postReferrals(this.referralsForm.value).subscribe({
         next:(res)=>{
           Swal.fire({

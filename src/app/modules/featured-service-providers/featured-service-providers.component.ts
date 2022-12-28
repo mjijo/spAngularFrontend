@@ -69,9 +69,11 @@ constructor(
           }
         });
       }
+   
       this.bidsList = data;
+      console.log(this.bidsList);
       this.isLoading = false;
-      console.log(data.id);
+      console.log(data);
       console.log(this.bidsList);
     })
   }

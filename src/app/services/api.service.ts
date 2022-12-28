@@ -72,13 +72,6 @@ getserviceproviders(id: any){
   }))
 }
 
-getFeaturedServiceproviders(){
-  return this.httpClient.get<any>(`${this.baseApiPath}/services`)
-  .pipe(map ((res:any)=>{
-    return res.data;
-  }))
-}
-
 
 getserviceprovidersDetails(id:any) {
   return this.httpClient.get<any>(`${this.baseApiPath}/services/`+id)
@@ -88,7 +81,7 @@ getserviceprovidersDetails(id:any) {
 }
 
 getserviceprovidersBranches(id:any) {
-  return this.httpClient.get<any>(`${this.baseApiPath}/service-branches?includes[]=service/?service_id=`+id)
+  return this.httpClient.get<any>(`${this.baseApiPath}/service-branches?includes[]=service&service_id=`+id)
   .pipe(map ((res:any)=>{
     return res.data;
   }))
@@ -107,7 +100,7 @@ postReferrals(referralsObj:any) {
   this.token = localtoken.access_token;
   let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
   console.log(this.token)
-  return this.httpClient.post<any>(`${this.baseApiPath}/referrals`,referralsObj,{headers: header});
+  return this.httpClient.post<any>(`${this.baseApiPath}/referrals/`,referralsObj,{headers: header});
  
 }
 
@@ -176,6 +169,13 @@ featuredMotorSalvage(catId:any){
     return res.data;
   }))
 
+}
+
+getFeaturedServiceproviders(){
+  return this.httpClient.get<any>(`${this.baseApiPath}/services?featured=1`)
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
 }
 
 tenders(){

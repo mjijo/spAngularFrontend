@@ -12,7 +12,7 @@ export class FeaturedMotorSalvagesComponent implements OnInit {
 
  
 //carousel
-customOptions: OwlOptions = {
+custom1Options: OwlOptions = {
     loop: true,
     mouseDrag: true,
     touchDrag: true,

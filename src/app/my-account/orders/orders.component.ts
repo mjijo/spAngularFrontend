@@ -25,7 +25,7 @@ export class OrdersComponent implements OnInit {
     this.getAllOrders(this.user.user.id);
   }
   getAllOrders(id:any) {
-    this.api.getBidsbyUserId(id).subscribe((data)=>{
+    this.api.getOrdersbyUserId(id).subscribe((data)=>{
     this.myorders = data;
     console.log(this.myorders);
     })

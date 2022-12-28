@@ -27,12 +27,12 @@
         <div class="container py-5">
             <h2 class="text-center title"><span>My account</span></h2>
             <div class="row mb-5">
-             <div class="col-md-4">
+             <div class="col-md-3">
                 <app-sidemenu></app-sidemenu>
              </div>
-             <div class="col-md-8">
-                <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)<br>
-                    From your account dashboard you can view your <a href="my-orders.html">recent orders</a>, manage your <a href="address.html">shipping and billing addresses</a>, and <a href="#">edit your password and account details</a>.</p>
+             <div class="col-md-9">
+                <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)<br>Your account is incomplete. Please update your profile to qualify for bidding.
+                    <a routerLink="my-profile">Click here to update your account details</a>.</p>
                     <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
              </div>
              

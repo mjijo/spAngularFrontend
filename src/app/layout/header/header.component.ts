@@ -40,9 +40,9 @@ export class HeaderComponent implements OnInit {
           if(res){
             let totalItem = 0;
           console.log(res);
-          if('data' in res){
+          if('items' in res){
             
-            res.data.forEach((item:any) => {
+            res.items.forEach((item:any) => {
               totalItem += item.quantity;
             });
             console.log(totalItem);

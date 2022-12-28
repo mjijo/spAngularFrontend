@@ -31,7 +31,7 @@ customOptions: OwlOptions = {
       items: 3
     },
     1366:{
-      items: 4
+      items: 3
     }
   },
   nav: true

@@ -105,20 +105,22 @@ export class CartService {
     let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
     
     return this.http.post<any>(`${environment.apiUrl}/orders`,product,{headers: header})
-    console.log();
-    // .pipe(map ((res:any)=>{
-    //   return res.data;
-    // }))
+    
+    .pipe(map ((res:any)=>{
+      return res;
+      // localStorage.setItem('res', JSON.stringify(res));
+
+    }))
   
   }
 
-getShipmentDetails(product : any,id: number){
+getShipmentDetails(id: number){
     let localtoken:any = localStorage.getItem("user");
     localtoken = (localtoken ? JSON.parse(localtoken) : {});
     this.token = localtoken.access_token;
     let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
     
-    return this.http.patch(`${environment.apiUrl}/orders/`+id,product,{headers: header}) 
+    return this.http.patch(`${environment.apiUrl}/orders/`+id,{headers: header}) 
     
   }
 }

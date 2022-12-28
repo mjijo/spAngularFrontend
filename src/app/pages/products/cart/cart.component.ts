@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
   public products : any = [];
   public grandTotal: number = 0;
   public totalItem : number = 0;
+  loading = false;
   
   // cartData:any = {
   //   order_number:null, 
@@ -39,6 +40,7 @@ export class CartComponent implements OnInit {
       // this.products = res;
       // this.grandTotal = this.cartService.getTotalPrice();
       this.totalItem = res.length;
+      console.log(res)
     })
    
     await this.loadItemCount();
@@ -49,10 +51,11 @@ export class CartComponent implements OnInit {
     await this.cartService.getCartTotalItems().subscribe((res :any) => {
       if(res){
         
-      if('data' in res){
-        this.products = res.data;
-        res.data.forEach((item:any) => {
+      if('items' in res){
+        this.products = res.items;
+        res.items.forEach((item:any) => {
           this.grandTotal += item.amount;
+          this.totalItem += item.quantity;
      
         });
         console.log(this.products);
@@ -60,7 +63,7 @@ export class CartComponent implements OnInit {
       }
 
       }
-        
+      
     });
  
 
@@ -79,17 +82,19 @@ export class CartComponent implements OnInit {
 
   loadCartItems(){
     this.cartService.getCartItems().subscribe ((item : any) =>{
-      console.log(item);
+      console.log(item.amount);
       this.products = item.items;
       
     });
   }
 
   createOrder(product : any){
+    this.loading = true;
     this.cartService.postCartDataToOrder(this.products).subscribe (item =>{
-    //  this.products = item.items;
-    this.router.navigate(['/shipment']);
-     console.log(this.products)
+      
+   
+    // this.router.navigate(['/shipment']);
+     console.log(item);
     })
   }
 

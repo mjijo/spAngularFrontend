@@ -27,7 +27,7 @@ export class NotificationsComponent implements OnInit {
   }
 
   getAllNotifications(id:any){
-    this.api.getQuotationbyUserId(id).subscribe((data)=>{
+    this.api.getNotificationsbyUserId(id).subscribe((data)=>{
       this.mynotifications = data;
       console.log(this.mynotifications);
     })
