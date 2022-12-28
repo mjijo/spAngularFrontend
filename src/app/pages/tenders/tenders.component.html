@@ -9,10 +9,9 @@
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Tenders</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -28,7 +27,15 @@
             <h2 class="text-center title"><span>Tenders</span></h2>
             <div class="row pt-3">
             <div class="col-md-12">
+                <ng-container *ngIf="isLoading">
+                    <div class="row text-center d-flex justify-content-center" >
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </div>
+                    </div>
+                </ng-container>
                 <div class="row">
+                    
                     <ng-container *ngFor="let item of tendersList; index as i">
                     <div class="col-md-6">
                       <div class="featured-tenders p-4">

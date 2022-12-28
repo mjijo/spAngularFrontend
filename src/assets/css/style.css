@@ -2252,7 +2252,7 @@ hr.divider
 }
 
 .lis-bg-light {
-    background-color: #f7f7f7
+    background-color: #f7f7f7;
 }
 
 .pricing .pb-4,
@@ -3445,3 +3445,5 @@ track .card {
 .tenders-details h4 {
   color:#993399;
 }
+
+.visually-hidden{display:none;}

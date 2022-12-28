@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class PricingComponent implements OnInit {
   packageList !: any;
+  isLoading: boolean = true;
 
   constructor(private api:ApiService, private router: Router) { }
 
@@ -19,6 +20,7 @@ export class PricingComponent implements OnInit {
     this.api.packages().subscribe((data)=>{
       this.packageList = data;
       console.log(data);
+      this.isLoading = false;
     }
     )
   }

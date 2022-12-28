@@ -11,7 +11,7 @@ export class TendersComponent implements OnInit {
 
 tendersList : any;
 catid:any;
-
+isLoading: boolean = true;
   constructor(private api:ApiService, private router: Router, private actRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,6 +26,7 @@ catid:any;
     this.api.tenders().subscribe((data)=>{
       this.tendersList = data;
       console.log(data);
+      this.isLoading = false;
     }
     )
   }
