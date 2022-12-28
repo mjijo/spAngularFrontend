@@ -67,7 +67,7 @@ const routes: Routes = [
   {path:'organisation/bids/:id', component: OrgBidsComponent},
   {path:'organisation/products/:id', component: OrgProductsComponent},
   {path:'cart', component: CartComponent},
-  {path:'shipment', component: ShipmentComponent},
+  {path:'shipment/:id', component: ShipmentComponent},
   
   {
     path: 'myaccount', children: [

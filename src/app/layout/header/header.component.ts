@@ -76,6 +76,10 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
   }
   
+  goToLink(url: string){
+    window.open(url, "_blank");
+}
+
   }
 
   

@@ -24,7 +24,7 @@
                     </tr>
                     <tbody>
                       <tr *ngFor="let item of mybids; index as i">
-                        <td>{{item.id}}</td>
+                        <td>{{i + 1}}</td>
                         <td>{{item.user.name}}</td>
                         <td>{{item.product.name}}</td>
                         <!-- <td>Salvage</td> -->
@@ -35,7 +35,7 @@
                             <div class="switch_box box_4">
                                 <!-- <a class="edit" title="Edit" data-toggle="tooltip" href="#"><i class="fa fa-pencil" aria-hidden="true"></i>
                                 </a> |  -->
-                                <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i>
+                                <a class="delete" title="Delete" data-toggle="tooltip" (click)="deleteBid(item)"><i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </div>    
                         </td>

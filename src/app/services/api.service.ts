@@ -252,6 +252,19 @@ getBidsbyUserId(id:any) {
 
 }
 
+deleteBidsbyUserId(id:any) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.delete<any>(`${this.baseApiPath}/bids?mine=`+id,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res.data;
+  }))
+
+}
+
 getAppointmentsbyId(id:any) {
   let localtoken:any = localStorage.getItem("user");
   localtoken = (localtoken ? JSON.parse(localtoken) : {});

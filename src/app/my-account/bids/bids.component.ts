@@ -32,6 +32,15 @@ export class BidsComponent implements OnInit {
     })
 
   }
+
+deleteBid(item:any){
+  this.api.deleteBidsbyUserId(item.id).subscribe(()=>{
+
+    this.getAllBids(this.user.user.id);
+
+  })
+}
+
   logout(){
     this.auth.logout()
   }
