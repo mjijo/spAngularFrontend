@@ -12,14 +12,16 @@
                     <li class="breadcrumb-item"><a data-abc="true">PRODUCTS</a></li>
                     <ng-container *ngIf="productIsLoaded">
                         <li class="breadcrumb-item"><a [routerLink]="'/products/'+proData.category.id" data-abc="true">{{proData.category.name}}</a></li>
+                        <li class="breadcrumb-item"><a data-abc="true">{{proData.name}}</a></li>
                     </ng-container>
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
 <!-- section end Breadcrumbs here-->
- 
+<hr class="divider mb-4">
 <!-- section start content here-->
 <section id="default" class="inner-page product-details mb-3 pb-50">
     <div class="container">

@@ -5,17 +5,16 @@
      <div class="page-header-breadcrumb">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#!" data-abc="true">
+                                <a [routerLink]="'/home'" data-abc="true">
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Products</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Products & Services</a>
+                            <li class="breadcrumb-item"><a [routerLink]="'/bids/'+bidData.category.id"data-abc="true">{{bidData.category.name}}</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Auctions</a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Bid detail...</a>
+                            <li class="breadcrumb-item"><a data-abc="true">{{bidData.name}}</a>
                             </li>
                         </ul>
                     </div>

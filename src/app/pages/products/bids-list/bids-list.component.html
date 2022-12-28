@@ -63,15 +63,15 @@
           <div class="page-header-breadcrumb">
              <ul class="breadcrumb">
                 <li class="breadcrumb-item">
-                   <a href="#!" data-abc="true">
+                   <a [routerLink]="'/home'" data-abc="true">
                    <i class="fa fa-home"></i>
                    </a>
                 </li>
-                <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a></li>
-                <li class="breadcrumb-item"><a href="#!" data-abc="true">Products & Services</a></li>
+                <!-- <li class="breadcrumb-item"><a data-abc="true">snippets</a></li> -->
+                <li class="breadcrumb-item"><a href="#!" data-abc="true">Products</a></li>
                 <li class="breadcrumb-item">
                    <ng-container *ngIf="bidsListLoaded">
-                      <a href="#!" data-abc="true">{{bidsList[0].category.name}}</a>
+                      <a data-abc="true">{{bidsList[0].category.name}}</a>
                    </ng-container>
                    <ng-container *ngIf="!bidsListLoaded">
                       <a href="#!" data-abc="true">...</a>
