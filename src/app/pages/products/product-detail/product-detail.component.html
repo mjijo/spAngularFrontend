@@ -43,7 +43,7 @@
                                         <div class="carousel-inner">
                                             <ng-container *ngFor="let attachement of proData.proAttachments; let i = index">
                                                 <div class="carousel-item" [ngClass]="{'active': i === 1}">
-                                                    <img [src]="attachement.original_url" alt="{{attachement.name}}">
+                                                    <img [src]="attachement.original_url" alt="{{attachement.name}}" class="img-fluid">
                                                 </div>
                                             </ng-container>
                                         </div>

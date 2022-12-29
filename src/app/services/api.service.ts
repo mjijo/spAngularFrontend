@@ -179,7 +179,7 @@ getFeaturedServiceproviders(){
 }
 
 tenders(){
-  return this.httpClient.get<any>(`${this.baseApiPath}/tenders`)
+  return this.httpClient.get<any>(`${this.baseApiPath}/tenders?includes[]=organization&includes[]=industry`)
   .pipe(map ((res:any)=>{
     return res.data;
   }))
@@ -187,7 +187,7 @@ tenders(){
 }
 
 getTenderDetails(id:any) {
-  return this.httpClient.get<any>(`${this.baseApiPath}/tenders/`+id)
+  return this.httpClient.get<any>(`${this.baseApiPath}/tenders/${id}?includes[]=organization&includes[]=industry`)
   // .pipe(map ((res:any)=>{
   //   return res.data;
   // }))

@@ -13,6 +13,7 @@ export class TenderComponent implements OnInit {
   id:any;
   tenderData:any;
   isLoggedin : boolean = false;
+  isLoading: boolean = true;
 
   constructor(private api:ApiService, private router:Router, private actRoute: ActivatedRoute, private auth:AuthenticationService, private plugins:PluginsService) { }
 
@@ -35,6 +36,7 @@ export class TenderComponent implements OnInit {
       }
       this.tenderData = data;
       console.log(this.tenderData);
+      this.isLoading = false;
 
       // Object.keys(this.tenderData).forEach(prop => {
       //   console.log(prop);
