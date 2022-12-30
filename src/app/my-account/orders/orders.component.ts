@@ -12,14 +12,17 @@ import { UserService  } from 'src/app/services/user.service';
 export class OrdersComponent implements OnInit {
 
   myorders: any;
+  
   id:any;
   user?: User | any;
   filterTerm!: string;
 
-  page: number = 1;
-  count: number = 0;
-  tableSize: number = 15;
-  tableSizes: any = [3, 6, 9, 12];
+  // page: number = 1;
+  // count: number = 0;
+  // tableSize: number = 15;
+  // tableSizes: any = [3, 6, 9, 12];
+  allOrders: number = 0;
+  pagination: number = 1;
 
   constructor(private api: ApiService, private userService: UserService, private auth:AuthenticationService) { }
 
@@ -28,27 +31,41 @@ export class OrdersComponent implements OnInit {
       this.user = x);
       console.log(this.user.user.id);
 
-    this.getAllOrders(this.user.user.id);
+    // this.getAllOrders(this.user.user.id);
+    this.getAllOrders();
   }
-  getAllOrders(id:any) {
-    this.api.getOrdersbyUserId(id).subscribe((data)=>{
-    this.myorders = data;
-    console.log(this.myorders);
-    })
+  // getAllOrders(id:any) {
+  //   this.api.getOrdersbyUserId(id).subscribe((data)=>{
+  //   this.myorders = data;
+  //   console.log(this.myorders);
+  //   })
 
+  // }
+  getAllOrders() {
+    this.api.getOrdersPagination(this.pagination).subscribe((res: any)=>{
+      this.myorders = res.data;
+      this.allOrders = res.meta.pagination.total;
+      // console.log(this.myorders);
+      // console.log(this.allOrders);
+      
+    });
   }
+  
   logout(){
     this.auth.logout()
   }
 
-  onTableDataChange(event: any) {
-    this.page = event;
-    this.getAllOrders(this.id);
+  // onTableDataChange(event: any) {
+  //   this.page = event;
+  //   this.getAllOrders(this.id);
+  // }
+  // onTableSizeChange(event: any): void {
+  //   this.tableSize = event.target.value;
+  //   this.page = 1;
+  //   this.getAllOrders(this.id);
+  // }
+  renderPage(event: number) {
+    this.pagination = event;
+    this.getAllOrders();
   }
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
-    this.getAllOrders(this.id);
-  }
-
 }

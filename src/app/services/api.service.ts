@@ -221,6 +221,12 @@ getCountries(){
 
 }
 
+fetch(name:string):Promise<any>{
+  return this.httpClient.get<any>(`${this.baseApiPath}/countries?query=${name}`).toPromise();
+  
+}
+
+
 getServicesCategory(){
   return this.httpClient.get<any>(`${this.baseApiPath}/service-categories`)
   .pipe(map ((res:any)=>{
@@ -330,6 +336,18 @@ getOrdersbyUserId(id:any) {
 
 }
 
+getOrdersPagination(page: number) {
+  let localtoken:any = localStorage.getItem("user");
+  localtoken = (localtoken ? JSON.parse(localtoken) : {});
+  this.token = localtoken.access_token;
+  let header = new HttpHeaders().set("Authorization", 'Bearer ' + this.token);
+  console.log(this.token)
+  return this.httpClient.get<any>(`${this.baseApiPath}/orders?mine=1?per_page=20&page=`+ page,{headers: header})
+  .pipe(map ((res:any)=>{
+    return res;
+    
+  }))
+}
 
   
 }

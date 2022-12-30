@@ -18,7 +18,7 @@
                         <div class="form-group m-0">
                             <input
                               type="text"
-                              class="form-control"
+                              class="form-control rounded-pill"
                               placeholder="Search..."
                               [(ngModel)]="filterTerm"
                             />
@@ -58,9 +58,9 @@
                                     
                                     <tr class="cell-1"  *ngFor="let item of myorders | filter: filterTerm | paginate
                                     : {
-                                        itemsPerPage: tableSize,
-                                        currentPage: page,
-                                        totalItems: count
+                                        itemsPerPage: 20,
+                                        currentPage: pagination,
+                                        totalItems: allOrders
                                       }; index as i">
                                         <td class="text-center">
                                             {{i + 1}}
@@ -82,7 +82,7 @@
                                 <pagination-controls
           previousLabel="Prev"
           nextLabel="Next"
-          (pageChange)="onTableDataChange($event)"
+          (pageChange)="renderPage($event)"
         >
         </pagination-controls>
                             </div>
