@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './helpers';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -122,7 +124,9 @@ import { ShipmentComponent } from './pages/products/shipment/shipment.component'
     HttpClientModule,
     RouterModule,
     ReactiveFormsModule,
-    CarouselModule
+    CarouselModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
 
   ],
   providers: [
