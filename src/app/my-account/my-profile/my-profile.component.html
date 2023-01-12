@@ -1,1 +1,102 @@
-<p>my-profile works!</p>
+<section class="accordion_two_section ptb-100 inner-page myaccount">
+    <div class="container py-5">
+        <h2 class="text-center title"><span>My account</span></h2>
+        <div class="row mb-5">
+         <div class="col-md-3">
+            <app-sidemenu></app-sidemenu>
+         </div>
+         <div class="col-md-9">
+            <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)</p>
+            <h4 class="mb-2 pb-2">Account Details</h4>
+            <!-- Start -->
+          <div class="row">
+            <div class="col border-0"> 
+                   
+              <p class="mb-4 text-sm">Update Your account Details</p>
+              <div class="row mt-3">
+                  <div class="col-md-6"> <label class="mb-0">
+                          <h6 class="mb-0 text-sm">First Name</h6>
+                      </label> <input type="text" name="fname" placeholder="John Doe" [(ngModel)]="user.user.first_name" [value]="user.user.first_name"> </div>
+                  <div class="col-md-6"> <label class="mb-0">
+                          <h6 class="mb-0 text-sm">last Name</h6>
+                      </label> <input type="text" name="uname" placeholder="johndoe123" [(ngModel)]="user.user.last_name" [value]="user.user.first_name"> </div>
+              </div>
+              <div class="row px-3"> <label class="mb-0">
+                      <h6 class="mb-0 text-sm">Email Address</h6>
+                  </label> <input type="text" name="email" placeholder="john.doe@email.com" [(ngModel)]="user.user.email" [value]="user.user.email"> </div>
+             <div class="row px-3">
+                <label class="mb-0">
+                    <h6 class="mb-0 text-sm">Phone</h6>
+                </label> <input type="text" name="phone" [(ngModel)]="user.user.phone" [value]="user.user.phone" > 
+             </div>
+              <div class="row px-3"> <label class="mb-0">
+                      <h6 class="mb-0 text-sm">Country</h6>
+                  </label> <input type="text" name="country_id" [(ngModel)]="user.user.country_id" [value]="user.user.country_id" > </div>
+                  <div class="row px-3"> <label class="mb-0">
+                    <h6 class="mb-0 text-sm">Zip Code</h6>
+                </label> <input type="text" name="zip_code" [(ngModel)]="user.user.zip_code" [value]="user.user.zip_code" > </div>
+                <!-- <div class="row px-3"> <label class="mb-0">
+                    <h6 class="mb-0 text-sm">Gender</h6>
+                </label> <select [(ngModel)]="user.user.gender" [value]="user.user.gender">
+                    <option [value]="user.user.gender">Male</option>
+                    <option [value]="user.user.gender">Female</option>
+                    <option [value]="user.user.gender">Other</option>
+                </select></div> -->
+                <div class="row px-3"> <label class="mb-0">
+                    <h6 class="mb-0 text-sm">DOB</h6>
+                </label> <input type="text" name="date_of_birth" [(ngModel)]="user.user.date_of_birth" [value]="user.user.date_of_birth" placeholder="yyyy-mm-dd" > </div>
+                <div class="row px-3"> <label class="mb-0">
+                    <h6 class="mb-0 text-sm">Occupation</h6>
+                </label> <input type="text" name="occupation" [(ngModel)]="user.user.occupation" [value]="user.user.occupation" > </div>
+                <div class="row px-3"> <label class="mb-0">
+                    <h6 class="mb-0 text-sm">Postal Address</h6>
+                </label> <input type="text" name="postal_address" [(ngModel)]="user.user.postal_address" [value]="user.user.postal_address" > </div>
+                <div class="row px-3"> <label class="mb-0">
+                    <h6 class="mb-0 text-sm">Physical Address</h6>
+                </label> <input type="text" name="physical_address" [(ngModel)]="user.user.physical_address" [value]="user.user.physical_address" > </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <label class="mb-0">
+                            <h6 class="mb-0 text-sm">Identification file</h6>
+                        </label> <input type="file" name="passport" (change)="setIdFiles($event)" [(ngModel)]="user.user.identification_file" [value]="user.user.identification_file" > 
+                    </div>
+                    <div class="col-md-3">
+                        <img [src]="user.user.identification_file" class="img-fluid">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <label class="mb-0">
+                            <h6 class="mb-0 text-sm">Passport</h6>
+                        </label> <input type="file" name="passport" [(ngModel)]="user.user.passport_url" [value]="user.user.passport_url" > 
+                    </div>
+                    <div class="col-md-3">
+                        <img [src]="user.user.passport_url" class="img-fluid">
+                    </div>
+                </div>
+                 <div class="row px-3"> <label class="mb-0">
+                      <h6 class="mb-0 text-sm">New Password</h6>
+                  </label> <input type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" [(ngModel)]="user.user.password" [value]="user.user.password"> </div>
+                                      <div class="row px-3"> <label class="mb-0">
+                      <h6 class="mb-0 text-sm">Confirm Password</h6>
+                  </label> <input type="password" name="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" [(ngModel)]="user.user.password_confirmation" [value]="user.user.password_confirmation"> </div>
+              
+              <div class="row mb-4">
+                  <div class="col-md-6"> <button class="btn btn-blue text-center mb-1 py-2" (click)="updateUserProfile(user.user)">Update Account</button> </div>
+              </div>
+              
+              
+          </div>
+          </div>  
+              
+           
+           
+            <!-- End -->
+                
+            
+            </div>
+         
+        </div>
+    </div>
+    <!--end of /.container-->
+</section>

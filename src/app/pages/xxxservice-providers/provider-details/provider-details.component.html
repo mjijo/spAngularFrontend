@@ -1,0 +1,326 @@
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#!" data-abc="true">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        
+    
+    </section>
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start Doctors details here-->
+    <!-- <ng-container  *ngIf="productData"> -->
+    <section class="accordion_two_section ptb-100 inner-page ddetails">
+        <div class="container pb-5 pt-3">
+            <h2 class="text-center title"></h2>
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Profile widget -->
+                    <div class="bg-white shadow-sm overflow-hidden">
+                        <div class="px-4 pt-0 pb-4 cover">
+                            <div class="media align-items-end profile-head">
+                                <div class="profile mr-3"><img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="130" class="rounded mb-2 img-thumbnail"></div>
+                                <div class="media-body mb-5 text-white">
+                                  
+                                    <h4 class="mt-0 mb-0">{{spdetails.name}}</h4>
+                                
+                                    <p class="small mb-4"> <i class="fa fa-user-md mr-2"></i>{{spdetails.description}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-light p-4 d-flex justify-content-end text-center">
+                            <!-- <ul class="list-inline mb-0">
+    
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">215</h5><small class="text-muted"> <i class="fa fa-phone mr-1"></i>Calls</small>
+                                </li>
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">745</h5><small class="text-muted"> <i class="fa fa-user mr-1"></i>Patients</small>
+                                </li>
+                                <li class="list-inline-item">
+                                    <h5 class="font-weight-bold mb-0 d-block">340</h5><small class="text-muted"> <i class="fa fa-question-circle mr-1"></i>Queries</small>
+                                </li>
+                            </ul> -->
+                        </div>
+                        <div class="px-4 py-3 d-none">
+                            <div class="star-rating">
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
+    
+                                </ul>
+                            </div>
+    <p class="font-italic mb-0">Average rating: 5 based on 1 rating) </p>
+    
+                        </div>
+                        <div class="px-4 py-3">
+                            <h5 class="mb-2">Professional Bio: </h5>
+                            <div class="p-4 shadow-sm bg-light">
+                                <p class="font-italic mb-0">{{spdetails.bio}}</p>
+                                <!-- <p class="font-italic mb-0">Lives in New York</p>
+                                <p class="font-italic mb-0">Photographer</p> -->
+                            </div>
+                        </div>
+    
+                        <div class="px-4 py-3 d-none">
+                            <p>
+    
+                                <b>EXPERIENCE:</b>10+ Yrs
+                                <br>
+                                <b>LANGUAGES:</b> English
+                                <br>
+                                <b>PATIENTS:</b> Helped 1000 patients
+                                <br>
+    
+                                </p>
+                        </div>
+                        <div class="px-4">
+                            <div class="row">
+                                <div class="container">
+    
+                                    <!---Start-share-->
+                                    <p class="text-right">
+                                      <button class="btn btn-primary border-0 rounded-pill" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                          Request a Quotation
+                                      </button>
+                                        <a class="btn btn-outline-primary border-0" data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            Refer a friend
+                                        </a>
+                                        <a class="btn btn-outline-primary border-0" data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            <i class="fa fa-share-alt mr-1 mb-2" aria-hidden="true"></i>  Share
+                                        </a>
+                                      </p>
+                                      <div class="collapse" id="collapse1">
+                                        <div class="card card-body">
+                                            <form [formGroup]="referralsForm" (ngSubmit)="postReffal()">
+                                                <div class="form-group">
+                                                    <label for="name">Name</label>
+                                                    <input type="text" formControlName="name" class="form-control" id="name">
+                                                    <small *ngIf="referralsForm.controls['name'] .dirty && referralsForm.hasError('required','name')" class="text-danger d-block"> Name is Required</small>
+                                                    <small *ngIf="referralsForm.controls['name'] .dirty && referralsForm.hasError('minlength','name')" class="text-danger d-block">The name must be at least three characters long.</small>   
+    
+                                                  </div>
+                                              <div class="form-group">
+                                                <label for="email">Email address</label>
+                                                <input type="email" class="form-control" id="email" formControlName="email">
+                                                <small *ngIf="referralsForm.controls['email'] .dirty && referralsForm.hasError('required','email')" class="text-danger d-block">Email is Required</small>   
+                                                <small *ngIf="referralsForm.controls['email'] .dirty && referralsForm.hasError('email','email')" class="text-danger d-block">Email is Invalid</small> 
+    
+                                              </div>
+    
+                                              <div class="form-group">
+                                              <textarea name="" id="" formControlName="description" cols="30" rows="5" class="form-control w-100" placeholder="Description"></textarea>
+    
+                                              </div>
+    
+                                              <div class="form-group">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                              </div>
+                                            </form>
+                                        </div>
+                                      </div>
+                                      <div class="collapse" id="collapse2">
+                                        <div class="card card-body">
+                                           
+                                            <div class="d-flex flex-row align-items-start"><i class="fa fa-facebook border p-3 rounded mr-1"></i><i class="fa fa-twitter border p-3 rounded mr-1"></i><i class="fa fa-whatsapp border p-3 rounded mr-1" aria-hidden="true"></i> </div>
+                                        </div>
+                                      </div>
+                                    <!--Share End-->
+    
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="py-4 px-4">
+    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <nav>
+                                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Contacts</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Branches</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Review<span class="badge badge-pill purple ml-2 text-white">42</span></a>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane p-4 fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                <p><i class="fa fa-location-arrow"></i> {{spdetails.location}} </p>
+                                                <p><i class="fa fa-address-card"></i> {{spdetails.postal_address}} </p>
+                                                <p><i class="fa fa-phone"></i> {{spdetails.phone}}  </p>
+                                                <p><i class="fa fa fa-envelope"></i> {{spdetails.email}}  </p>
+                                                <p><i class="fa fa fa-globe"></i> {{spdetails.website}}  </p>
+                                        </div>
+                                        <div class="tab-pane p-4 fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    
+                                                <p class="mb10">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                                                <p><i class="fa fa-location-arrow"></i> 9878/25 sec 9 rohini 35 </p>
+                                                <p><i class="fa fa-phone"></i>  +91-9999878398  </p>
+                                                <p><i class="fa fa fa-envelope"></i> info@example.com  </p>
+                                                
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                             <!--Start Review--->
+                                             <div class="d-flex row pt-4">
+                                             <div class="card">
+                            <div class="row justify-content-left d-flex">
+                                <div class="col-md-4 d-flex flex-column">
+                                    <div class="rating-box p-2">
+                                        <h1 class="pt-4">4.0</h1>
+                                        <p class="">out of 5</p>
+                                    </div>
+                                    <div class="ml-4"> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-active mx-1"></span> <span class="fa fa-star star-inactive mx-1"></span> </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="rating-bar0 justify-content-center">
+                                        <table class="text-left mx-auto">
+                                            <tr>
+                                                <td class="rating-label">Excellent</td>
+                                                <td class="rating-bar">
+                                                    <div class="bar-container">
+                                                        <div class="bar-5"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">123</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="rating-label">Good</td>
+                                                <td class="rating-bar">
+                                                    <div class="bar-container">
+                                                        <div class="bar-4"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="rating-label">Average</td>
+                                                <td class="rating-bar">
+                                                    <div class="bar-container">
+                                                        <div class="bar-3"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">10</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="rating-label">Poor</td>
+                                                <td class="rating-bar">
+                                                    <div class="bar-container">
+                                                        <div class="bar-2"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="rating-label">Terrible</td>
+                                                <td class="rating-bar">
+                                                    <div class="bar-container">
+                                                        <div class="bar-1"></div>
+                                                    </div>
+                                                </td>
+                                                <td class="text-right">0</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                             </div>
+                                             <div class="d-flex row">
+                    <div class="col-md-12">
+                        <div class="d-flex flex-column comment-section">
+                            <div class="bg-white p-2">
+                                <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                    <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                                </div>
+                                <div class="mt-2">
+                                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white">
+                                <div class="d-flex flex-row fs-12">
+                                    <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                                    <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                                    <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                                </div>
+                            </div>
+                            <div class="bg-light p-2">
+                                <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                                <div class="mt-2 text-right"><a href="#" class="btn btn-lg btn-primary text-uppercase purple border-0 text-white radius-0">Post Review </a>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                                             <!---// end of row-->
+    
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row shadow-sm bg-white p-4 sidebar mb-3">
+    
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127642.75434306309!2d36.83450851975705!3d-1.271394601414622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f109555d32b53%3A0x742fed8596c675f0!2sThe%20Nairobi%20Hospital%E2%80%99s%20Doctors&#39;%20Plaza!5e0!3m2!1sen!2ske!4v1595163167500!5m2!1sen!2ske" width="600" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                    <div class="row shadow-sm bg-white p-4 sidebar">
+    
+    
+    
+    
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                            <h3>Testimonial</h3>
+                            <div class="carousel-inner">
+                                <div class="item carousel-item active">
+                                    <div class="img-box"><img src="img/testimonials.jpg" alt=""></div>
+                                    <p class="testimonial">Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia. Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt fringilla massa. Etiam hendrerit dolor eget rutrum.</p>
+                                    <p class="overview"><b>Paula Wilsons</b>Seo Analyst </p>
+                                    <div class="star-rating"> </div>
+                                </div>
+                                <div class="item carousel-item">
+                                    <div class="img-box"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1558758980/people-875617_1280.jpg" alt=""></div>
+                                    <p class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eu sem tempor, varius quam at, luctus dui. Mauris magna metus, dapibus nec turpis vel, semper malesuada ante. Vestibulum idac nisl bibendum scelerisque non non purus. Suspendisse varius nibh non aliquet.</p>
+                                    <p class="overview"><b>Paula Wilson</b>Media Analyst </p>
+                                    <div class="star-rating"> </div>
+                                </div>
+                                <div class="item carousel-item">
+                                    <div class="img-box"><img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1558758980/portrait-1287413_640.jpg" alt=""></div>
+                                    <p class="testimonial">Vestibulum quis quam ut magna consequat faucibus. Pellentesque eget nisi a mi suscipit tincidunt. Utmtc tempus dictum risus. Pellentesque viverra sagittis quam at mattis. Suspendisse potenti. Aliquam sit amet gravida nibh, facilisis gravida odio. Phasellus auctor velit.</p>
+                                    <p class="overview"><b>Antonio Moreno</b>Web Developer</p>
+                                    <div class="star-rating"> </div>
+                                </div>
+                            </div> <!-- Carousel controls --> <a class="carousel-control left carousel-control-prev" href="#myCarousel" data-slide="prev"> <i class="fa fa-angle-left"></i> </a> <a class="carousel-control right carousel-control-next" href="#myCarousel" data-slide="next"> <i class="fa fa-angle-right"></i> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+    <!-- </ng-container> -->
+   
+    <!-- section end here-->
+    <ng-template #empty>
+        <div class="container">
+            <h3>Loading ...</h3>
+        </div>
+      </ng-template>

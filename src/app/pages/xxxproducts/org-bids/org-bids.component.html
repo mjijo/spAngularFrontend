@@ -1,0 +1,142 @@
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#!" data-abc="true">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Products & Services</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Auctions</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+     
+    
+    </section>
+    
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start My Product here-->
+    <section class="accordion_two_section ptb-100 inner-page myproduct">
+        <div class="container py-5">
+            <h2 class="text-center title"><span>My Auctions</span></h2>
+            <div class="row">
+                <!--start side-->
+            <div class="col-md-3 sidebar">
+                <div class="row ml-0 avator">
+                    <div class="card profile rounded-0" style="width: 18rem;">
+              <div class="card-body">
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7pmT3lMtcAaI0HyFel0IYCH9KnZnmU0ivlsl96QdtFVhq8FvB">
+                <h5 class="card-title mt-1">Jose Tonkei</h5>
+                
+                <hr>
+                <div class="row">
+                <div class="col-sm-6 border-right">
+                    <b class="text-info">half a year</b>
+                    <small>Registered</small></div>
+                <div class="col-sm-6">
+                    <b class="text-info">2 hrs ago</b>
+                    <small>Registered</small></div>
+            </div>
+                <hr>
+            
+                <p class="card-text"><a href="auctioneer-details.html" class="btn btn-info blue border-0 text-uppercase small">My Details</a></p>
+                <p class="card-text">
+                    <i class="fa fa-facebook mr-1"></i>
+                    <i class="fa fa-twitter mr-1"></i>
+                    <i class="fa fa-instagram mr-1"></i>
+                        
+                </p>
+              </div>
+            </div>
+            
+            
+                </div>
+    
+            </div>
+                <!--end side-->
+                <!--start grid-->
+            <div class="col-md-9 list-grid">
+                <div class="row">
+                    <div class="col-lg-12 my-3">
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button class="btn btn-info" id="list">
+                                    <i class="fa fa-bars mr-1" aria-hidden="true"></i>List
+    
+                                </button>
+                                <button class="btn btn-secondary" id="grid">
+                                    <i class="fa fa-th-large mr-1" aria-hidden="true"></i>Grid
+    
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+               
+                <div id="products" class="row view-group">
+                            <ng-container  *ngFor="let bid of bidList; index as i">
+                            <div class="item col-xs-4 col-lg-4 mb-4">
+                                <div class="thumbnail card bg-white shadow-sm">
+                                    <div class="img-event">
+                                         <img class="group list-group-image img-fluid" [src]="bid.images[0].image_url" [alt]="bid.images[0].name" />
+                                    </div>
+                                    <div class="caption card-body pb-0">
+                                    <div class="post-bar">
+                                <span><i class="fa fa-map-marker"></i><a href="#">{{bid.city}}</a></span>
+                                <span class="bids"><i class="fa fa-refresh"></i><a href="#">{{bid.bids}} Bids</a></span>
+                            </div>
+                                        <h4 class="group card-title inner list-group-item-heading">
+                                            {{bid.name}}</h4>
+                                        <p class="group inner list-group-item-text py-1 mb-0">
+                                            {{bid.description_of_damage}}</p>
+                                         <span class="date small"><i class="fa fa-clock-o"></i> Bid due date {{bid.closing_date}}</span>
+                                         
+                                        <div class="row mt-3">
+                                            <div class="col-xs-12 col-md-6">
+                                                <p class="lead">
+                                                    {{bid.currency.symbol}} {{bid.sum_insured | number}}</p>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <a class="btn btn-success rounded-0 purple border-0 text-uppercase float-right" [routerLink]="['/bid/' + bid?.id]"><i class="fa fa-gavel"></i> DETAILS</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                         </div>
+                        <!-- <div class="row container d-flex justify-content-center">
+                            
+                                
+                                        
+                                        <nav>
+                                            <ul class="pagination flex-wrap d-flex justify-content-center">
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-left"></i></a></li>
+                                                <li class="page-item active"><a class="page-link" href="#" data-abc="true">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-right"></i></a></li>
+                                            </ul>
+                                        </nav>
+                                   
+                            
+                        </div> -->
+            </div>
+                <!--End grid-->
+            </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+    
+    <!-- section end here-->

@@ -1,6 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './helpers';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
@@ -30,6 +41,28 @@ import { QuotationsComponent } from './my-account/quotations/quotations.componen
 import { RefferedClientsComponent } from './my-account/reffered-clients/reffered-clients.component';
 import { AddressComponent } from './my-account/address/address.component';
 import { MyProfileComponent } from './my-account/my-profile/my-profile.component';
+import { SidemenuComponent } from './modules/sidemenu/sidemenu.component';
+import { MyAccountComponent } from './my-account/my-account.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+import { DeliveryInformationComponent } from './pages/delivery-information/delivery-information.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { FaqsComponent } from './pages/faqs/faqs.component';
+import { ContactsComponent } from './pages/contacts/contacts.component';
+import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditions.component';
+import { ProvidersComponent } from './pages/service-providers/providers/providers.component';
+import { ProviderDetailsComponent } from './pages/service-providers/provider-details/provider-details.component';
+import { IndividualRegistrationComponent } from './auth/individual-registration/individual-registration.component';
+import { ProductsListComponent } from './pages/products/products-list/products-list.component';
+import { ProductDetailComponent } from './pages/products/product-detail/product-detail.component';
+import { BidDetailComponent } from './pages/products/bid-detail/bid-detail.component';
+import { CartComponent } from './pages/products/cart/cart.component';
+import { TenderComponent } from './pages/tenders/tender/tender.component';
+import { BidsListComponent } from './pages/products/bids-list/bids-list.component';
+import { OrgBidsComponent } from './pages/products/org-bids/org-bids.component';
+import { OrgProductsComponent } from './pages/products/org-products/org-products.component';
+import { ShipmentComponent } from './pages/products/shipment/shipment.component';
 
 @NgModule({
   declarations: [
@@ -60,13 +93,46 @@ import { MyProfileComponent } from './my-account/my-profile/my-profile.component
     QuotationsComponent,
     RefferedClientsComponent,
     AddressComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    SidemenuComponent,
+    MyAccountComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    DeliveryInformationComponent,
+    PrivacyPolicyComponent,
+    FaqsComponent,
+    ContactsComponent,
+    TermsConditionsComponent,
+    ProvidersComponent,
+    ProviderDetailsComponent,
+    IndividualRegistrationComponent,
+    ProductsListComponent,
+    ProductDetailComponent,
+    BidDetailComponent,
+    CartComponent,
+    TenderComponent,
+    BidsListComponent,
+    OrgBidsComponent,
+    OrgProductsComponent,
+    ShipmentComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    RouterModule,
+    ReactiveFormsModule,
+    CarouselModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
+
   ],
-  providers: [],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,53 @@
+.team-front {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding-bottom: 15px;
+    transition: all 0.5s ease
+
+}
+
+h3 a {
+    color: #32478a;
+    display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+    &:hover {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+.visually-hidden{display:none;}
+
+p.desc {
+    display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+p.category {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 0.5rem;
+}
+
+.img-wrap {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 15px;
+
+}
+
+.img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -1,0 +1,53 @@
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#!" data-abc="true">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+    </section>
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start faqs here-->
+    <section class="accordion_two_section ptb-100 inner-page sdetails">
+        <div class="container py-5">
+            <h2 class="text-center title"><span *ngFor="let cat of serviceproviders;">{{cat.service_category.name}}</span></h2>
+            <div class="row">
+                
+                <!--team-2-->
+                <ng-container *ngFor="let item of serviceproviders; index as i">
+                <div class="col-lg-4">
+                    <div class="our-team-main">
+                        <div class="team-front"> <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1562038346/andrew_decristofaro.jpg" class="img-fluid" />
+                            <h3><a [routerLink]="['/service-providers/' + item?.id]">{{item.name}}</a></h3>
+                            <p>{{item.description}}</p>
+                            <p>{{item.service_category.name}}</p>
+                        </div>
+                        </div>
+                </div>
+            </ng-container>
+               
+                     
+                
+            
+        
+        </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+    
+    <!-- section end here-->
+

@@ -1,0 +1,164 @@
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a [routerLink]="'/home'" data-abc="true"><i class="fa fa-home"></i></a>
+                            </li>
+                            <li class="breadcrumb-item"><a data-abc="true">PRODUCTS</a></li>
+                            <li class="breadcrumb-item"><a data-abc="true">{{productList[0].category.name}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+      
+    
+    </section>
+    
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start My Product here-->
+    <section class="accordion_two_section ptb-100 inner-page myproduct">
+        <div class="container py-5">
+            <h2 class="text-center title"><span>{{productList[0].category.name}}</span></h2>
+            <div class="row">
+                <!--start side-->
+            <div class="col-md-3 sidebar">
+              <div id="accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0"><button aria-controls="collapseOne" aria-expanded="true" class="btn btn-link" data-target="#collapseOne" data-toggle="collapse">Price</button></h5>
+                </div>
+                <div aria-labelledby="headingOne" class="collapse show" data-parent="#accordion" id="collapseOne">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <input class="custom-range" max="100" min="0" name="" type="range">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>Min</label> <input class="form-control" placeholder="$0" type="number">
+                                </div>
+                                <div class="form-group text-right col-md-6">
+                                    <label>Max</label> <input class="form-control" placeholder="$1,0000" type="number">
+                                </div>
+                            </div><a class="highlight-button btn text-white text-uppercase button xs-margin-bottom-five purple" data-abc="true" href="#">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0"><button aria-controls="collapseTwo" aria-expanded="false" class="btn btn-link collapsed" data-target="#collapseTwo" data-toggle="collapse">Rating</button></h5>
+                </div>
+                <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordion" id="collapseTwo">
+                    <div class="card-body">
+                        XX
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0"><button aria-controls="collapseThree" aria-expanded="false" class="btn btn-link collapsed" data-target="#collapseThree" data-toggle="collapse">Categories</button></h5>
+                </div>
+                <div aria-labelledby="headingThree" class="collapse" data-parent="#accordion" id="collapseThree">
+                    <div class="card-body">
+                        <ol class="list-menu pl-4 pr-4">
+                            <li>
+                                <a data-abc="true" href="#">Electronics</a>
+                            </li>
+                            <li>
+                                <a data-abc="true" href="#">Watches</a>
+                            </li>
+                            <li>
+                                <a data-abc="true" href="#">Laptops</a>
+                            </li>
+                            <li>
+                                <a data-abc="true" href="#">Clothes</a>
+                            </li>
+                            <li>
+                                <a data-abc="true" href="#">Accessories</a>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+            </div>
+                <!--end side-->
+                <!--start grid-->
+            <div class="col-md-9 list-grid">
+                <div class="row">
+                    <div class="col-lg-12 my-3">
+                        <div class="pull-right">
+                            <div class="btn-group">
+                                <button class="btn btn-info" id="list">
+                                    <i class="fa fa-bars mr-1" aria-hidden="true"></i>List
+    
+                                </button>
+                                <button class="btn btn-secondary" id="grid">
+                                    <i class="fa fa-th-large mr-1" aria-hidden="true"></i>Grid
+    
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div id="products" class="row view-group">
+                    
+                    <ng-container *ngFor="let product of productList; index as i">
+                   
+                            <div class="item col-xs-4 col-lg-4">
+                                <div class="thumbnail card bg-white shadow-sm">
+                                    <div class="img-event">
+                                         <img class="group list-group-image img-fluid" [src]="product.images[0].image_url" [alt]="product.images[0].name" />
+                                         <!-- <img class="group list-group-image img-fluid" [src]="product.attachments" alt="" /> -->
+                                    </div>
+                                    <div class="caption card-body">
+                                    
+                                        <h4 class="group card-title inner list-group-item-heading">
+                                            {{product.name}}</h4>
+                                            <div class="stars text-center"> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star star-active"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span> </div>
+                                        <p class="group inner list-group-item-text">
+                                            {{product.description}}</p>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-6">
+                                                <p class="lead">
+                                                    {{product.currency.symbol}}{{product.price}}</p>
+                                            </div>
+                                            <div class="col-xs-12 col-md-6">
+                                                <a class="btn btn-success rounded-0 purple border-0 text-uppercase float-right" [routerLink]="['/product/' + product?.id]">Details<i class="fa fa-chevron-right ml-1" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container> 
+                        </div>
+                        <!-- <div class="row container d-flex justify-content-center">
+                            
+                                
+                                        
+                                        <nav>
+                                            <ul class="pagination flex-wrap d-flex justify-content-center">
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-left"></i></a></li>
+                                                <li class="page-item active"><a class="page-link" href="#" data-abc="true">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-right"></i></a></li>
+                                            </ul>
+                                        </nav>
+                                   
+                            
+                        </div> -->
+            </div>
+                <!--End grid-->
+            </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+    
+    <!-- section end here-->

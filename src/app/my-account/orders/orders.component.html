@@ -1,1 +1,99 @@
-<p>orders works!</p>
+<!-- section start Breadcrumbs here-->
+
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start faqs here-->
+    <section class="accordion_two_section ptb-100 inner-page myaccount">
+        <div class="container py-5">
+            <h2 class="text-center title"><span>My account</span></h2>
+            <div class="row mb-5">
+             <div class="col-md-3">
+                <app-sidemenu></app-sidemenu>
+             </div>
+             <div class="col-md-9">
+                <div class="row">
+                    <div class="container">
+                       <div class="d-flex justify-content-between align-items-center">
+                        <p class="m-0 p-0"> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)</p>
+                        <div class="form-group m-0">
+                            <input
+                              type="text"
+                              class="form-control rounded-pill"
+                              placeholder="Search..."
+                              [(ngModel)]="filterTerm"
+                            />
+                        </div>
+                       </div>
+                       <hr class="mt-0" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="container">
+                        <h4 class="mb-2 pb-2">My Orders</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    
+                  <div class="container">
+                    <div class="rounded">
+                        <div class="table-responsive table-borderless">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            <!-- <div class="toggle-btn">
+                                                <div class="inner-circle"></div>
+                                            </div> -->
+                                            #
+                                        </th>
+                                        <th>Order No.</th>
+                                        <th>Product Name</th>
+                                        <th>status</th>
+                                        <th>Total</th>
+                                        <th>Created</th>
+                                        <!-- <th></th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="table-body">
+                                    
+                                    <tr class="cell-1"  *ngFor="let item of myorders | filter: filterTerm | paginate
+                                    : {
+                                        itemsPerPage: 20,
+                                        currentPage: pagination,
+                                        totalItems: allOrders
+                                      }; index as i">
+                                        <td class="text-center">
+                                            {{i + 1}}
+                                            <!-- <div class="toggle-btn">
+                                                <div class="inner-circle"></div>
+                                            </div> -->
+                                        </td>
+                                        <td>#{{item.order_number}}</td>
+                                        <td>{{item.user.name}}</td>
+                                        <td><span class="badge badge-danger">pending</span></td>
+                                        <td>{{item.amount}}</td>
+                                        <td>{{item.created_at}}</td>
+                                        <!-- <td><i class="fa fa-ellipsis-h text-black-50"></i></td> -->
+                                    </tr>
+                                  
+                                </tbody>
+                            </table>
+                            <div class="col-12 d-flex justify-content-center">
+                                <pagination-controls
+          previousLabel="Prev"
+          nextLabel="Next"
+          (pageChange)="renderPage($event)"
+        >
+        </pagination-controls>
+                            </div>
+                            
+                        </div>
+                    </div>
+                  </div>
+                </div>
+             </div>
+            </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+ 

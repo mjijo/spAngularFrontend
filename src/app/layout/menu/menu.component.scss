@@ -1,0 +1,27 @@
+ul.three {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+
+  
+  }
+  ul.one {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    
+
+    li {
+      display: block;
+      white-space:nowrap;
+    }
+
+  
+  }
+
+  .m-width {
+    width: 300px !important;
+  }

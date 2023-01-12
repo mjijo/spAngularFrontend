@@ -1,27 +1,25 @@
 $(document).ready(function() {
  // executes when HTML-Document is loaded and DOM is ready
 
-// breakpoint and up  
-$(window).resize(function(){
-	if ($(window).width() >= 980){	
+    // breakpoint and up  
+    $(window).resize(function(){
+        if ($(window).width() >= 980){	
 
-      // when you hover a toggle show its dropdown menu
-      $(".navbar .dropdown-toggle").hover(function () {
-         $(this).parent().toggleClass("show");
-         $(this).parent().find(".dropdown-menu").toggleClass("show"); 
-       });
+        // when you hover a toggle show its dropdown menu
+        $(".navbar .dropdown-toggle").hover(function () {
+            $(this).parent().toggleClass("show");
+            $(this).parent().find(".dropdown-menu").toggleClass("show"); 
+        });
 
-        // hide the menu when the mouse leaves the dropdown
-      $( ".navbar .dropdown-menu" ).mouseleave(function() {
-        $(this).removeClass("show");  
-      });
+            // hide the menu when the mouse leaves the dropdown
+        $( ".navbar .dropdown-menu" ).mouseleave(function() {
+            $(this).removeClass("show");  
+        });
+    
+            // do something here
+        }	
+    });  
   
-		// do something here
-	}	
-});  
-  
-
-
 // document ready  
 });
  
@@ -270,178 +268,185 @@ $(document).ready(function(){
     });
 });
 (function ($) {
-$(document).ready(function() {
-$('.xzoom, .xzoom-gallery').xzoom({zoomWidth: 400, title: true, tint: '#333', Xoffset: 15});
-$('.xzoom2, .xzoom-gallery2').xzoom({position: '#xzoom2-id', tint: '#ffa200'});
-$('.xzoom3, .xzoom-gallery3').xzoom({position: 'lens', lensShape: 'circle', sourceClass: 'xzoom-hidden'});
-$('.xzoom4, .xzoom-gallery4').xzoom({tint: '#006699', Xoffset: 15});
-$('.xzoom5, .xzoom-gallery5').xzoom({tint: '#006699', Xoffset: 15});
+    $(document).ready(function() {
 
-//Integration with hammer.js
-var isTouchSupported = 'ontouchstart' in window;
+        let xzoomElement = document.getElementsByClassName('xzoom');
+        if( xzoomElement ){
+            $('.xzoom, .xzoom-gallery').xzoom({zoomWidth: 400, title: true, tint: '#333', Xoffset: 15});
+            $('.xzoom2, .xzoom-gallery2').xzoom({position: '#xzoom2-id', tint: '#ffa200'});
+            $('.xzoom3, .xzoom-gallery3').xzoom({position: 'lens', lensShape: 'circle', sourceClass: 'xzoom-hidden'});
+            $('.xzoom4, .xzoom-gallery4').xzoom({tint: '#006699', Xoffset: 15});
+            $('.xzoom5, .xzoom-gallery5').xzoom({tint: '#006699', Xoffset: 15});
 
-if (isTouchSupported) {
-//If touch device
-$('.xzoom, .xzoom2, .xzoom3, .xzoom4, .xzoom5').each(function(){
-var xzoom = $(this).data('xzoom');
-xzoom.eventunbind();
-});
+            //Integration with hammer.js
+            var isTouchSupported = 'ontouchstart' in window;
 
-$('.xzoom, .xzoom2, .xzoom3').each(function() {
-var xzoom = $(this).data('xzoom');
-$(this).hammer().on("tap", function(event) {
-event.pageX = event.gesture.center.pageX;
-event.pageY = event.gesture.center.pageY;
-var s = 1, ls;
+            if (isTouchSupported) {
+                //If touch device
+                $('.xzoom, .xzoom2, .xzoom3, .xzoom4, .xzoom5').each(function(){
+                    var xzoom = $(this).data('xzoom');
+                    xzoom.eventunbind();
+                });
 
-xzoom.eventmove = function(element) {
-element.hammer().on('drag', function(event) {
-event.pageX = event.gesture.center.pageX;
-event.pageY = event.gesture.center.pageY;
-xzoom.movezoom(event);
-event.gesture.preventDefault();
-});
-}
+                $('.xzoom, .xzoom2, .xzoom3').each(function() {
+                    var xzoom = $(this).data('xzoom');
+                    $(this).hammer().on("tap", function(event) {
+                        event.pageX = event.gesture.center.pageX;
+                        event.pageY = event.gesture.center.pageY;
+                        var s = 1, ls;
 
-xzoom.eventleave = function(element) {
-element.hammer().on('tap', function(event) {
-xzoom.closezoom();
-});
-}
-xzoom.openzoom(event);
-});
-});
+                        xzoom.eventmove = function(element) {
+                            element.hammer().on('drag', function(event) {
+                            event.pageX = event.gesture.center.pageX;
+                            event.pageY = event.gesture.center.pageY;
+                            xzoom.movezoom(event);
+                            event.gesture.preventDefault();
+                            });
+                        }
 
-$('.xzoom4').each(function() {
-var xzoom = $(this).data('xzoom');
-$(this).hammer().on("tap", function(event) {
-event.pageX = event.gesture.center.pageX;
-event.pageY = event.gesture.center.pageY;
-var s = 1, ls;
+                        xzoom.eventleave = function(element) {
+                            element.hammer().on('tap', function(event) {
+                                xzoom.closezoom();
+                            });
+                        }
+                        xzoom.openzoom(event);
+                    });
+                });
 
-xzoom.eventmove = function(element) {
-element.hammer().on('drag', function(event) {
-event.pageX = event.gesture.center.pageX;
-event.pageY = event.gesture.center.pageY;
-xzoom.movezoom(event);
-event.gesture.preventDefault();
-});
-}
+                $('.xzoom4').each(function() {
+                    var xzoom = $(this).data('xzoom');
+                    $(this).hammer().on("tap", function(event) {
+                        event.pageX = event.gesture.center.pageX;
+                        event.pageY = event.gesture.center.pageY;
+                        var s = 1, ls;
 
-var counter = 0;
-xzoom.eventclick = function(element) {
-element.hammer().on('tap', function() {
-counter++;
-if (counter == 1) setTimeout(openfancy,300);
-event.gesture.preventDefault();
-});
-}
+                        xzoom.eventmove = function(element) {
+                            element.hammer().on('drag', function(event) {
+                                event.pageX = event.gesture.center.pageX;
+                                event.pageY = event.gesture.center.pageY;
+                                xzoom.movezoom(event);
+                                event.gesture.preventDefault();
+                            });
+                        }
 
-function openfancy() {
-if (counter == 2) {
-xzoom.closezoom();
-$.fancybox.open(xzoom.gallery().cgallery);
-} else {
-xzoom.closezoom();
-}
-counter = 0;
-}
-xzoom.openzoom(event);
-});
-});
+                        var counter = 0;
+                        xzoom.eventclick = function(element) {
+                            element.hammer().on('tap', function() {
+                                counter++;
+                                if (counter == 1) setTimeout(openfancy,300);
+                                event.gesture.preventDefault();
+                            });
+                        }
 
-$('.xzoom5').each(function() {
-var xzoom = $(this).data('xzoom');
-$(this).hammer().on("tap", function(event) {
-event.pageX = event.gesture.center.pageX;
-event.pageY = event.gesture.center.pageY;
-var s = 1, ls;
+                        function openfancy() {
+                            if (counter == 2) {
+                                xzoom.closezoom();
+                                $.fancybox.open(xzoom.gallery().cgallery);
+                            } else {
+                                xzoom.closezoom();
+                            }
+                            counter = 0;
+                        }
+                        xzoom.openzoom(event);
+                    });
+                });
 
-xzoom.eventmove = function(element) {
-element.hammer().on('drag', function(event) {
-event.pageX = event.gesture.center.pageX;
-event.pageY = event.gesture.center.pageY;
-xzoom.movezoom(event);
-event.gesture.preventDefault();
-});
-}
+                $('.xzoom5').each(function() {
+                    var xzoom = $(this).data('xzoom');
+                    $(this).hammer().on("tap", function(event) {
+                        event.pageX = event.gesture.center.pageX;
+                        event.pageY = event.gesture.center.pageY;
+                        var s = 1, ls;
 
-var counter = 0;
-xzoom.eventclick = function(element) {
-element.hammer().on('tap', function() {
-counter++;
-if (counter == 1) setTimeout(openmagnific,300);
-event.gesture.preventDefault();
-});
-}
+                        xzoom.eventmove = function(element) {
+                            element.hammer().on('drag', function(event) {
+                                event.pageX = event.gesture.center.pageX;
+                                event.pageY = event.gesture.center.pageY;
+                                xzoom.movezoom(event);
+                                event.gesture.preventDefault();
+                            });
+                        }
 
-function openmagnific() {
-if (counter == 2) {
-xzoom.closezoom();
-var gallery = xzoom.gallery().cgallery;
-var i, images = new Array();
-for (i in gallery) {
-images[i] = {src: gallery[i]};
-}
-$.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
-} else {
-xzoom.closezoom();
-}
-counter = 0;
-}
-xzoom.openzoom(event);
-});
-});
+                        var counter = 0;
+                        xzoom.eventclick = function(element) {
+                            element.hammer().on('tap', function() {
+                                counter++;
+                                if (counter == 1) setTimeout(openmagnific,300);
+                                event.gesture.preventDefault();
+                            });
+                        }
 
-} else {
-//If not touch device
+                        function openmagnific() {
+                            if (counter == 2) {
+                                xzoom.closezoom();
+                                var gallery = xzoom.gallery().cgallery;
+                                var i, images = new Array();
+                                for (i in gallery) {
+                                    images[i] = {src: gallery[i]};
+                                }
+                                $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
+                            } else {
+                                xzoom.closezoom();
+                            }
+                            counter = 0;
+                        }
+                        xzoom.openzoom(event);
+                    });
+                });
 
-//Integration with fancybox plugin
-$('#xzoom-fancy').bind('click', function(event) {
-var xzoom = $(this).data('xzoom');
-xzoom.closezoom();
-$.fancybox.open(xzoom.gallery().cgallery, {padding: 0, helpers: {overlay: {locked: false}}});
-event.preventDefault();
-});
+            } else {
+                //If not touch device
 
-//Integration with magnific popup plugin
-$('#xzoom-magnific').bind('click', function(event) {
-var xzoom = $(this).data('xzoom');
-xzoom.closezoom();
-var gallery = xzoom.gallery().cgallery;
-var i, images = new Array();
-for (i in gallery) {
-images[i] = {src: gallery[i]};
-}
-$.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
-event.preventDefault();
-});
-}
-});
+                //Integration with fancybox plugin
+                $('#xzoom-fancy').bind('click', function(event) {
+                    var xzoom = $(this).data('xzoom');
+                    xzoom.closezoom();
+                    $.fancybox.open(xzoom.gallery().cgallery, {padding: 0, helpers: {overlay: {locked: false}}});
+                    event.preventDefault();
+                });
+
+                //Integration with magnific popup plugin
+                $('#xzoom-magnific').bind('click', function(event) {
+                    var xzoom = $(this).data('xzoom');
+                    xzoom.closezoom();
+                    var gallery = xzoom.gallery().cgallery;
+                    var i, images = new Array();
+                    for (i in gallery) {
+                        images[i] = {src: gallery[i]};
+                    }
+                    $.magnificPopup.open({items: images, type:'image', gallery: {enabled: true}});
+                    event.preventDefault();
+                });
+            }
+        }
+        
+    });
 })(jQuery);
 
-var deadline = new Date("August 30, 2020 15:37:25").getTime();             
-var x = setInterval(function() {
-   var currentTime = new Date().getTime();                
-   var t = deadline - currentTime; 
-   var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
-   var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
-   var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
-   var seconds = Math.floor((t % (1000 * 60)) / 1000); 
-   document.getElementById("day").innerHTML =days ; 
-   document.getElementById("hour").innerHTML =hours; 
-   document.getElementById("minute").innerHTML = minutes; 
-   document.getElementById("second").innerHTML =seconds; 
-   if (t < 0) {
-      clearInterval(x); 
-      document.getElementById("time-up").innerHTML = "TIME UP"; 
-      document.getElementById("day").innerHTML ='0'; 
-      document.getElementById("hour").innerHTML ='0'; 
-      document.getElementById("minute").innerHTML ='0' ; 
-      document.getElementById("second").innerHTML = '0'; 
-   } 
-}, 1000);  
-
+let dayElement = document.getElementById("day");
+if(dayElement){
+    var deadline = new Date("August 30, 2020 15:37:25").getTime();             
+    var x = setInterval(function() {
+    var currentTime = new Date().getTime();                
+    var t = deadline - currentTime; 
+    var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+    var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+    var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+    var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+    document.getElementById("day").innerHTML =days ; 
+    document.getElementById("hour").innerHTML =hours; 
+    document.getElementById("minute").innerHTML = minutes; 
+    document.getElementById("second").innerHTML =seconds; 
+    if (t < 0) {
+        clearInterval(x); 
+        document.getElementById("time-up").innerHTML = "TIME UP"; 
+        document.getElementById("day").innerHTML ='0'; 
+        document.getElementById("hour").innerHTML ='0'; 
+        document.getElementById("minute").innerHTML ='0' ; 
+        document.getElementById("second").innerHTML = '0'; 
+    } 
+    }, 1000);
+} 
 
 $(document).ready(function(){
 
@@ -501,27 +506,130 @@ return false;
 });
 
 $(function() {
-    $( "#form" ).accordionForm({
-      mode: 'accordion',
-      autoButtonsNextClass: 'btn btn-primary float-right',
-      autoButtonsPrevClass: 'btn btn-light',
-      stepNumberClass: 'badge badge-pill badge-primary mr-1',
-      onSubmit: function() {
-        alert('Form submitted!');
-        return true;
-      }
+
+    $(document).ready(function() {
+        $( "#form" ).accordionForm({
+            mode: 'accordion',
+            autoButtonsNextClass: 'btn btn-primary float-right',
+            autoButtonsPrevClass: 'btn btn-light',
+            stepNumberClass: 'badge badge-pill badge-primary mr-1',
+            onSubmit: function() {
+              alert('Form submitted!');
+              return true;
+            }
+        });
     });
+    
   });
 
-  $(document).ready(function(){
-    $(function() {
-    $('input[name="daterange"]').daterangepicker({
-    "startDate": "01/01/2020",
-    "endDate": "17/01/2020",
-    opens: 'center',
-    locale: {
-    format: 'DD/MM/YYYY'
-    }
+    $(document).ready(function(){
+        $(function() {
+            $('input[name="daterange"]').daterangepicker({
+                "startDate": "01/01/2020",
+                "endDate": "17/01/2020",
+                opens: 'center',
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
+            });
+        });
     });
+
+
+    $(document).ready(function(){
+        $('.sendButton').attr('disabled',true);
+        
+        $('#invalid',).keyup(function(){
+            if($(this).val().length !=0){
+                $('.sendButton').attr('disabled', false); 
+            }
+            else
+            {
+                $('.sendButton').attr('disabled', true);        
+            }
+        })
     });
+
+
+    $(document).ready(function(){
+        $('.sendUpload').attr('disabled',true);
+        
+        $('#invalid-2',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendUpload').attr('disabled', false); 
+
+            }
+            else
+            {
+                $('.sendUpload').attr('disabled', true);        
+            }
+        })
     });
+
+    $(document).ready(function(){
+        $('.sendAccount').attr('disabled',true);
+        
+        $('#invalid-3',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendAccount').attr('disabled', false); 
+               
+
+            }
+            else
+            {
+                $('.sendAccount').attr('disabled', true);        
+            }
+        })
+    });
+
+    $(document).ready(function(){
+        $('.sendProfile').attr('disabled',true);
+        
+        $('#invalid-4',).keyup(function(){
+            if($(this).val().length !=0){
+                
+                $('.sendProfile').attr('disabled', false); 
+               
+
+            }
+            else
+            {
+                $('.sendProfile').attr('disabled', true);        
+            }
+        })
+    });
+
+    $('#vj-steps-acc').vjaccordionsteps({
+        'vjacc_step_change_function': function(arr_params){
+          if(window.console){ console.log(arr_params); }
+          var current_step = arr_params.current_step;
+          var new_step = arr_params.new_step;
+          var total_steps = arr_params.total_steps;
+          var valid = true;//Validation success, go to next step
+          if(new_step==2){
+            var first_name = $('#first_name').val();
+            var last_name = $('#last_name').val();
+            if(first_name=='' || last_name==''){
+              alert('Hey! Enter your "First name" and "Last name" to continue.');
+              valid = false;
+            }
+          }
+          
+          
+          return valid;
+        }, 
+        'vjacc_after_step_change_function': function(arr_params){
+          var current_step = arr_params.current_step;
+          var new_step = arr_params.new_step;
+          var total_steps = arr_params.total_steps;
+          $('#vj-output').append("<div>"+'Step changed to '+new_step+"</div>");
+        }
+      });
+      
+      function save(){
+        alert('Everything fine. Now resetting the steps.');
+        $('#vj-output').append("<div>Step reset</div>");
+        $('#vj-steps-acc').vjaccordionsteps.reset_steps();
+      }

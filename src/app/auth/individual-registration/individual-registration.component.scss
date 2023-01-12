@@ -1,0 +1,57 @@
+.border-r {
+  border:red solid 1px !important;
+}
+
+.card-body {
+  border-radius:15px;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+
+  .border-info {
+     border: 1px solid #ccc !important;
+  }
+
+  .purple {
+      border-radius: 15px;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      -ms-border-radius: 15px;
+      -o-border-radius: 15px;
+}
+}
+
+.login_btn {
+  width: 100%;
+  background: #993399 !important;
+  color: white !important;
+  margin-top: 10px;
+}
+.login_btn:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.login_container {
+  padding: 0 2rem;
+}
+.input-group-text {
+  background: #939 !important;
+  color: white !important;
+  border: 0 !important;
+  border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+  box-shadow: none !important;
+  outline: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: #939 !important;
+}
+
+#msform input {
+  margin-bottom: 0;
+  
+}
+#msform label{
+  margin-top: 10px;
+}

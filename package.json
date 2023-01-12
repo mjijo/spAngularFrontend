@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^14.2.0",
+    "@angular/cdk": "^15.0.3",
     "@angular/common": "^14.2.0",
     "@angular/compiler": "^14.2.0",
     "@angular/core": "^14.2.0",
@@ -18,8 +19,17 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@auth0/angular-jwt": "^5.1.0",
+    "@popperjs/core": "^2.11.6",
+    "jwt-decode": "^3.1.2",
+    "ng2-search-filter": "^0.5.1",
+    "ngx-owl-carousel-o": "^14.0.1",
+    "ngx-pagination": "^6.0.3",
+    "ngx-sharebuttons": "^11.0.0",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.4.8",
     "tslib": "^2.3.0",
+    "vanillajs-datepicker": "^1.1.4",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -27,6 +37,7 @@
     "@angular/cli": "~14.2.6",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "@types/node": "^18.11.15",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",

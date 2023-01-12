@@ -28,18 +28,30 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css",
+              "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css",
               "src/assets/css/bootstrap.css",
               "src/assets/css/style.css",
               "src/assets/css/owl.carousel.min.css",
               "src/assets/css/owl.theme.min.css",
-              "src/styles.scss"
+              "src/assets/css/xzoom.css",
+              "src/assets/css/daterangepicker.css",
+              "src/assets/css/lightslider.css",
+              "src/styles.scss" 
+      
             ],
             "scripts": [
               "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
               "src/assets/js/bootstrap.js",
               "src/assets/js/script.js",
               "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/carousel.js"
+              "src/assets/js/carousel.js",
+              "src/assets/js/xzoom.min.js",
+              "src/assets/js/jquery.accordion-form.min.js",
+              "src/assets/js/moment.min.js",
+              "src/assets/js/daterangepicker.js",
+              "src/assets/js/lightslider.js"
             ]
           },
           "configurations": {
@@ -47,8 +59,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",

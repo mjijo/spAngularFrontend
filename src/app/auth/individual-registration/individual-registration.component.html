@@ -1,0 +1,61 @@
+<section>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading">Sign Up Your User Account</h2>
+                    <p>Fill all form field to go to next step</p>
+                    <form id="msform" [formGroup]="signUpIndividual" class="text-left" novalidate (ngSubmit)="register()">
+                        <label class="fieldlabels">Last Names: *</label>
+                        <input formControlName="last_name" type="text" name="fname" placeholder="Other Names" /> 
+                        
+                        <small *ngIf="signUpIndividual.controls['last_name'] .dirty && signUpIndividual.hasError('required','last_name')" class="text-danger d-block">Last Name is Required</small>
+                        <small *ngIf="signUpIndividual.controls['last_name'] .dirty && signUpIndividual.hasError('minlength','last_name')" class="text-danger d-block">The name must be at least three characters long.</small>   
+                        <label class="fieldlabels">First Name: *</label> 
+                        <input type="text" formControlName="first_name"  name="lname" placeholder="First Name" /> 
+                        <!-- <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.touched || FirstName.dirty)">First Name Required.</div> -->
+                         <small *ngIf="signUpIndividual.controls['first_name'] .dirty && signUpIndividual.hasError('minlength','first_name')" class="text-danger d-block">The name must be at least three characters long.</small> 
+                        <small *ngIf="signUpIndividual.controls['first_name'] .dirty && signUpIndividual.hasError('required','first_name')" class="text-danger d-block">First Name is Required</small>
+                        <small *ngIf="signUpIndividual.controls['first_name'] .dirty && signUpIndividual.hasError('pattern','first_name')" class="text-danger d-block">First Name should start with Alphabet</small>   
+                        <label class="fieldlabels">Email: *</label> 
+                        <input type="email" formControlName="email" name="email"  /> 
+                        <small *ngIf="signUpIndividual.controls['email'] .dirty && signUpIndividual.hasError('required','email')" class="text-danger d-block">Email is Required</small>   
+                        <small *ngIf="signUpIndividual.controls['email'] .dirty && signUpIndividual.hasError('email','email')" class="text-danger d-block">Email is Invalid</small> 
+                        <small *ngIf="error" class="alert alert-danger d-block" role="alert">
+                            {{error}}
+                        </small> 
+                        <!-- <label class="fieldlabels">Phone Number: *</label> 
+                        <input type="text" formControlName="phone" name="uname" placeholder="Country Code + Phone Number" />
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('required','phone')" class="text-danger d-block">Number is Required</small>
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('pattern','phone')" class="text-danger d-block">Number is Invalid</small>
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('maxlength','phone')" class="text-danger d-block">Number is Long</small> 
+                        <small *ngIf="signUpIndividual.controls['phone'] .dirty && signUpIndividual.hasError('minlength','phone')" class="text-danger d-block">Number is Short</small>      -->
+                        <label class="fieldlabels">Password: *</label> 
+                        <input type="password" formControlName="password" name="pwd" placeholder="Password" /> 
+                        <small *ngIf="signUpIndividual.controls['password'] .dirty && signUpIndividual.hasError('required','password')" class="text-danger d-block">Password is Required</small> 
+                        <small *ngIf="signUpIndividual.controls['password'] .dirty && signUpIndividual.hasError('minlength','password')" class="text-danger d-block">Password must be atleast 8 characters</small> 
+                        <label class="fieldlabels">Confirm Password: *</label> <input type="password" formControlName="password_confirmation" name="cpwd" placeholder="Confirm Password"/>
+                        <small *ngIf="signUpIndividual.controls['password_confirmation'] .dirty && signUpIndividual.hasError('required','password_confirmation')" class="text-danger d-block">Password is Required</small> 
+                        
+                        <!-- <small class="text-danger d-block" [ngStyle]="{'display': repeatPass}">Password is Required</small>  -->
+                       
+                        <div *ngIf="extraerror" class="alert alert-danger" role="alert">
+                            {{extraerror}}
+                        </div>
+                        
+                        <!-- <div *ngFor="let item of error;" class="alert alert-danger" role="alert">
+                            {{item.message}}
+                        </div> -->
+                        <button [disabled]="loading"  class="btn login_btn">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1 "></span>Login</button>
+                        
+                    </form>
+
+                    <div class="alert alert-success" *ngIf="isSuccessful">
+                        Your registration is successful!
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

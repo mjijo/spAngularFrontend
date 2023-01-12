@@ -1,1 +1,79 @@
-<p>reffered-clients works!</p>
+<section class="accordion_two_section ptb-100 inner-page myaccount">
+    <div class="container py-5">
+        <h2 class="text-center title"><span>My account</span></h2>
+        <div class="row mb-5">
+         <div class="col-md-3">
+            <div class="nav nav-sidebar mb-2">
+            <app-sidemenu></app-sidemenu>
+        </div>
+         </div>
+         <div class="col-md-9">
+            <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)</p>
+            <h4 class="mb-2 pb-2">Reffered Cients</h4>
+            <!-- Start -->
+            <div class="table-responsive pt-3">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>
+                      #
+                    </th>
+                    <th>
+                     From
+                    </th>
+                    <th>
+                      Email
+                    </th>
+                    <th>
+                      Message
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                    
+                    <th>
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-info" *ngFor="let item of myrefferals; index as i">
+                    <td>
+                      {{item.id}}
+                    </td>
+                    <td>
+                      {{item.name}}
+                    </td>
+                    <td>
+                     {{item.email}}
+                    </td>
+                    <td>
+                      {{item.description}}
+                    </td>
+                    
+                    <td>
+                      14 Mar 2022
+                    </td>
+                    <td>
+                        <div class="switch_box box_4">
+                            <a class="delete" title="Delete" data-toggle="tooltip" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                          </div>
+                    </td>
+                  </tr>
+                  
+                
+                </tbody>
+              </table>
+            </div>
+              
+           
+           
+            <!-- End -->
+                
+            
+            </div>
+         
+        </div>
+    </div>
+    <!--end of /.container-->
+</section>

@@ -5,14 +5,13 @@
      <div class="page-header-breadcrumb">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item">
-                                <a href="#!" data-abc="true">
+                                <a routerLink="/" data-abc="true">
                                     <i class="fa fa-home"></i>
                                 </a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">Pricing</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -26,27 +25,32 @@
     <section class="accordion_two_section ptb-100 inner-page pricing">
         <div class="container py-5">
             <h2 class="text-center title"><span>Choose your Plan</span></h2>
-            <h5 class="font-weight-normal lis-light text-center">Discover &amp; connect with top-rated local businesses</h5>
-            <div class="row pt-70">
+            <h5 class="font-weight-normal lis-light text-center py-4">Discover &amp; connect with top-rated local businesses</h5>
+            <div class="row">
+                <div class="container">
+                    <ng-container *ngIf="isLoading">
+                        <div class="row text-center d-flex justify-content-center" >
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <ng-container *ngFor="let item of packageList; index as i">
                 <div class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0 text-center" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="price-table">
                         <div class="price-header lis-bg-light lis-rounded-top py-4 border border-bottom-0 lis-brd-light">
-                            <h5 class="text-uppercase lis-latter-spacing-2">Basic</h5>
-                            <h1 class="display-4 lis-font-weight-500"><sup>$</sup> 39 <small>/mo</small></h1>
-                            <p class="mb-0">Basic User Membership</p>
+                            <h5 class="text-uppercase lis-latter-spacing-2">{{item.name}}</h5>
+                            <h1 class="display-4 lis-font-weight-500"><sup>{{item.currency.symbol}}</sup> {{item.price}}<small>/{{item.billing_cycle}}</small></h1>
+                            <p class="mb-0">{{item.billing_type_description}}</p>
                         </div>
-                        <div class="border border-top-0 lis-brd-light bg-white py-5 lis-rounded-bottom">
-                            <ul class="list-unstyled lis-line-height-3">
-                                <li>One Time Fee</li>
-                                <li>One Listing</li>
-                                <li>90 Days Availability</li>
-                                <li>Featured In Search Results</li>
-                                <li>24/7 Support</li>
-                            </ul> <a href="#" class="btn btn-primary-outline btn-md lis-rounded-circle-50" data-abc="true"><i class="fa fa-shopping-cart pl-2"></i>Order Now</a>
+                        <div class="border border-top-0 lis-brd-light bg-white p-5 lis-rounded-bottom">
+                           <p>{{item.description}}</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0 text-center" style="visibility: visible; animation-name: fadeInUp;">
+            </ng-container>
+                <!-- <div class="col-12 col-md-6 col-lg-4 wow fadeInUp mb-5 mb-lg-0 text-center" style="visibility: visible; animation-name: fadeInUp;">
                     <div class="price-table active">
                         <div class="price-header lis-bg-primary py-4 text-dark lis-rounded-top">
                             <h5 class="text-uppercase lis-latter-spacing-2 text-dark">Premium</h5>
@@ -81,7 +85,7 @@
                             </ul> <a href="#" class="btn btn-primary-outline btn-md lis-rounded-circle-50" data-abc="true"><i class="fa fa-shopping-cart pl-2"></i>Order Now</a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
         <!--end of /.container-->

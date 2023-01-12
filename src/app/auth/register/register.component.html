@@ -1,0 +1,148 @@
+<section>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                    <h2 id="heading">Sign Up Your User Account</h2>
+                    <p>Fill all form field to go to next step</p>
+                    <form id="msform" [formGroup]="signUp">
+                        <!-- progressbar -->
+                        <ul id="progressbar">
+                            <li class="active" id="personal"><strong>Information</strong></li>
+                            <li id="payment"><strong>Image</strong></li>
+                            <li id="account"><strong>Account</strong></li>
+                            <li id="confirm"><strong>Finish (OTP Verification)</strong></li>
+                        </ul>
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div> <br> <!-- fieldsets -->
+                        
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Basic Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 1 - 4</h2>
+                                    </div>
+                                </div> 
+                                <label class="fieldlabels">Organisation Name: *</label> 
+                                <input type="text" formControlName="name"/>
+                                <small *ngIf="signUp.controls['name'] .dirty && signUp.hasError('required','name')" class="text-danger d-block">Name is Required</small>  
+                                <label class="fieldlabels">Country: *</label> 
+                                <select class="form-control rounded-0" formControlName="country_id">
+                                    <option >Select Country</option>
+                                    <ng-container *ngFor="let country of allCountries; index as i">
+                                        <option value={{country.id}}>{{country.name}}</option>
+                                        </ng-container>
+</select> 
+								<label class="fieldlabels">Town/City: *</label> 
+                                <input type="text" formControlName="town" />
+                                <small *ngIf="signUp.controls['town'] .dirty && signUp.hasError('required','town')" class="text-danger d-block">Name is Required</small> 
+                                <label class="fieldlabels">Zip Code: *</label> 
+                                <input type="text" formControlName="zip_code" />  
+								<!-- <label class="fieldlabels">Date of Registration: *</label> <input type="text" name="phno_2" placeholder="DoR" />  -->
+                                <label class="fieldlabels">Industry/Sector: *</label> 
+                               
+                                <select class="form-control" formControlName="industry_id">
+                                    <option >Select Industry/Sector</option>
+                                    <ng-container *ngFor="let sector of serviceCategories; index as i">
+                                        <option value={{sector.id}}>{{sector.name}}</option>
+                                    </ng-container>
+  
+</select> 
+								<label class="fieldlabels">Postal Address: *</label> 
+                                <input type="text" formControlName="postal_address" id="invalid"/> 
+                                <label class="fieldlabels">Physical Address: *</label> 
+                                <input type="text" formControlName="physiscal_address" id="invalid"/> 
+                                
+                            </div> <input type="button" name="next" class="next action-button sendButton" value="Next"/> 
+                            <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Image Upload:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 2 - 4</h2>
+                                    </div>
+                                </div> 
+
+                                <label class="fieldlabels">Registration Number: *</label> 
+                                <input type="text" formControlName="registration_number" id="invalid-2"/> 
+                                <label class="fieldlabels" >Upload Registration Certificate:</label> 
+                                <input type="file" formControlName="registration_certificate" id="invalid-2">							
+                                <label class="fieldlabels">Tax Number: *</label> 
+                                <input type="text" formControlName="tax_pin_number" placeholder="Idetification No." id="invalid-2" /> 
+                                <label class="fieldlabels">Upload Tax Certificate:</label> 
+                                <input type="file" formControlName="tax_certificate">
+                            </div> 
+                            <input type="button" name="next" class="next action-button sendUpload" value="Next" />
+                             <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Account Information:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 3 - 4</h2>
+                                    </div>
+                                </div> 
+                                
+                                <label class="fieldlabels">Email: *</label> 
+                                <input type="email" formControlName="owner_email" placeholder="Email Id" id="invalid-3" /> 
+                                <label class="fieldlabels">Username: *</label> 
+                                <input type="text" formControlName="owner_first_name" placeholder="UserName" id="invalid-3"/> 
+                                <label class="fieldlabels">Phone Number: *</label> 
+                                <input type="text" formControlName="owner_phone" placeholder="Country Code + Phone Number" id="invalid-3" />
+                                <label class="fieldlabels">Password: *</label> 
+                                <input type="password" formControlName="owner_password" id="invalid-3"/> 
+                                <label class="fieldlabels">Confirm Password: *</label> 
+                                <input type="password" formControlName="owner_password_confirmation" placeholder="Confirm Password" id="invalid-3"/>
+                             
+                            </div> <input type="button" name="next" class="next action-button sendAccount" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">OTP Verification:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 4</h2>
+                                    </div>
+                                </div> 
+                                <!-- <h2 class="purple-text text-center"><strong>OTP Verifications</strong></h2> <br> -->
+                               
+                                <div class="row justify-content-center">
+                                    <div class="col-8">
+                                        <div class="alert alert-success" role="alert">
+                                            We’ve sent a verification code to your email - <i>test@test.com</i>
+                                          </div>
+                                        <input type="text"  placeholder="Enter Verification code" value="Enter Verification code">
+                                    </div>
+                                </div>
+                                <input type="button" name="next" class=" action-button" (click)="register()" value="Register" /> 
+                                <!-- <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> -->
+                                <div class="row justify-content-center">
+                                    <!-- <div class="col-7 text-center">
+                                        
+                                         <button class="btn btn-primary submit" (click)="register()">Register</button>
+                                        
+                                        <h5 class="purple-text text-center"></h5>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

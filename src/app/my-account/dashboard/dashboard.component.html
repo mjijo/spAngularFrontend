@@ -1,1 +1,45 @@
-<p>dashboard works!</p>
+<!-- section start Breadcrumbs here-->
+<section class="breadcrumb-0">
+    <div class="container">
+     <div class="card">
+     <div class="page-header-breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="#!" data-abc="true">
+                                    <i class="fa fa-home"></i>
+                                </a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">snippets</a>
+                            </li>
+                            <li class="breadcrumb-item"><a href="#!" data-abc="true">simple breadcrumbs</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+     
+    
+    </section>
+    <!-- section end Breadcrumbs here-->
+    
+    <!-- section start faqs here-->
+    <section class="accordion_two_section ptb-100 inner-page myaccount h-100" *ngIf="user">
+        <div class="container py-5">
+            <h2 class="text-center title"><span>My account</span></h2>
+            <div class="row mb-5">
+             <div class="col-md-3">
+                <app-sidemenu></app-sidemenu>
+             </div>
+             <div class="col-md-9">
+                <p> Hello <b>{{user.user.first_name}}</b> (not {{user.user.first_name}}? <a href="#" (click)="logout()">Log out</a>)<br>Your account is incomplete. Please update your profile to qualify for bidding.
+                    <a routerLink="my-profile">Click here to update your account details</a>.</p>
+                    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+             </div>
+             
+        
+            </div>
+        </div>
+        <!--end of /.container-->
+    </section>
+    
+    <!-- section end here-->
